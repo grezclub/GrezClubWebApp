@@ -1,0 +1,40 @@
+	
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title></title>
+	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+		<ui:include src="/pages/menu.xhtml" />
+	
+</h:head>
+<h:body>
+	<h:form id="form66" >
+		<p:panel header="Informations concernant l' entrainement" style="position:absolute ; top: 50%; left:32%; width:460px">
+		 <h:panelGrid columns="2" cellpadding="10">
+		
+		
+		<h:outputText value="Date : "/>
+		<p:calendar value="#{presenceEntrainementBean.date}" id="cal" showButtonPanel="true" style="width:225px"/>
+		<h:outputText value="Lieu : "/>
+		<p:inputText value="#{presenceEntrainementBean.lieu}" style="width:225px"/>
+		
+		
+		<f:facet name="footer">  
+		<p:commandButton value="Reset" type="reset" />
+    	<p:commandButton type="Submit" action="#{presenceEntrainementBean.creerEntrainement}" 
+    					ajax="false" value="Valider"/>
+    	</f:facet>
+		
+		</h:panelGrid>
+		</p:panel>
+	 
+	</h:form>
+</h:body>
+</html>
+
+

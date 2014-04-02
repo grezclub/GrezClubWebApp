@@ -1,0 +1,64 @@
+	
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title></title>
+	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+	<ui:include src="/pages/menu.xhtml" />
+</h:head>
+<h:body>
+
+
+	<br></br><br></br>
+	<h:form id="form2">
+	
+    <p:dataTable id="dataTable" var="joueur" value="#{rechercheBean.allJoueurs}" widgetVar="joueurTable"   
+            emptyMessage="Aucun joueur ne corresppond à votre recherche" filteredValue="#{rechercheBean.filtreJoueur}"
+            	style="position:absolute ; top: 20%; left:17%; width:460px">  
+  
+         
+        <p:column id="colonneNom" filterBy="#{joueur.nomJoueur }"  
+                headerText="Nom" 
+                filterMatchMode="contains">  
+                <p:commandLink action="#{rechercheBean.editJoueur}">
+            <h:outputText value="#{joueur.nomJoueur}" />  
+            <f:setPropertyActionListener target="#{rechercheBean.joueur}" value="#{joueur}"/>
+            </p:commandLink>
+        </p:column>  
+  
+        <p:column id="colonnePrenom" filterBy="#{joueur.prenomJoueur }"  
+                headerText="Prenom" >  
+            <h:outputText value="#{joueur.prenomJoueur}" />  
+        </p:column> 
+        <p:column id="colonneCategorie" filterBy="#{joueur.equipe.categorie }"  
+                headerText="Categorie" >  
+            <h:outputText value="#{joueur.equipe.categorie}" />  
+        </p:column>
+        <p:column id="colonneDateNaissance" filterBy="#{joueur.datenaissanceJoueur }"  
+                headerText="DateNaissance" >  
+            <h:outputText value="#{joueur.datenaissanceJoueur}" />  
+        </p:column>
+        <p:column id="colonneAdresse" filterBy="#{joueur.adresseJoueur }"  
+                headerText="Adresse" >  
+            <h:outputText value="#{joueur.adresseJoueur}" />  
+        </p:column> 
+        <p:column id="colonneTelephone" filterBy="#{joueur.telJoueur }"  
+                headerText="Telephone" >  
+            <h:outputText value="#{joueur.telJoueur}" />  
+        </p:column> 
+         
+   
+    </p:dataTable>  
+		
+
+		
+	</h:form>
+</h:body>
+</html>
+
+

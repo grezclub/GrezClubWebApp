@@ -1,0 +1,42 @@
+	
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title></title>
+	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+</h:head>
+<h:body>
+	<h:form id="form1">
+		
+		
+		
+		<p:panelGrid columns="2" style="position:absolute ;top:33% ; left:60%" >  
+    <f:facet name="header">  
+        Informations de connection 
+    </f:facet>  
+  
+    <h:outputLabel for="firstname" value="login: *" />  
+    <p:inputText id="firstname" value="#{connexionBean.login}" required="true" label="Login" />  
+  
+    <h:outputLabel for="surname" value="mot de passe *" />  
+   <p:password id="surname" value="#{connexionBean.mdp}" required="true" label="Mot de passe"/>  
+    <f:facet name="footer">  
+    <p:commandButton type="Submit" action="#{connexionBean.connectUser}" 
+    					ajax="false" value="Go Home"/>
+      <p:outputLabel value="#{connexionBean.erreur}" style="color:red ;position:relative ;top:33% ; left:10%"/> 
+    
+    </f:facet>
+     
+</p:panelGrid> 
+<br></br>
+	
+		
+	</h:form>
+</h:body>
+</html>
+
+

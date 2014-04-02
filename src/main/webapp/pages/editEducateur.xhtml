@@ -1,0 +1,53 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title></title>
+	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+	<ui:include src="/pages/menu.xhtml" />
+</h:head>
+<h:body>
+
+
+	<br></br>
+	<br></br>
+	<h:form id="form">
+	<p:panel header="Informations concernant le joueur" style="position:absolute ; top: 20%; left:32%; width:460px">
+		 <h:panelGrid columns="2" cellpadding="5">
+		<h:outputText value="Nom : "/>
+		<p:inputText value="#{rechercheEducateurBean.nomEducateur}"/>
+		<h:outputText value="Prenom : "/>
+		<p:inputText value="#{rechercheEducateurBean.prenomEducateur}"/>
+		<h:outputText value="Fonction : "/>
+		<p:inputText value="#{rechercheEducateurBean.fonctionEducateur}"/>
+		<h:outputText value="Equipe : "/>
+		<p:inputText value="#{rechercheEducateurBean.educateur.equipe.categorie}"/>
+		<h:outputText value="Adresse mail : "/>
+		<p:inputText value="#{rechercheEducateurBean.mailEducateur}"/>
+		<h:outputText value="Telephone : "/>
+		<p:inputText value="#{rechercheEducateurBean.telEducateur}"/>
+		<h:outputText value="Login : "/>
+		<p:inputText value="#{rechercheEducateurBean.loginEducateur}"/>
+		<h:outputText value="Mot de passe : "/>
+		<p:inputText value="#{rechercheEducateurBean.mdpEducateur}"/>
+		
+		
+		<f:facet name="footer">  
+		
+    	<p:commandButton type="Submit" action="#{rechercheEducateurBean.saveEditedEducateur}" 
+    					ajax="false" value="Modifier"/>
+    	<p:commandButton type="Submit" action="#{rechercheEducateurBean.deleteEducateur}" 
+    					ajax="false" value="Supprimer"/>
+    	</f:facet>
+		</h:panelGrid>
+		</p:panel>
+	</h:form>
+	
+
+</h:body>
+</html>

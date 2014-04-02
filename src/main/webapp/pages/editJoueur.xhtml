@@ -1,0 +1,47 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title></title>
+	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+	<ui:include src="/pages/menu.xhtml" />
+</h:head>
+<h:body>
+
+
+	<br></br>
+	<br></br>
+	<h:form id="form">
+	<p:panel header="Informations concernant le joueur" style="position:absolute ; top: 20%; left:32%; width:460px">
+		 <h:panelGrid columns="2" cellpadding="5">
+		<h:outputText value="Prenom : "/>
+		<p:inputText value="#{rechercheBean.prenomJoueur}"/>
+		<h:outputText value="Nom : "/>
+		<p:inputText value="#{rechercheBean.nomJoueur}"/>
+		<h:outputText value="Date de naissance : "/>
+		<p:inputText value="#{rechercheBean.dateNaissanceJoueur}"/>
+		<h:outputText value="Adresse : "/>
+		<p:inputText value="#{rechercheBean.adresseJoueur}"/>
+		<h:outputText value="Telephone : "/>
+		<p:inputText value="#{rechercheBean.telJoueur}"/>
+		
+		
+		<f:facet name="footer">  
+		
+    	<p:commandButton type="Submit" action="#{rechercheBean.saveEditedJoueur}" 
+    					ajax="false" value="Modifier"/>
+    	<p:commandButton type="Submit" action="#{rechercheBean.deleteJoueur}" 
+    					ajax="false" value="Supprimer"/>
+    	</f:facet>
+		</h:panelGrid>
+		</p:panel>
+	</h:form>
+	
+
+</h:body>
+</html>

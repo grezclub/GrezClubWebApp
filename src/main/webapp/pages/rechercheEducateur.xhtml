@@ -1,0 +1,75 @@
+	
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title></title>
+	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+	<ui:include src="/pages/menu.xhtml" />
+</h:head>
+<h:body>
+
+
+	<br></br><br></br>
+	<h:form id="form2">
+		<h:outputText value="#{rechercheEducateurBean.password}" />
+		<br></br>
+	
+    <p:dataTable id="dataTable" var="educateur" value="#{rechercheEducateurBean.allEducateurs}" widgetVar="educateurTable"   
+            emptyMessage="Aucun educateur ne corresppond à votre recherche" filteredValue="#{rechercheEducateurBean.filtreEducateur}"
+            	style="position:absolute ; top: 20%; left:10%; width:460px">  
+  
+         
+        <p:column id="colonneNom" filterBy="#{educateur.nomEducateur }"  
+                headerText="Nom" 
+                filterMatchMode="contains">  
+                <p:commandLink action="#{rechercheEducateurBean.editEducateur}">
+            <h:outputText value="#{educateur.nomEducateur }" /> 
+             <f:setPropertyActionListener target="#{rechercheEducateurBean.educateur}" value="#{educateur}"/>
+            </p:commandLink> 
+          
+        </p:column>  
+  
+        <p:column id="colonnePrenom" filterBy="#{educateur.prenomEducateur }"  
+                headerText="Prenom" >  
+            <h:outputText value="#{educateur.prenomEducateur }" />  
+        </p:column> 
+        <p:column id="colonneCategorie" filterBy="#{educateur.equipe.categorie }"  
+                headerText="Categorie" >  
+            <h:outputText value="#{educateur.equipe.categorie}" />  
+        </p:column>
+        <p:column id="colonneFonction" filterBy="#{educateur.fonction }"  
+                headerText="Fonction" >  
+            <h:outputText value="#{educateur.fonction}" />  
+        </p:column>
+        <p:column id="colonneAdresse" filterBy="#{educateur.mailEducateur }"  
+                headerText="Mail" >  
+            <h:outputText value="#{educateur.mailEducateur}" />  
+        </p:column> 
+        <p:column id="colonneTelephone" filterBy="#{educateur.telEducateur }"  
+                headerText="Telephone" >  
+            <h:outputText value="#{educateur.telEducateur}" />  
+        </p:column> 
+        <p:column id="colonneLogin" filterBy="#{educateur.loginEducateur }"  
+                headerText="Login" >  
+            <h:outputText value="#{educateur.loginEducateur}" />  
+        </p:column> 
+          <p:column id="colonneMdp" filterBy="#{educateur.mdpEducateur }"  
+                headerText="Mot de passe" >  
+            <h:outputText value="#{ educateur.mdpEducateur}" />  
+        </p:column> 
+         
+   
+    </p:dataTable>  
+		
+
+		
+	</h:form>
+</h:body>
+</html>
+
+

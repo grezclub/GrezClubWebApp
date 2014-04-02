@@ -1,0 +1,192 @@
+
+
+body
+{
+   margin: 0px;
+   padding: 0px;
+   outline: 0px;
+   background-color: rgba(255,255,255,0.5);
+}
+
+#bloc_page
+{
+    width: 1160px;
+    margin: auto;
+	height: auto;
+	}
+@media all and (max-width: 1024px)
+{
+    #bloc_page
+    {
+        width: auto;
+    }
+}
+
+/* entete */
+#header
+{
+
+
+		position: fixed;  top: 0px;
+    left: 0;
+    right: 0;
+		 
+
+		color: white; 
+		text-shadow: 6px 6px 6px black;
+		font-size: x-large;
+		width: 99%;
+		height: 209px;
+		background: url("#{resource['/images/header1s.png']}") fixed no-repeat top center;
+		margin: 0 auto;
+z-index: 3;
+
+
+}
+
+#section
+{
+		position: fixed;
+		top: 209px;
+		text-align: center;
+	/*	width: 99%;*/
+		height: 155px; 
+		z-index: 1;
+		margin: 0 auto;
+			left: 0;
+			right: 0;
+}
+
+#nav	
+ {  
+
+
+
+width: 1160px;
+margin: auto;
+margin-top: 160px;
+text-align: right;
+padding-right: 100px;
+
+
+
+ /* 	clear: both;
+		position: fixed;
+		left: 900px; 
+		top: 130px;
+		width: 99%;
+		height: 183px; 
+		z-index: 3; 
+ display: inline;
+		margin: 0 auto; */
+
+		
+}
+#navul
+{
+    list-style-type: none;
+}
+
+#navli
+{
+    display: inline;
+    margin-right: 15px;
+}
+
+nav a
+{
+    font-size: 1.3em;
+    color: #181818;
+    padding-bottom: 3px;
+    text-decoration: none;
+}
+
+nav a:hover
+{
+    color: #760001;
+    border-bottom: 3px solid #760001;
+}
+
+
+
+
+#article 
+{
+   position: relative;
+        
+		width: 50%; /* On a indiqué une largeur (obligatoire) */
+		margin: auto; /* auto = On peut donc demander à ce que le bloc soit centré avec auto */
+		border: 2px solid black;
+			border-radius: 10px;
+		text-align: left;
+		padding: 12px;
+		
+		   /* overflow: auto; */
+		background-color: rgba(230,230,230,0.6);		
+			word-wrap: break-word;  /* Si vous devez placer un mot très long dans un bloc, qui ne tient pas dans la largeur, vous allez adorer word-wrap. */
+			z-index: 2;
+Overflow: Scroll;
+}
+h1
+{
+color: black;
+		
+
+		position: relative;
+
+
+z-index: 2;
+
+}
+a
+{
+z-index: 2;
+}
+
+.divers
+{
+text-align: center;
+}
+
+#aside
+  {
+	position: relative;
+    width: 235px;
+	margin: auto;
+	margin-top: 20px;
+	margin-right: 50px;
+    min-width: 80px;    
+	background-color: #706b64;
+    box-shadow: 0px 2px 5px #1c1a19;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    font-size: 0.9em;
+			z-index: 2;
+			clear: both;
+			
+}
+
+footer
+{   position: relative;
+
+		background:  url("#{resource['/images/footer.png']}") no-repeat bottom center; 
+ 	/*	width: 99%;*/
+		height: 210px;   
+		    min-width: 400px;
+			margin: 0 auto;
+			    left: 0;
+    right: 0;
+
+	z-index:2;
+	
+    	color: white; 
+		text-shadow: 6px 6px 6px black;
+clear: both;
+}
+.copyright
+{
+position: relative;
+padding-top: 95px;
+padding-left: 800px;
+}

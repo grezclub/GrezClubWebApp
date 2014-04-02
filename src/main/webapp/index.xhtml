@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Acceuil</title>
+	<h:outputStylesheet name="styles.css" library="css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+							<!--[if lt IE 9]>
+								<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+							<![endif]-->
+
+</h:head>
+   
+
+
+				<h:body>
+	<div id="bloc_page">			
+
+			<div id="header">
+			<h:form id="loginForm" prependId="false" style="position:absolute; left:900px; top: 20px" >  
+				<h:panelGroup style="color:white">
+				Identifiant :<p:inputText id="j_username" required="true" style="position:relative; left:43px; top:1px;width:120px; height:10px; font-size:10px"/> 
+				</h:panelGroup>
+				<br /> 
+				<h:panelGroup style="color:white">
+				Mot de passe :<p:password id="j_password" required="true" style="position:relative; left:19px; top: 1px; width:120px; height:10px; font-size:10px"  />
+				</h:panelGroup>
+				<br /> 
+				<h:panelGroup>
+				<h:commandButton type="submit" id="login" action="#{authenticationBean.doLogin()}" value="Connexion"
+											 style="position:relative; left:215px" />
+				<br></br>
+				</h:panelGroup>
+       		</h:form>
+		
+            
+                <div id="nav">
+                   <div id="navul">
+                       <div id="navli"><a href="#">Association</a></div>
+                        <div id="navli"><a href="#">Entrainements</a></div>
+						<div id="navli"><a href="#">Convocations</a></div>
+						<div id="navli"><a href="#">Resultats</a></div>
+						<div id="navli"><a href="#">Projet Associatif</a></div>
+						<div id="navli"><a href="#">Partenaires</a></div>
+						<div id="navli"><a href="#">Infos Utiles</a></div>
+
+                    </div>
+               </div>				
+			</div>
+			<div id="section">
+			 <p:graphicImage id="grezheader" value="/resources/images/header2ss.png" alt="header2" title="header2"  />
+			</div>
+				<br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+		
+			<!-- Boucle pour l'affichage des news-->
+<ui:repeat var="news" value="#{newsBean.recupNews}"  >
+		<br></br>													
+	<div id="article"><p><h1><strong> "#{news.titreNews}"</strong></h1></p>
+		<br></br>
+		<p:graphicImage id="grezImage" value="#{newsBean.bytesToStreamedContent}" alt="#{news.titreNews}" title="#{news.titreNews}" style=" width:90%; height:300px" > 
+		<f:param name="newsId" value="#{news.idNews}" />
+		 </p:graphicImage>
+		<br></br>		
+		<h:outputText value="#{news.texteNews}" />           								   
+	</div>
+</ui:repeat>
+			
+
+<br></br><br></br><br></br><br></br><br></br>
+
+<!-- 
+			<div id="aside">        
+                    <h1>À propos de l'auteur</h1>
+                    <p>Surnommé « Zizou », il est considéré comme l'un des plus grands joueurs de tous les temps.</p>
+                    <p> Milieu offensif, 
+					doté d'un profil atypique, il remporte de nombreux titres tant avec l'équipe de France, qu'avec les clubs où il a joué comme la Juventus de Turin et le Real Madrid. 
+					Il a, de plus, été nommé meilleur joueur de l'année dans tous les championnats dans lesquels il a évolué.
+                      
+					</p>																	
+            </div>
+ -->						
+							<footer>
+								<p class="copyright"> Copyright GrezLab - sponsored by <a href="http://www.grezclub.com/" target="_blank" >GrezLab</a></p>
+							
+							</footer>			
+	</div>		
+</h:body>
+	
+	
+	
+
+	
+	</html>

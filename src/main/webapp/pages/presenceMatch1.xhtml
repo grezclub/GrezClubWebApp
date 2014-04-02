@@ -1,0 +1,53 @@
+	
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Convocation</title>
+	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+		<ui:include src="/pages/menu.xhtml" />
+	
+</h:head>
+<h:body>
+	
+	
+	<h:form id="form2">
+	
+    <p:dataTable id="dataTable" var="match" value="#{presenceMatchBean.listeMatch}" widgetVar="matchTable"   
+            emptyMessage="Aucun match ne corresppond à votre recherche" 
+            	style="position:absolute ; top: 20%; left:10%; width:460px">  
+  
+         
+        <p:column id="colonneDate"  filterBy="#{match.dateMatch} }"  
+                headerText="Date" >  
+
+            <h:outputText value="#{match.dateMatch}" /> 
+          
+        </p:column>  
+        <p:column id="colonneLieu" filterBy="#{match.lieuMatch} }" 
+                headerText="Lieu" >  
+            <h:outputText value="#{match.lieuMatch} " />  
+        </p:column> 
+        <p:column id="colonneAdversaire" filterBy="#{match.adversaire} }" 
+                headerText="Adversaire" >  
+            <h:outputText value="#{match.adversaire} " />  
+        </p:column> 
+        <p:column id="colonneEducateur" filterBy="#{match.educateur.nomEducateur} }"   
+                headerText="Nom educateur" >  
+            <h:outputText value="#{match.educateur.nomEducateur}" />  
+        </p:column>
+     
+  
+        
+         
+   
+    </p:dataTable> 
+	</h:form>
+</h:body>
+</html>
+
+

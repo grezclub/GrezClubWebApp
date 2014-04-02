@@ -1,0 +1,56 @@
+	
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title></title>
+	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+	<ui:include src="/pages/menu.xhtml" />
+</h:head>
+<h:body>
+
+<h:form>
+		  <br></br>
+		  		Adversaire :  <p:outputLabel value="#{creationConvocationBean.adversaire}"></p:outputLabel> 
+               <br></br>
+               Date : <p:outputLabel value="#{creationConvocationBean.dateAffiche}"></p:outputLabel> 
+               <br></br>
+                Heure : <p:outputLabel value="#{creationConvocationBean.heure}"></p:outputLabel> 
+               <br></br>
+				lieu : <p:outputLabel value="#{creationConvocationBean.lieu}"></p:outputLabel>
+  				<br></br>
+  				Educateur : <p:outputLabel value="#{creationConvocationBean.educateur.nomEducateur} #{presenceEntrainementBean.educateur.prenomEducateur}"></p:outputLabel>
+  				<br></br>
+  				 Commentaire : <p:outputLabel value="#{creationConvocationBean.commentaire}"></p:outputLabel> 
+               <br></br>
+  				
+      <p:dataTable var="joueur" value="#{creationConvocationBean.listeSelection}">  
+        <p:column headerText="Nom">  
+            <h:outputText value="#{joueur.nomJoueur}" />  
+        </p:column>  
+  
+        <p:column headerText="Prenom">  
+            <h:outputText value="#{joueur.prenomJoueur}" />  
+        </p:column>  
+  
+      </p:dataTable> 
+      <br></br>
+      <br></br>
+      
+      
+		<p:commandButton value="Modifier" action="#{creationConvocationBean.modifieListeJoueur}" />
+    <p:commandButton id="citySubmit" value="Enregistrer" action="#{creationConvocationBean.enregistre}"
+    ajax="true"/>     
+		
+               
+       
+		
+	</h:form>
+</h:body>
+</html>
+
+

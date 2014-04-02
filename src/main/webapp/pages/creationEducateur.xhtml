@@ -1,0 +1,48 @@
+	
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title></title>
+	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+	<ui:include src="/pages/menu.xhtml" />
+</h:head>
+<h:body>
+	<h:form id="form67">
+		<p:panel header="Informations concernant l' educateur" style="position:absolute ; top: 20%; left:32%; width:460px">
+		 <h:panelGrid columns="2" cellpadding="5">
+		<h:outputText value="Prenom : "/>
+		<p:inputText value="#{creationEducateurBean.nomEduc}"/>
+		<h:outputText value="Nom : "/>
+		<p:inputText value="#{creationEducateurBean.prenomEduc}"/>
+		<h:outputText value="Mail : "/>
+		<p:inputText value="#{creationEducateurBean.mailEduc}"/>
+		<h:outputText value="Categorie : "/>
+		<p:inputText value="#{creationEducateurBean.categorieEduc}"/>
+		<h:outputText value="Telephone : "/>
+		<p:inputText value="#{creationEducateurBean.telEduc}"/>
+		<h:outputText value="Login : "/>
+		<p:inputText value="#{creationEducateurBean.loginEduc}"/>
+		<h:outputText value="Mot de passe : "/>
+		<p:inputText value="#{creationEducateurBean.mdpEduc}"/>
+		<h:outputText value="Fonction : "/>
+		<p:inputText value="#{creationEducateurBean.fonctionEduc}"/>
+		
+		<f:facet name="footer">  
+		<p:commandButton value="Reset" type="reset" />
+    	<p:commandButton type="Submit" action="#{creationEducateurBean.creerEducateur}" 
+    					ajax="false" value="Valider"/>
+    	</f:facet>
+		
+		</h:panelGrid>
+		</p:panel>
+	 
+	</h:form>
+</h:body>
+</html>
+
+

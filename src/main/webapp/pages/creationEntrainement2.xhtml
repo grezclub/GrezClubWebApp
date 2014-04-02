@@ -1,0 +1,49 @@
+	
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title></title>
+	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+	<ui:include src="/pages/menu.xhtml" />
+</h:head>
+<h:body>
+
+<h:form>
+
+      <p:pickList id="pickList" value="#{presenceEntrainementBean.listeJoueurs}" var="joueur"   
+                itemLabel="#{joueur.nomJoueur}" itemValue="#{joueur.idJoueur}" style="position:absolute ; top: 20% ; left:32% " >
+                
+          <p:ajax event="transfer" listener="#{presenceEntrainementBean.onTransfer}"  /> 
+               </p:pickList> 
+               <br></br>
+               
+       
+        <p:panel id="panel" style="position:absolute ; top: 60% ;left:25%; width:50%">         
+               Date : <p:outputLabel value="#{presenceEntrainementBean.dateAffiche}"></p:outputLabel> 
+               <br></br>
+				lieu : <p:outputLabel value="#{presenceEntrainementBean.lieu}"></p:outputLabel>
+  				<br></br>
+  				
+  		
+  		
+  		<f:facet name="footer">  
+		<p:commandButton value="Reset" type="reset" />
+    <p:commandButton id="citySubmit" value="Submit" action="#{presenceEntrainementBean.recapEntrainement}"
+    ajax="true"/>  
+
+    						
+    	 
+    
+      
+		</f:facet>
+		</p:panel>
+	</h:form>
+</h:body>
+</html>
+
+

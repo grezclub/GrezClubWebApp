@@ -1,0 +1,49 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans	
+						http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+						http://www.springframework.org/schema/security
+						http://www.springframework.org/schema/security/spring-security-3.2.xsd" >
+
+	
+	<!-- Page auto généré par Spring-->	 
+	<http auto-config="true">
+		<intercept-url pattern="/pages/*" access="ROLE_ADMIN" />
+		<form-login login-page="/login.xhtml" default-target-url="/pages/home.xhtml" authentication-failure-url="/login-failure.xhtml" />
+	</http>	
+
+	
+	<authentication-manager> 
+		<authentication-provider >
+	  
+			<jdbc-user-service data-source-ref="dataSource"
+				
+ 				  users-by-username-query="
+		      select login_educateur, mdp_educateur, enabled, id_educateur
+		      from educateur where login_educateur= ? "
+ 				
+		  	 authorities-by-username-query="
+		      select login_educateur, authority from educateur, roles   
+		      where id_educateur = user_id and login_educateur = ? " 
+			
+			
+			
+			/>
+		
+		<!--    
+				  
+ 				--> 
+		 <!--  
+		 
+			<user-service>
+			<user name="killer" password="123456" authorities="ROLE_ADMIN" />
+			<user name="kaiser" password="123" authorities="ROLE_ADMIN" />
+		</user-service>
+		-->
+		
+       </authentication-provider>
+  
+	</authentication-manager>
+		
+</beans:beans>

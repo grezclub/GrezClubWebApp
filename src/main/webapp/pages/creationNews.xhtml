@@ -1,0 +1,49 @@
+	
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title></title>
+	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+	<ui:include src="/pages/menu.xhtml" />
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</h:head>
+<h:body>
+	<h:form id="form87">
+	
+	<p:panel header="Informations concernant la News :" style="position:absolute ; top: 20%; left:23%; width:700px">
+		 <h:outputLabel value="Image de la News :"></h:outputLabel>
+		 <br></br>
+		 <br></br>
+		 <p:fileUpload fileUploadListener="#{creationNewsBean.handleFileUpload}" 
+		 value="#{creationNewsBean.imageNews}" mode="advanced" dragDropSupport="true"  
+            update="messages" sizeLimit="10000000" allowTypes="/(\.|\/)(gif|jpeg|png)$/" /> 
+		 <br></br>
+		 <h:panelGrid columns="2" cellpadding="5">
+
+         <h:outputLabel value="Titre : "></h:outputLabel> 
+         <p:inputText value="#{creationNewsBean.titreNews}"></p:inputText>
+  
+         <h:outputLabel value="Contenue : "></h:outputLabel> 
+         <p:inputTextarea value="#{creationNewsBean.contenueNews}" autoResize="true"></p:inputTextarea>
+  
+    <p:growl id="messages" showDetail="true"/>
+    
+    <br></br>
+    <f:facet name="footer"> 
+    <p:commandButton value="Reset" type="reset" />
+    	<p:commandButton type="Submit" action="#{creationNewsBean.creerNews}" 
+    					ajax="false" value="Valider"/>
+    </f:facet>
+    </h:panelGrid>
+    </p:panel>
+    
+	</h:form>
+</h:body>
+</html>
+
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<type-mapping>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+		<sql-type jdbc-type="VARCHAR" hibernate-type="string"></sql-type>
+	</type-mapping>
+	<table-filter match-name="convocation" match-schema="public"></table-filter>
+	<table-filter match-name="educateur" match-schema="public"></table-filter>
+	<table-filter match-name="entrainement" match-schema="public"></table-filter>
+	<table-filter match-name="equipe" match-schema="public"></table-filter>
+	<table-filter match-name="joueur" match-schema="public"></table-filter>
+	<table-filter match-name="news" match-schema="public"></table-filter>
+	<table-filter match-name="presence" match-schema="public"></table-filter>
+	<table-filter match-name="roles" match-schema="public"></table-filter>
+	<table-filter match-name="match" match-schema="public"></table-filter>
+</hibernate-reverse-engineering>

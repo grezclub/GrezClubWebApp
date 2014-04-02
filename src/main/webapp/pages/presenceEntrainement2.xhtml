@@ -1,0 +1,35 @@
+	
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title></title>
+	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+		<ui:include src="/pages/menu.xhtml" />
+	
+</h:head>
+<h:body>
+	<h:form id="form812" >
+	<br></br>
+	<br></br>
+	<p:outputLabel value="Liste des joueurs présents à l'entrainement :"></p:outputLabel>
+	<br></br>
+	<br></br>
+		<p:dataTable var="joueur" value="#{presenceEntrainementBean.listeJoueurPresent}">  
+        <p:column headerText="Nom">  
+            <h:outputText value="#{joueur.nomJoueur}" />  
+        </p:column>  
+   		 <p:column headerText="Prenom">  
+            <h:outputText value="#{joueur.prenomJoueur}" />  
+        </p:column>  
+   
+    </p:dataTable> 
+	</h:form>
+</h:body>
+</html>
+
+
