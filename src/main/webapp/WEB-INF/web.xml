@@ -92,19 +92,26 @@ version="3.0">
   
   <!-- Filtre qui vas faire en sorte d'enregistrer correctement au format UTF8 les caractères qui ont des accents -->
    <filter>
+   <!-- Nom du filtre -->
 		<filter-name>Spring Character Encoding Filter</filter-name>
+		
+	<!-- c'est la classe CharacterEncodingFilter qui gère l'encodage -->
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		
+	<!-- Type de l'encodage UTF8 -->
 		<init-param>
 			<param-name>encoding</param-name>
 			<param-value>UTF-8</param-value>
 		</init-param>
+		
+	<!-- Forcer l'encodage en UTF8 -->	
 		<init-param>
 			<param-name>forceEncoding</param-name>
 			<param-value>true</param-value>
 		</init-param>
 	</filter>
  
- <!-- Mapping correspondant au filtre pour caractère spéciaux -->
+ <!-- Mapping correspondant au filtre pour caractère spéciaux (interception des URL xhtml et JSF -->
     <filter-mapping>
       <filter-name>Spring Character Encoding Filter</filter-name>
       <url-pattern>*.xhtml</url-pattern>
