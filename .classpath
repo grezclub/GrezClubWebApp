@@ -29,8 +29,6 @@
 			<attribute name="owner.project.facets" value="jboss.m2"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Users/outlawz/Downloads/spring-orm-3.2.4.RELEASE.jar"/>
-	<classpathentry kind="lib" path="/Users/outlawz/Downloads/postgresql-9.1-901.jdbc4.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JSF 2.2 (Mojarra 2.2.0)">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>

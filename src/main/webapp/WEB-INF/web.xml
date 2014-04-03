@@ -90,6 +90,27 @@ version="3.0">
     <servlet-name>facesServlet</servlet-name>
   </filter-mapping>
   
+  <!-- Filtre qui vas faire en sorte d'enregistrer correctement au format UTF8 les caractères qui ont des accents -->
+   <filter>
+		<filter-name>Spring Character Encoding Filter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+ 
+ <!-- Mapping correspondant au filtre pour caractère spéciaux -->
+    <filter-mapping>
+      <filter-name>Spring Character Encoding Filter</filter-name>
+      <url-pattern>*.xhtml</url-pattern>
+      <url-pattern>*.jsf</url-pattern>
+    </filter-mapping>
+  
 
 
 	<!-- Listener -->
