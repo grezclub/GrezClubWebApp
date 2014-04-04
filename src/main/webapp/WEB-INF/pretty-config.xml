@@ -36,6 +36,10 @@
 		<pattern value="/editionEducateur" />
 		<view-id value="/pages/editEducateur.jsf" />
 	</url-mapping>
+	<url-mapping id="editNews">
+		<pattern value="/editionNews" />
+		<view-id value="/pages/editNews.jsf" />
+	</url-mapping>
 	<url-mapping id="rechercheEducateur">
 		<pattern value="/rechercheEducateur" />
 		<view-id value="/pages/rechercheEducateur.jsf" />

@@ -70,6 +70,14 @@ public class NewsBean {
 
 	}
 	
+	//Recuperation de la liste complete des news
+	public List<News> getRecupNewsComplet() {
+
+		listeNews = manager.recupNews();
+		return listeNews;		
+
+	}
+	
 	
 
 	public StreamedContent getBytesToStreamedContent() {	

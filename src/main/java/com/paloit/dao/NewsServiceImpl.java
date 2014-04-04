@@ -143,6 +143,12 @@ public class NewsServiceImpl implements NewsService {
        return listeNews;
 	}
 
+	@Override
+	public void modifierNews(News news) {
+		sessionFactory.getCurrentSession().update(news);
+		
+	}
+
 	
 
 	

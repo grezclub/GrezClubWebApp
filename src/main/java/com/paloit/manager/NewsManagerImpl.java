@@ -56,6 +56,12 @@ public class NewsManagerImpl implements NewsManager {
 		return listeNews;
 	}
 
+	@Override
+	public void modifierNews(News news) {
+		newsService.modifierNews(news);
+		
+	}
+
 
 
 }

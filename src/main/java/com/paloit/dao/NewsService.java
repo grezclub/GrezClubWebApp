@@ -30,4 +30,5 @@ public interface NewsService {
     public News recupererNewsTitre( String titre );
     
     // Methode permettant de modifier une News
+    public void modifierNews (News news);
 }

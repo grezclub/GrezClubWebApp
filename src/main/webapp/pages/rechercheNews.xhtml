@@ -10,32 +10,35 @@
 	<title></title>
 	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
 	<ui:include src="/pages/menu.xhtml" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </h:head>
 <h:body>
 
 
 	<br></br><br></br>
-	<h:form id="form">
+	<h:form id="form48">
 	
-    <p:dataTable id="dataTable" var="news" value="#{newsBean.recupNews}" widgetVar="newsTable"   
-            emptyMessage="Aucune news ne corresppond à votre recherche" filteredValue="#{rechercheBean.filtreJoueur}"
+    <p:dataTable id="dataTable" var="news" value="#{newsBean.recupNewsComplet}" widgetVar="newsTable"   
+            emptyMessage="Aucune news ne corresppond à votre recherche" 
             	style="position:absolute ; top: 20%; left:17%; width:460px">  
   
          
         <p:column id="colonneTitre" filterBy="#{news.titreNews }"  
-                headerText="Titre" 
+                headerText="Titre1" 
                 filterMatchMode="contains">  
-              <!--    <p:commandLink action="#{rechercheBean.editJoueur}">
-            <h:outputText value="#{news.texteNews }" />  
-            <f:setPropertyActionListener target="#{rechercheBean.joueur}" value="#{joueur}"/>
+                <p:commandLink action="#{rechercheBean.editNews}">
+            <h:outputText value="#{news.titreNews}" />  
+            <f:setPropertyActionListener target="#{rechercheBean.news}" value="#{news}"/>
             </p:commandLink>
-            -->
+               
         </p:column>  
+         <p:column id="colonneArticle" headerText="Article">  
+             
+            <h:outputText value="#{news.texteNews}" />    
+        </p:column>
+         
   
-        <p:column id="colonnePrenom" filterBy="#{news.texteNews }"  
-                headerText="Texte" >  
-            <h:outputText value="#{news.texteNews}" />  
-        </p:column> 
+        
        
          
    

@@ -19,6 +19,9 @@ public interface NewsManager {
 	//Recupere les 5 dernières News
 	public List<News> recup5News();
 	
+	//Modifie une news
+	public void modifierNews (News news);
+	
 	
 
 }
