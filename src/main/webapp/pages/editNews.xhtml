@@ -1,4 +1,4 @@
-
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -13,38 +13,38 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </h:head>
 <h:body>
-
-
-	<br></br>
-	<br></br>
-	<h:form id="form">
-	<p:panel header="Informations concernant la news" style="position:absolute ; top: 20%; left:32%; width:460px">
-		 <h:panelGrid columns="2" cellpadding="5">
-		<h:outputText value="Titre : "/>
-		<p:inputText value="#{rechercheBean.news.titreNews}"/>
-		<h:outputText value="Article : "/>
-		<p:inputTextarea value="#{rechercheBean.news.texteNews}"/>
-		<h:outputText value="Photo Actuel: "/>
-		<p:graphicImage id="grezImage" value="#{rechercheBean.bytesToStreamedContent}" alt="#{rechercheBean.news.titreNews}" title="#{rechercheBean.news.titreNews}" style=" width:90%; height:300px" /> 
-		<h:outputText value="Nouvelle photo: "/>
+	<h:form id="form87">
+	
+	<p:panel header="Informations concernant la News :" style="position:absolute ; top: 20%; left:23%; width:700px">
+		 <h:outputLabel value="Image de la News :"></h:outputLabel>
+		 <br></br>
+		 <br></br>
 		 <p:fileUpload fileUploadListener="#{rechercheBean.handleFileUpload}" 
-		 value="#{rechercheBean.news.imageNews}" mode="advanced" dragDropSupport="true"  
+		 value="#{creationNewsBean.imageNews}" mode="advanced" dragDropSupport="true"  
             update="messages" sizeLimit="10000000" allowTypes="/(\.|\/)(gif|jpeg|png)$/" /> 
-		
-		  <p:growl id="messages" showDetail="true"/>
-		
-		
-		<f:facet name="footer">  
-		
+		 <br></br>
+		 <h:panelGrid columns="2" cellpadding="5">
+
+         <h:outputLabel value="Titre : "></h:outputLabel> 
+         <p:inputText value="#{rechercheBean.titreNews}"></p:inputText>
+  
+         <h:outputLabel value="Contenue : "></h:outputLabel> 
+         <p:inputTextarea value="#{rechercheBean.texteNews}" autoResize="true"></p:inputTextarea>
+  
+    <p:growl id="messages" showDetail="true"/>
+    
+    <br></br>
+    <f:facet name="footer"> 
     	<p:commandButton type="Submit" action="#{rechercheBean.saveEditedNews}" 
     					ajax="false" value="Modifier"/>
-    	<p:commandButton type="Submit" action="#{rechercheBean.deleteJoueur}" 
+    	<p:commandButton type="Submit" action="#{rechercheBean.deleteNews}" 
     					ajax="false" value="Supprimer"/>
-    	</f:facet>
-		</h:panelGrid>
-		</p:panel>
+    </f:facet>
+    </h:panelGrid>
+    </p:panel>
+    
 	</h:form>
-	
-
 </h:body>
 </html>
+
+

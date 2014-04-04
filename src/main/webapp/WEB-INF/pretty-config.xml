@@ -24,9 +24,9 @@
 		<pattern value="/edit/#{personBean.person.name}" />
 		<view-id value="/pages/new_person.jsf" />
 	</url-mapping>
-	<url-mapping id="news">
+	<url-mapping id="afficheNews">
 		<pattern value="/afficheNews" />
-		<view-id value="/afficheNews.jsf" />
+		<view-id value="/pages/afficheNews.jsf" />
 	</url-mapping>
 	<url-mapping id="editJoueur">
 		<pattern value="/editionJoueur" />
@@ -38,7 +38,7 @@
 	</url-mapping>
 	<url-mapping id="editNews">
 		<pattern value="/editionNews" />
-		<view-id value="/pages/editNews.jsf" />
+		<view-id value="/pages/editNews.xhtml" />
 	</url-mapping>
 	<url-mapping id="rechercheEducateur">
 		<pattern value="/rechercheEducateur" />
@@ -87,5 +87,13 @@
 	<url-mapping id="creationConvocation3">
 		<pattern value="/creationConvocation3" />
 		<view-id value="/pages/creationConvocation3.jsf" />
+	</url-mapping>
+	<url-mapping id="creationNews">
+		<pattern value="/creationNews" />
+		<view-id value="/pages/creationNews.jsf" />
+	</url-mapping>
+	<url-mapping id="rechercheNews">
+		<pattern value="/rechercheNews" />
+		<view-id value="/pages/rechercheNews.jsf" />
 	</url-mapping>
 </pretty-config>

@@ -62,6 +62,14 @@ public class NewsManagerImpl implements NewsManager {
 		
 	}
 
+	@Override
+	public void supprimeNews(int idNews) {
+		News news = new News();
+		news = newsService.recupererNewsId(idNews);
+		newsService.deleteNews(news);
+		
+	}
+
 
 
 }

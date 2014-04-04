@@ -22,6 +22,9 @@ public interface NewsManager {
 	//Modifie une news
 	public void modifierNews (News news);
 	
+	//Supprimer une news par son id
+	public void supprimeNews(int idNews);
+	
 	
 
 }
