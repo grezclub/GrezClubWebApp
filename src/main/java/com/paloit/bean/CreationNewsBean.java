@@ -62,7 +62,7 @@ public class CreationNewsBean {
 		manager.creerNews(imageNews, titreNews, contenueNews);
 		  
 			
-	        return "pretty:home";
+	        return "afficheNews.jsf";
 	    
 	}
         

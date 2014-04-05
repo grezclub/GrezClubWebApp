@@ -88,10 +88,6 @@
 		<pattern value="/creationConvocation3" />
 		<view-id value="/pages/creationConvocation3.jsf" />
 	</url-mapping>
-	<url-mapping id="creationNews">
-		<pattern value="/creationNews" />
-		<view-id value="/pages/creationNews.jsf" />
-	</url-mapping>
 	<url-mapping id="rechercheNews">
 		<pattern value="/rechercheNews" />
 		<view-id value="/pages/rechercheNews.jsf" />

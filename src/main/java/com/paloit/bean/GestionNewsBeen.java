@@ -18,7 +18,7 @@ public class GestionNewsBeen {
 	    // METHODS
 	    // =========================================================================
 		public String creerNews(){
-			return "pretty:creationNews";
+			return "creationNews.xhtml";
 		}
 		
 		public String rechercheNews(){
