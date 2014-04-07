@@ -3,19 +3,19 @@ package com.paloit.bean;
 
 import java.util.List;
 
+import javax.faces.bean.RequestScoped;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import com.paloit.entities.Educateur;
 import com.paloit.entities.Equipe;
 import com.paloit.manager.EducateurManager;
+import com.paloit.manager.EquipeManager;
 
 
 @Component
-@Scope
+@RequestScoped
 public class RechercheEducateurBean {
 	
 	// =========================================================================
@@ -24,6 +24,7 @@ public class RechercheEducateurBean {
 
 		private Educateur educateur;
 		private EducateurManager manager;
+		private EquipeManager equipeManager;
 		private List<Educateur> filtreEducateur; 
 		
 		private String nomEducateur;
@@ -36,6 +37,7 @@ public class RechercheEducateurBean {
 		private Equipe equipe;
 		private String password;
 		private int id;
+		private int number;
 
 	
 	
@@ -61,16 +63,77 @@ public class RechercheEducateurBean {
         this.telEducateur = educateur.getTelEducateur();
         
         
-		return "pretty:editEducateur";
+        switch(educateur.getEquipe().getIdEquipe())
+        {
+            case 1:
+                number = 1;
+            break;
+            case 2:
+            	number = 2;
+            break;
+            case 3:
+            	number = 3;
+            break;
+            case 4:
+            	number = 4;
+            break;
+            case 5:
+            	number = 5;
+            break;
+            case 6:
+            	number = 6;
+            break;
+            case 7:
+            	number = 7;
+            break;
+            default: number = 0;
+            break;
+           
+            
+        }
+        
+        
+		return "editEducateur.jsf";
 	}
 	public String saveEditedEducateur(){
 		equipe = new Equipe();
 		equipe = educateur.getEquipe();
 		id = educateur.getIdEducateur();
 		reinit();
+		
 		educateur.setNomEducateur(nomEducateur);
 		educateur.setPrenomEducateur(prenomEducateur);
-		educateur.setEquipe(equipe);
+		
+		
+		switch(number)
+        {
+            case 1:
+                educateur.setEquipe(equipeManager.findEquipeById(1));
+            break;
+            case 2:
+            	educateur.setEquipe(equipeManager.findEquipeById(2));
+            break;
+            case 3:
+            	educateur.setEquipe(equipeManager.findEquipeById(3));
+            break;
+            case 4:
+            	educateur.setEquipe(equipeManager.findEquipeById(4));
+            break;
+            case 5:
+            	educateur.setEquipe(equipeManager.findEquipeById(5));
+            break;
+            case 6:
+            	educateur.setEquipe(equipeManager.findEquipeById(6));
+            break;
+            case 7:
+            	educateur.setEquipe(equipeManager.findEquipeById(7));
+            break;
+            default: this.equipe = null;
+            break;
+           
+            
+        }
+		
 		educateur.setIdEducateur(id);
 		educateur.setMailEducateur(mailEducateur);
 		educateur.setFonction(fonctionEducateur);
@@ -80,7 +143,9 @@ public class RechercheEducateurBean {
 		
 		manager.modifierEducateur(educateur);
 		
-		return "pretty:rechercheEducateur";
+		number = 0;
+		
+		return "rechercheEducateur.jsf";
 		
 	}
 	
@@ -100,6 +165,11 @@ public class RechercheEducateurBean {
 	@Autowired
     public void setManager(EducateurManager manager) {
         this.manager = manager;
+    	
+    }
+	@Autowired
+    public void setEquipeManager(EquipeManager equipeManager) {
+        this.equipeManager = equipeManager;
     	
     }
     // =========================================================================
@@ -202,6 +272,13 @@ public class RechercheEducateurBean {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public int getNumber() {
+		return number;
+	}
+	public void setNumber(int number) {
+		this.number = number;
+	}
+	
 	
 
 	

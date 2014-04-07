@@ -17,11 +17,11 @@ public class CreationPersonne {
     // METHODS
     // =========================================================================
 	public String creerJoueur(){
-		return "pretty:creerJoueur";
+		return "creationJoueur.jsf";
 	}
 	
 	public String creerEducateur(){
-		return "pretty:creerEducateur";
+		return "creationEducateur.jsf";
 	}
     // =========================================================================
     // OVERRIDES

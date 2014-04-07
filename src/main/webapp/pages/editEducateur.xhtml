@@ -25,8 +25,18 @@
 		<p:inputText value="#{rechercheEducateurBean.prenomEducateur}"/>
 		<h:outputText value="Fonction : "/>
 		<p:inputText value="#{rechercheEducateurBean.fonctionEducateur}"/>
-		<h:outputText value="Equipe : "/>
-		<p:inputText value="#{rechercheEducateurBean.educateur.equipe.categorie}"/>
+		<h:outputText value="Catégorie : " />  
+        <p:selectOneMenu value="#{rechercheEducateurBean.number}" style="width:100px">  
+            <f:selectItem itemLabel="#{rechercheEducateurBean.educateur.equipe.categorie}" itemValue="" />  
+            <f:selectItem itemLabel="U7" itemValue="1" />  
+            <f:selectItem itemLabel="U9" itemValue="2" />  
+            <f:selectItem itemLabel="U11" itemValue="3" />  
+            <f:selectItem itemLabel="U13" itemValue="4" />  
+            <f:selectItem itemLabel="U15" itemValue="5" />  
+            <f:selectItem itemLabel="U18" itemValue="6" />  
+            <f:selectItem itemLabel="Senior" itemValue="7" />  
+        </p:selectOneMenu> 
+		
 		<h:outputText value="Adresse mail : "/>
 		<p:inputText value="#{rechercheEducateurBean.mailEducateur}"/>
 		<h:outputText value="Telephone : "/>

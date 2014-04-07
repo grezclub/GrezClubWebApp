@@ -21,16 +21,25 @@
 		<p:inputText value="#{creationEducateurBean.prenomEduc}"/>
 		<h:outputText value="Mail : "/>
 		<p:inputText value="#{creationEducateurBean.mailEduc}"/>
-		<h:outputText value="Categorie : "/>
-		<p:inputText value="#{creationEducateurBean.categorieEduc}"/>
 		<h:outputText value="Telephone : "/>
 		<p:inputText value="#{creationEducateurBean.telEduc}"/>
+		<h:outputText value="Catégorie : " />  
+        <p:selectOneMenu value="#{creationEducateurBean.number}" style="width:100px">  
+            <f:selectItem itemLabel="Choisir" itemValue="" />  
+            <f:selectItem itemLabel="U7" itemValue="1" />  
+            <f:selectItem itemLabel="U9" itemValue="2" />  
+            <f:selectItem itemLabel="U11" itemValue="3" />  
+            <f:selectItem itemLabel="U13" itemValue="4" />  
+            <f:selectItem itemLabel="U15" itemValue="5" />  
+            <f:selectItem itemLabel="U18" itemValue="6" />  
+            <f:selectItem itemLabel="Senior" itemValue="7" />  
+        </p:selectOneMenu> 
 		<h:outputText value="Login : "/>
 		<p:inputText value="#{creationEducateurBean.loginEduc}"/>
 		<h:outputText value="Mot de passe : "/>
 		<p:inputText value="#{creationEducateurBean.mdpEduc}"/>
 		<h:outputText value="Fonction : "/>
-		<p:inputText value="#{creationEducateurBean.fonctionEduc}"/>
+		<p:inputText value="#{creationEducateurBean.fonctionEduc}"/> 
 		
 		<f:facet name="footer">  
 		<p:commandButton value="Reset" type="reset" />

@@ -27,6 +27,7 @@ public class CreationEducateurBean {
 	private String mdpEduc;
 	private String categorieEduc;
 	private String fonctionEduc;
+	private int number;
 
 	// =========================================================================
 	// CONSTRUCTEURS
@@ -39,10 +40,50 @@ public class CreationEducateurBean {
 	// =========================================================================
 	// METHODS
 	// =========================================================================
-		public String creerEducateur(){
+	public String creerEducateur(){
+			switch(number)
+	        {
+	            case 1:
+	                this.categorieEduc = "U7";
+	            break;
+	            case 2:
+	            	this.categorieEduc = "U9";
+	            break;
+	            case 3:
+	            	this.categorieEduc = "U11";
+	            break;
+	            case 4:
+	            	this.categorieEduc = "U13";
+	            break;
+	            case 5:
+	            	this.categorieEduc = "U15";
+	            break;
+	            case 6:
+	            	this.categorieEduc = "U18";
+	            break;
+	            case 7:
+	            	this.categorieEduc = "Senior";
+	            break;
+	            default: this.categorieEduc = "";
+                break;
+	           
+	            
+	        }
+			
 			manager.creerEducateur(nomEduc, prenomEduc, telEduc, mailEduc, loginEduc, mdpEduc, categorieEduc, fonctionEduc);
-		 return "pretty:home";
+			this.categorieEduc = null;
+			this.nomEduc = null;
+			this.prenomEduc = null;
+			this.telEduc = null;
+			this.mailEduc = null;
+			this.loginEduc = null;
+			this.mdpEduc = null;
+			this.fonctionEduc = null;
+			this.number = 0;
+			
+		 return "home.jsf";
 		}
+
 	//
 	// =========================================================================
 	// OVERRIDES
@@ -131,10 +172,18 @@ public class CreationEducateurBean {
 	public void setFonctionEduc(String fonctionEduc) {
 		this.fonctionEduc = fonctionEduc;
 	}
-	
+
+	public int getNumber() {
+		return number;
+	}
+
+	public void setNumber(int number) {
+		this.number = number;
+	}
+
 	@Autowired
-    public void setManager(EducateurManager manager) {
-        this.manager = manager;
-    }
+	public void setManager(EducateurManager manager) {
+		this.manager = manager;
+	}
 
 }

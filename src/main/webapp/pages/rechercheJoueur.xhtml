@@ -10,6 +10,7 @@
 	<title></title>
 	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
 	<ui:include src="/pages/menu.xhtml" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </h:head>
 <h:body>
 
@@ -51,6 +52,10 @@
                 headerText="Telephone" >  
             <h:outputText value="#{joueur.telJoueur}" />  
         </p:column> 
+        <p:column id="colonneMail" filterBy="#{joueur.mailJoueur }"  
+                headerText="Mail" >  
+            <h:outputText value="#{joueur.mailJoueur}" />  
+        </p:column>
          
    
     </p:dataTable>  

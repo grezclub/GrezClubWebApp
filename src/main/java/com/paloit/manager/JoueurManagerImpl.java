@@ -37,7 +37,7 @@ public class JoueurManagerImpl implements JoueurManager {
 
 	
 	public void creerJoueur1(String nomJoueur, String prenomJoueur, String dateNaissance
-			, String adresse, String tel, String categorie) {
+			, String adresse, String tel, String categorie, String mailJoueur) {
 		
 		//Attribution des informations récuperer pour creer le joueur
     	joueur = new Joueur();
@@ -45,6 +45,7 @@ public class JoueurManagerImpl implements JoueurManager {
        	joueur.setAdresseJoueur(adresse);
     	joueur.setNomJoueur(nomJoueur);
     	joueur.setTelJoueur(tel);
+    	joueur.setMailJoueur(mailJoueur);
     	
     	//Mise en forme de la date recuperer pour interaction avec la BDD 
         SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");

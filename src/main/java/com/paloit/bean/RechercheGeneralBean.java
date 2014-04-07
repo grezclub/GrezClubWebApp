@@ -1,11 +1,12 @@
 package com.paloit.bean;
 
-import org.springframework.context.annotation.Scope;
+import javax.faces.bean.RequestScoped;
+
 import org.springframework.stereotype.Component;
 
 
 @Component
-@Scope
+@RequestScoped
 public class RechercheGeneralBean {
 	
 	// =========================================================================
@@ -18,7 +19,7 @@ public class RechercheGeneralBean {
     // METHODS
     // =========================================================================
 	public String rechercheJoueur(){
-		return "pretty:rechercheJoueur";
+		return "rechercheJoueur.jsf";
 	}
 	
 	public String rechercheEducateur(){

@@ -131,7 +131,7 @@ public class PresenceEntrainementBean {
 			
 			educateur = this.getUserName();
 
-			return "pretty:creerEntrainement";
+			return "creationEntrainement2.jsf";
 		}
 		else
 		source = joueurManager.listeJoueurCategorie(this.educateur.getEquipe().getCategorie());
@@ -141,7 +141,7 @@ public class PresenceEntrainementBean {
 		
 		educateur = this.getUserName();
 
-		return "pretty:creerEntrainement";
+		return "creationEntrainement.jsf";
 	}
 
 	public String recapEntrainement() {
@@ -151,7 +151,7 @@ public class PresenceEntrainementBean {
 
 			listeSelection.add(joueurManager.joueurParId(targetEssai.get(i)));
 		}
-		return "pretty:recapEntrainement";
+		return "creationEntrainement3.jsf";
 
 	}
 	
@@ -171,13 +171,13 @@ public class PresenceEntrainementBean {
 		
 		entrainementManager.creerEntrainement(listeSelection, educateur, date, lieu);
 		
-		return "pretty:home";
+		return "home.jsf";
 	}
 	
 	//Modifier la liste de joueur
 	public String modifieListeJoueur(){
 		
-		return "pretty:creerEntrainement1";
+		return "creationEntrainement.jsf";
 	}
 	
 	//Recupère la liste des educateur
@@ -199,7 +199,7 @@ public class PresenceEntrainementBean {
 		
 		listeJoueurPresent = new ArrayList<Joueur>();
 		listeJoueurPresent =  presenceManager.listePresence(entrainement);
-		return "pretty:presenceEntrainement2";
+		return "creationEntrainement3.jsf";
 	}
 
 	// =========================================================================

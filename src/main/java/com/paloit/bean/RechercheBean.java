@@ -15,6 +15,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.imageio.ImageIO;
 import javax.imageio.ImageReadParam;
@@ -26,17 +27,17 @@ import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.paloit.entities.Equipe;
 import com.paloit.entities.Joueur;
 import com.paloit.entities.News;
+import com.paloit.manager.EquipeManager;
 import com.paloit.manager.JoueurManager;
 import com.paloit.manager.NewsManager;
 
 @Component
-@Scope
+@RequestScoped
 public class RechercheBean {
 
 	/*
@@ -50,6 +51,7 @@ public class RechercheBean {
 	// Attributs nécessaires aux opérations joueur
 	private Joueur joueur;
 	private JoueurManager joueurManager;
+	private EquipeManager equipeManager;
 	private List<Joueur> filtreJoueur;
 
 	private String nomJoueur;
@@ -58,9 +60,11 @@ public class RechercheBean {
 	private String telJoueur;
 	private String categorieJoueur;
 	private String dateNaissanceJoueur;
+	private String mailJoueur;
 	private Equipe equipe;
 	private int id;
 	private int idNews;
+	private int number;
 
 	// Attributs nécessaires aux opérations news
 	private News news;
@@ -91,7 +95,36 @@ public class RechercheBean {
 		this.adresseJoueur = joueur.getAdresseJoueur();
 		this.dateNaissanceJoueur = joueur.getDatenaissanceJoueur().toString();
 		this.telJoueur = joueur.getTelJoueur();
-		return "pretty:editJoueur";
+		this.mailJoueur = joueur.getMailJoueur();
+		 switch(joueur.getEquipe().getIdEquipe())
+	        {
+	            case 1:
+	                number = 1;
+	            break;
+	            case 2:
+	            	number = 2;
+	            break;
+	            case 3:
+	            	number = 3;
+	            break;
+	            case 4:
+	            	number = 4;
+	            break;
+	            case 5:
+	            	number = 5;
+	            break;
+	            case 6:
+	            	number = 6;
+	            break;
+	            case 7:
+	            	number = 7;
+	            break;
+	            default: number = 0;
+	            break;
+	           
+	            
+	        }
+		return "editJoueur.jsf";
 	}
 
 	public String saveEditedJoueur() {
@@ -101,19 +134,47 @@ public class RechercheBean {
 		reinit();
 		joueur.setNomJoueur(nomJoueur);
 		joueur.setAdresseJoueur(adresseJoueur);
-		joueur.setEquipe(equipe);
+		switch(number)
+        {
+            case 1:
+                joueur.setEquipe(equipeManager.findEquipeById(1));
+            break;
+            case 2:
+            	joueur.setEquipe(equipeManager.findEquipeById(2));
+            break;
+            case 3:
+            	joueur.setEquipe(equipeManager.findEquipeById(3));
+            break;
+            case 4:
+            	joueur.setEquipe(equipeManager.findEquipeById(4));
+            break;
+            case 5:
+            	joueur.setEquipe(equipeManager.findEquipeById(5));
+            break;
+            case 6:
+            	joueur.setEquipe(equipeManager.findEquipeById(6));
+            break;
+            case 7:
+            	joueur.setEquipe(equipeManager.findEquipeById(7));
+            break;
+            default: this.equipe = null;
+            break;
+           
+            
+        }
 		joueur.setIdJoueur(id);
 		joueur.setPrenomJoueur(prenomJoueur);
 		joueur.setTelJoueur(telJoueur);
+		joueur.setMailJoueur(mailJoueur);
 		joueurManager.modifierJoueur(joueur, dateNaissanceJoueur);
-		return "editNews.jsf";
+		return "rechercheJoueur.jsf";
 
 	}
 	
 	public String deleteJoueur() {
 		this.id = joueur.getIdJoueur();
 		joueurManager.supprimerJoueur(this.id);
-		return "pretty:home";
+		return "home.jsf";
 	}
 
 	public void reinit() {
@@ -258,6 +319,12 @@ public class RechercheBean {
 	public void setManager(NewsManager manager) {
 		this.newsManager = manager;
 	}
+	
+	@Autowired
+    public void setEquipeManager(EquipeManager equipeManager) {
+        this.equipeManager = equipeManager;
+    	
+    }
 
 	// =========================================================================
 	// GETTERS & SETTERS
@@ -330,6 +397,14 @@ public class RechercheBean {
 		this.dateNaissanceJoueur = dateNaissanceJoueur;
 	}
 
+	public String getMailJoueur() {
+		return mailJoueur;
+	}
+
+	public void setMailJoueur(String mailJoueur) {
+		this.mailJoueur = mailJoueur;
+	}
+
 	public String getTitreNews() {
 		return titreNews;
 	}
@@ -362,6 +437,15 @@ public class RechercheBean {
 		this.news = news;
 	
 	}
+
+	public int getNumber() {
+		return number;
+	}
+
+	public void setNumber(int number) {
+		this.number = number;
+	}
+	
 
 
 }

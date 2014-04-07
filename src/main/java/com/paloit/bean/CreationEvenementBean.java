@@ -1,10 +1,11 @@
 package com.paloit.bean;
 
-import org.springframework.context.annotation.Scope;
+import javax.faces.bean.RequestScoped;
+
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope
+@RequestScoped
 public class CreationEvenementBean {
 
 		
@@ -18,11 +19,11 @@ public class CreationEvenementBean {
 	    // METHODS
 	    // =========================================================================
 		public String creerEntrainement(){
-			return "pretty:creerEntrainement1";
+			return "creationEntrainement.jsf";
 		}
 		
 		public String creerConvocation(){
-			return "pretty:presenceEntrainement1";
+			return "presenceEntrainement1.jsf";
 		}
 	    // =========================================================================
 	    // OVERRIDES

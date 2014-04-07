@@ -64,7 +64,7 @@ public class Educateur implements java.io.Serializable {
 		this.nomEducateur = nomEducateur;
 		this.prenomEducateur = prenomEducateur;
 		this.telEducateur = telEducateur;
-		this.enabled = enabled;
+		this.enabled = true;
 		this.roleses = roleses;
 		this.matches = matches;
 		this.entrainements = entrainements;

@@ -4,10 +4,7 @@
 	xsi:schemaLocation="http://ocpsoft.com/prettyfaces/3.3.2
    http://ocpsoft.com/xml/ns/prettyfaces/ocpsoft-pretty-faces-3.3.2.xsd">
 
-	<url-mapping id="home">
-		<pattern value="/" />
-		<view-id value="/index.jsf" />
-	</url-mapping>
+
 		<url-mapping id="connexion1">
 		<pattern value="/connexion1" />
 		<view-id value="/connexion1.jsf" />
@@ -28,14 +25,6 @@
 		<pattern value="/afficheNews" />
 		<view-id value="/pages/afficheNews.jsf" />
 	</url-mapping>
-	<url-mapping id="editJoueur">
-		<pattern value="/editionJoueur" />
-		<view-id value="/pages/editJoueur.jsf" />
-	</url-mapping>
-	<url-mapping id="editEducateur">
-		<pattern value="/editionEducateur" />
-		<view-id value="/pages/editEducateur.jsf" />
-	</url-mapping>
 	<url-mapping id="editNews">
 		<pattern value="/editionNews" />
 		<view-id value="/pages/editNews.xhtml" />
@@ -48,34 +37,7 @@
 		<pattern value="/rechercheJoueur" />
 		<view-id value="/pages/rechercheJoueur.jsf" />
 	</url-mapping>
-	<url-mapping id="creerJoueur">
-		<pattern value="/creerJoueur" />
-		<view-id value="/pages/creationJoueur.jsf" />
-	</url-mapping>
-	<url-mapping id="creerEducateur">
-		<pattern value="/creerEducateur" />
-		<view-id value="/pages/creationEducateur.jsf" />
-	</url-mapping>
-	<url-mapping id="creerEntrainement">
-		<pattern value="/listeJoueurPresent" />
-		<view-id value="/pages/creationEntrainement2.jsf" />
-	</url-mapping>
-	<url-mapping id="recapEntrainement">
-		<pattern value="/recapitulatifEntrainement" />
-		<view-id value="/pages/creationEntrainement3.jsf" />
-	</url-mapping>
-	<url-mapping id="creerEntrainement1">
-		<pattern value="/detailEntrainement" />
-		<view-id value="/pages/creationEntrainement.jsf" />
-	</url-mapping>
-	<url-mapping id="presenceEntrainement1">
-		<pattern value="/presenceEntrainement" />
-		<view-id value="/pages/presenceEntrainement1.jsf" />
-	</url-mapping>
-	<url-mapping id="presenceEntrainement2">
-		<pattern value="/presenceEntrainement2" />
-		<view-id value="/pages/presenceEntrainement2.jsf" />
-	</url-mapping>
+	
 	<url-mapping id="creationConvocation1">
 		<pattern value="/creationConvocation" />
 		<view-id value="/pages/creationConvocation.jsf" />

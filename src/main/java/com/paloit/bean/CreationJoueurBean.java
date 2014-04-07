@@ -1,14 +1,15 @@
 package com.paloit.bean;
 
+import javax.faces.bean.RequestScoped;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.paloit.entities.Joueur;
 import com.paloit.manager.JoueurManager;
 
 @Component
-@Scope
+@RequestScoped
 public class CreationJoueurBean {
 
 	// =========================================================================
@@ -23,6 +24,8 @@ public class CreationJoueurBean {
 	private String telJoueur;
 	private String categorieJoueur;
 	private String dateNaissanceJoueur;
+	private String mailJoueur;
+	private int number;
 
 	// =========================================================================
 	// CONSTRUCTEURS
@@ -37,10 +40,46 @@ public class CreationJoueurBean {
 
 	public String creerJoueur() {
 
+		switch(number)
+        {
+            case 1:
+                this.categorieJoueur = "U7";
+            break;
+            case 2:
+            	this.categorieJoueur = "U9";
+            break;
+            case 3:
+            	this.categorieJoueur = "U11";
+            break;
+            case 4:
+            	this.categorieJoueur = "U13";
+            break;
+            case 5:
+            	this.categorieJoueur = "U15";
+            break;
+            case 6:
+            	this.categorieJoueur = "U18";
+            break;
+            case 7:
+            	this.categorieJoueur = "Senior";
+            break;
+            default: this.categorieJoueur = "";
+            break;
+           
+            
+        }
+		
 		manager.creerJoueur1(nomJoueur, prenomJoueur, dateNaissanceJoueur,
-				adresseJoueur, telJoueur, categorieJoueur);
-
-		return "pretty:home";
+				adresseJoueur, telJoueur, categorieJoueur, mailJoueur);
+		this.nomJoueur = null;
+		this.prenomJoueur = null;
+		this.adresseJoueur = null;
+		this.categorieJoueur = null;
+		this.dateNaissanceJoueur = null;
+		this.telJoueur = null;
+		this.mailJoueur = null;
+		this.number = 0;
+		return "home.jsf";
 	}
 
 	//
@@ -112,5 +151,23 @@ public class CreationJoueurBean {
 	public void setDateNaissanceJoueur(String dateNaissanceJoueur) {
 		this.dateNaissanceJoueur = dateNaissanceJoueur;
 	}
+
+	public String getMailJoueur() {
+		return mailJoueur;
+	}
+
+	public void setMailJoueur(String mailJoueur) {
+		this.mailJoueur = mailJoueur;
+	}
+
+	public int getNumber() {
+		return number;
+	}
+
+	public void setNumber(int number) {
+		this.number = number;
+	}
+	
+	
 
 }

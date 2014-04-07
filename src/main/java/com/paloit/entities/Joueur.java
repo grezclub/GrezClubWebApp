@@ -29,6 +29,7 @@ public class Joueur implements java.io.Serializable {
 	private String nomJoueur;
 	private String prenomJoueur;
 	private String telJoueur;
+	private String mailJoueur;
 
 	public Joueur() {
 	}
@@ -40,7 +41,7 @@ public class Joueur implements java.io.Serializable {
 
 	public Joueur(int idJoueur, Equipe equipe, String adresseJoueur,
 			Date datenaissanceJoueur, String nomJoueur, String prenomJoueur,
-			String telJoueur) {
+			String telJoueur, String mailJoueur) {
 		this.idJoueur = idJoueur;
 		this.equipe = equipe;
 		this.adresseJoueur = adresseJoueur;
@@ -48,6 +49,7 @@ public class Joueur implements java.io.Serializable {
 		this.nomJoueur = nomJoueur;
 		this.prenomJoueur = prenomJoueur;
 		this.telJoueur = telJoueur;
+		this.mailJoueur = mailJoueur;
 	}
 
 	@Id
@@ -116,6 +118,15 @@ public class Joueur implements java.io.Serializable {
 
 	public void setTelJoueur(String telJoueur) {
 		this.telJoueur = telJoueur;
+	}
+	
+	@Column(name = "mail_joueur")
+	public String getMailJoueur() {
+		return this.mailJoueur;
+	}
+
+	public void setMailJoueur(String mailJoueur) {
+		this.mailJoueur = mailJoueur;
 	}
 
 }

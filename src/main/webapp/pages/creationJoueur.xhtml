@@ -8,8 +8,9 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 	<title></title>
-	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
-		<ui:include src="/pages/menu.xhtml" />
+		<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+	<ui:include src="/pages/menu.xhtml" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	
 </h:head>
 <h:body>
@@ -22,12 +23,23 @@
 		<p:inputText value="#{creationJoueurBean.nomJoueur}"/>
 		<h:outputText value="Date de naissance : "/>
 		<p:inputText value="#{creationJoueurBean.dateNaissanceJoueur}"/>
-		<h:outputText value="Categorie : "/>
-		<p:inputText value="#{creationJoueurBean.categorieJoueur}"/>
+		<h:outputText value="Catégorie : " />  
+        <p:selectOneMenu value="#{creationJoueurBean.number}" style="width:100px">  
+            <f:selectItem itemLabel="Choisir" itemValue="" />  
+            <f:selectItem itemLabel="U7" itemValue="1" />  
+            <f:selectItem itemLabel="U9" itemValue="2" />  
+            <f:selectItem itemLabel="U11" itemValue="3" />  
+            <f:selectItem itemLabel="U13" itemValue="4" />  
+            <f:selectItem itemLabel="U15" itemValue="5" />  
+            <f:selectItem itemLabel="U18" itemValue="6" />  
+            <f:selectItem itemLabel="Senior" itemValue="7" />  
+        </p:selectOneMenu> 
 		<h:outputText value="Adresse : "/>
 		<p:inputText value="#{creationJoueurBean.adresseJoueur}"/>
 		<h:outputText value="Telephone : "/>
 		<p:inputText value="#{creationJoueurBean.telJoueur}"/>
+		<h:outputText value="Mail : "/>
+		<p:inputText value="#{creationJoueurBean.mailJoueur}"/>
 		
 		<f:facet name="footer">  
 		<p:commandButton value="Reset" type="reset" />
