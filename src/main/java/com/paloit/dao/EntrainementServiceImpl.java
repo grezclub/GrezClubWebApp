@@ -53,4 +53,10 @@ public class EntrainementServiceImpl implements EntrainementService {
        sessionFactory.getCurrentSession().delete( entrainement );
     }
 
+	
+	public void updateEntrainement(Entrainement entrainement) {
+		sessionFactory.getCurrentSession().update(entrainement);
+		
+	}
+
 }

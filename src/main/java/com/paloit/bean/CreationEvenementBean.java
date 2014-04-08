@@ -22,7 +22,7 @@ public class CreationEvenementBean {
 			return "creationEntrainement.jsf";
 		}
 		
-		public String creerConvocation(){
+		public String afficherEntrainement(){
 			return "presenceEntrainement1.jsf";
 		}
 	    // =========================================================================

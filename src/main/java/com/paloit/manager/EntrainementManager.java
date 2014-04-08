@@ -15,4 +15,7 @@ public interface EntrainementManager {
 	
 	//Recuperer la liste des entrainements d'un educateur
 	public List<Entrainement> getEntrainementByEduc(Educateur educ);
+	
+	//Modifie un entrainement
+	public void updateEntrainement(Entrainement entrainement);
 }

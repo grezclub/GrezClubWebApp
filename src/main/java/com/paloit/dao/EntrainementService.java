@@ -29,5 +29,6 @@ public interface EntrainementService {
     public void deleteEntrainement (Entrainement entrainement);
     
     //Methode permettant de modifier un entrainement
+    public void updateEntrainement (Entrainement entrainement);
 
 }

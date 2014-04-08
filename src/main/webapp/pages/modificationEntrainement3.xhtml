@@ -17,9 +17,9 @@
 
 <h:form>
 		  <br></br>
-               Date : <p:outputLabel value="#{presenceEntrainementBean.dateAffiche}"></p:outputLabel> 
+               Date : <p:outputLabel value="#{presenceEntrainementBean.entrainement.dateEntrainement}"></p:outputLabel> 
                <br></br>
-				lieu : <p:outputLabel value="#{presenceEntrainementBean.lieu}"></p:outputLabel>
+				lieu : <p:outputLabel value="#{presenceEntrainementBean.entrainement.lieuEntrainement}"></p:outputLabel>
   				<br></br>
   				Educateur : <p:outputLabel value="#{presenceEntrainementBean.educateur.nomEducateur} #{presenceEntrainementBean.educateur.prenomEducateur}"></p:outputLabel>
   				<br></br>
@@ -39,7 +39,7 @@
       
       
 		<p:commandButton value="Modifier" action="#{presenceEntrainementBean.modifieListeJoueur}" />
-    <p:commandButton id="citySubmit" value="Enregistrer" action="#{presenceEntrainementBean.enregistre}"
+    <p:commandButton id="citySubmit" value="Enregistrer" action="#{presenceEntrainementBean.update}"
     ajax="false"/>     
 		
                

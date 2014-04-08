@@ -4,6 +4,7 @@
 	xsi:schemaLocation="http://ocpsoft.com/prettyfaces/3.3.2
    http://ocpsoft.com/xml/ns/prettyfaces/ocpsoft-pretty-faces-3.3.2.xsd">
 
+<!-- 
 
 		<url-mapping id="connexion1">
 		<pattern value="/connexion1" />
@@ -54,4 +55,5 @@
 		<pattern value="/rechercheNews" />
 		<view-id value="/pages/rechercheNews.jsf" />
 	</url-mapping>
+	 -->
 </pretty-config>

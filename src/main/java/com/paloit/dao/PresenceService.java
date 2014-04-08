@@ -1,10 +1,12 @@
 package com.paloit.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.paloit.entities.Educateur;
 import com.paloit.entities.Entrainement;
 import com.paloit.entities.Joueur;
+import com.paloit.entities.Presence;
 
 public interface PresenceService {
     
@@ -17,4 +19,12 @@ public interface PresenceService {
     //M�thode permettant de savoir qui a encadrer un entrainement
     public Educateur encadreEntrainement (Entrainement entrainemnt);
 
+    //Methode permettant de mettre a jour une liste de presence
+    public void updatePresence (Entrainement entrainement, Joueur joueur);
+    
+    //Methode qui supprime toute les presences d'un entrainement
+    public void deletePresence (Presence presence);
+    
+    //Methode qui renvoie la liste de presence d'un entrainement
+    public List<Presence> listePresenceParEntrainement (Entrainement entrainement);
 }

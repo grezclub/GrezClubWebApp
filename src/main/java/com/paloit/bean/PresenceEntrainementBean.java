@@ -5,16 +5,15 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.faces.bean.RequestScoped;
+
 import org.primefaces.event.TransferEvent;
 import org.primefaces.model.DualListModel;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
-
-import util.UtilitaireSession;
 
 import com.paloit.entities.Educateur;
 import com.paloit.entities.Entrainement;
@@ -26,7 +25,7 @@ import com.paloit.manager.JoueurManager;
 import com.paloit.manager.PresenceManager;
 
 @Component
-@Scope
+@RequestScoped
 public class PresenceEntrainementBean {
 
 	private Date date;
@@ -141,9 +140,38 @@ public class PresenceEntrainementBean {
 		
 		educateur = this.getUserName();
 
-		return "creationEntrainement.jsf";
+		return "creationEntrainement2.jsf";
 	}
 
+	public String updateEntrainement(){
+		// Joueurs
+				source = new ArrayList<Joueur>();
+				target = new ArrayList<Joueur>();
+				
+				//Recuperation des informations concernant l'educateur connecte
+				Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+				UserDetails userDatails = (UserDetails) auth.getPrincipal();
+				this.educateur = connexionManager.educParLogin(userDatails.getUsername());
+				
+				if (this.educateur.getFonction().contentEquals("ROLE_ADMIN") ){
+					source = joueurManager.getAllJoueur();
+					this.listeJoueurs = new DualListModel<Joueur>(source, target);
+					targetEssai = new ArrayList<String>();
+					
+					educateur = this.getUserName();
+
+					return "modifierEntrainement2.jsf";
+				}
+				else
+				source = joueurManager.listeJoueurCategorie(this.educateur.getEquipe().getCategorie());
+
+				this.listeJoueurs = new DualListModel<Joueur>(source, target);
+				targetEssai = new ArrayList<String>();
+				
+				educateur = this.getUserName();
+
+				return "modifierEntrainement2.jsf";
+	}
 	public String recapEntrainement() {
 
 		listeSelection = new ArrayList<Joueur>();
@@ -170,10 +198,22 @@ public class PresenceEntrainementBean {
 	public String enregistre(){
 		
 		entrainementManager.creerEntrainement(listeSelection, educateur, date, lieu);
+		this.date = null;
+		this.lieu = null;
+		
+		return "creationEvenement.jsf";
+	}
+	
+	//Methode qui met a jour un entrainement
+	public String update(){
+		
+		presenceManager.updatePresence(entrainement, listeSelection);
+		this.date = null;
+		this.lieu = null;
 		
 		return "home.jsf";
 	}
-	
+
 	//Modifier la liste de joueur
 	public String modifieListeJoueur(){
 		
@@ -199,9 +239,26 @@ public class PresenceEntrainementBean {
 		
 		listeJoueurPresent = new ArrayList<Joueur>();
 		listeJoueurPresent =  presenceManager.listePresence(entrainement);
-		return "creationEntrainement3.jsf";
+		return "presenceEntrainement2.jsf" ;
 	}
 
+	//Modifie liste joueur dans un entrainement existant
+	public String modifieListeJoueurExistant(){
+		
+		return "modifierEntrainement.jsf";
+	}
+	
+	//Recap de l'entrainement modifie
+	public String recapEntrainementModifie() {
+
+		listeSelection = new ArrayList<Joueur>();
+		for (int i = 0; i < this.targetEssai.size(); i++) {
+
+			listeSelection.add(joueurManager.joueurParId(targetEssai.get(i)));
+		}
+		return "modificationEntrainement3.jsf";
+
+	}
 	// =========================================================================
 	// @Autowired
 	// =========================================================================

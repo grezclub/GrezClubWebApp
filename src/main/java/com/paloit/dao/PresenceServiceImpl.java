@@ -1,8 +1,10 @@
 package com.paloit.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +21,8 @@ public class PresenceServiceImpl implements PresenceService {
 
     @Autowired
     private SessionFactory sessionFactory;
+  
+
 
     
     public void enregistrerPresence( Entrainement entrainement, Joueur joueur ) {
@@ -66,5 +70,39 @@ public class PresenceServiceImpl implements PresenceService {
                 ( "From Educateur where idEducateur = "+ entrainement.getEducateur().getIdEducateur()).uniqueResult();
         return educateur;
     }
+
+	@Override
+	public void updatePresence(Entrainement entrainement, Joueur joueur) {
+		 Presence presence = new Presence();
+	        PresenceId presenceId = new PresenceId();
+	        
+	        presenceId.setIdEntrainement( entrainement.getIdEntrainement() );
+	        presenceId.setIdJoueur( joueur.getIdJoueur() );
+	        
+	        presence.setId( presenceId );
+	        
+	        sessionFactory.getCurrentSession().save( presence );
+		
+	}
+
+	@Override
+	public void deletePresence(Presence presence) {
+		
+		
+		sessionFactory.getCurrentSession().delete(presence);
+
+		
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Presence> listePresenceParEntrainement(Entrainement entrainement) {
+		List <Presence>listePresence = new ArrayList<Presence>();
+		listePresence = (ArrayList<Presence>) sessionFactory.getCurrentSession().createQuery
+                ( "from Presence where id.idEntrainement = " + entrainement.getIdEntrainement() ).list();
+		System.out.println("c'est bon pour la recuperation de la liste de presence");
+		return listePresence;
+		
+	}
 
 }
