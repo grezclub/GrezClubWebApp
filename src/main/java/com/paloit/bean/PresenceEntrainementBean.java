@@ -5,7 +5,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 
 import org.primefaces.event.TransferEvent;
 import org.primefaces.model.DualListModel;
@@ -98,6 +101,7 @@ public class PresenceEntrainementBean {
 		return listeJoueurs;
 
 	}
+	
 
 	public List<Joueur> getJoueursSelectionne() {
 
@@ -172,6 +176,7 @@ public class PresenceEntrainementBean {
 
 				return "modifierEntrainement2.jsf";
 	}
+	
 	public String recapEntrainement() {
 
 		listeSelection = new ArrayList<Joueur>();
@@ -207,6 +212,7 @@ public class PresenceEntrainementBean {
 	//Methode qui met a jour un entrainement
 	public String update(){
 		
+		
 		presenceManager.updatePresence(entrainement, listeSelection);
 		this.date = null;
 		this.lieu = null;
@@ -214,6 +220,21 @@ public class PresenceEntrainementBean {
 		return "home.jsf";
 	}
 
+	//Methode qui suprime un entrainement et sa liste de présence
+	public String delete(){
+		
+		presenceManager.deletePresence(entrainement);
+		entrainementManager.deleteEntrainement(entrainement);
+		return "presenceEntrainement1.jsf";
+	}
+
+	//Listener du bouton supprimer
+	  public void supprimeEntrainement(ActionEvent actionEvent){  
+	        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Entrainement supprimé",  "Please try again later.");  
+	          
+	        FacesContext.getCurrentInstance().addMessage(null, message); 
+	    } 
+	
 	//Modifier la liste de joueur
 	public String modifieListeJoueur(){
 		

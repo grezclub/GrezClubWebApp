@@ -18,6 +18,7 @@
 	
 	<h:form id="form2">
 	
+	
     <p:dataTable id="dataTable" var="entrainement" value="#{presenceEntrainementBean.listeEntrainement}" widgetVar="entrainementTable"   
             emptyMessage="Aucun entrainement ne corresppond à votre recherche" filteredValue="#{presenceEntrainementBean.filtreEntrainement}"
             	style="position:absolute ; top: 20%; left:10%; width:460px">  
@@ -26,7 +27,7 @@
         <p:column id="colonneDate" filterBy="#{entrainement.dateEntrainement}"  
                 headerText="Date" 
                 filterMatchMode="contains">  
-                <p:commandLink action="#{presenceEntrainementBean.detailEntrainement}">
+                <p:commandLink action="#{presenceEntrainementBean.detailEntrainement}" ajax="false">
             <h:outputText value="#{entrainement.dateEntrainement}" /> 
              <f:setPropertyActionListener target="#{presenceEntrainementBean.entrainement}" value="#{entrainement}"/>
             </p:commandLink> 

@@ -1,17 +1,23 @@
 package com.paloit.bean;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.primefaces.event.TransferEvent;
 import org.primefaces.model.DualListModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import com.paloit.entities.Educateur;
 import com.paloit.entities.Joueur;
 import com.paloit.entities.Match;
 import com.paloit.manager.ConnexionManager;
+import com.paloit.manager.ConvocationManager;
 import com.paloit.manager.EducateurManager;
 import com.paloit.manager.JoueurManager;
 import com.paloit.manager.MatchManager;
@@ -36,12 +42,17 @@ public class PresenceMatchBean {
 	private Joueur joueur;
 	private Educateur educateurSelectionner;
 	private Educateur educateur;
+	
+	private List<Joueur> source;
+	private List<Joueur> target;
+	private List<String> targetEssai;
 
 	private JoueurManager joueurManager;
 	private EducateurManager educateurManager;
 	private ConnexionManager connexionManager;
 	private MatchManager matchManager;
-	private PresenceManager presenceManager;
+	private ConvocationManager convocationManager;
+	
 	
 
 	// =========================================================================
@@ -56,14 +67,134 @@ public class PresenceMatchBean {
 		// METHODS
 		// =========================================================================
 		
+	//Listener de la PickList
+		public void onTransfer(TransferEvent event) {
+
+			StringBuilder builder = new StringBuilder();
+			for (Object item : event.getItems()) {
+
+				// Joueur joueur = (Joueur) event.getItems().get(0);
+
+				if (targetEssai.contains(item)) {
+					targetEssai.remove(item);
+					System.out.println("sortie de la liste = " + item);
+
+				} else
+					targetEssai.add((String) item);
+				for (int j = 0; j < targetEssai.size(); j++) {
+					System.out.println("Dans la liste = " + targetEssai.get(j));}}
+
+				} 
+
+
+		public DualListModel<Joueur> getJoueursListe() {
+			// listes source et cible 
+			source = new ArrayList<Joueur>();
+			target = new ArrayList<Joueur>();
+			
+			
+			source = joueurManager.getAllJoueur();
+
+			this.listeJoueurs = new DualListModel<Joueur>(source, target);
+
+			return listeJoueurs;
+
+		}
+		
+		
+		//Methode qui renvoie les infos sur l'educateur connécter
+		public Educateur getUserName(){
+			/*Object userDetails = SecurityContextHolder.getContext().getAuthentication().getDetails();
+			return userDetails.toString();*/
+			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+			UserDetails userDatails = (UserDetails) auth.getPrincipal();
+			this.educateur = connexionManager.educParLogin(userDatails.getUsername());
+			return educateur;
+
+		}
+		
+	
 	//Récupère la liste des entrainements
 		public List<Match> getListeMatch(){
 			
 			return matchManager.getAllMatch();		
 		}
 		
-		//Affiche les joueurs present a l'entrainement
+		//Affiche les joueurs convoqué au match selectionné
+		public String detailMatch(){
+			
+			listeJoueurPresent = new ArrayList<Joueur>();
+			listeJoueurPresent =  convocationManager.listeConvocation(match);
+			System.out.println(listeJoueurPresent.size());
+			return "presenceMatch2.jsf" ;
+		}
 		
+		//Modifie liste joueur dans un match existant
+		public String modifieListeJoueurExistant(){
+			
+			return "modifierMatch.jsf";
+		}
+
+		//Recap de l'entrainement modifie
+		public String recapMatchModifie() {
+
+			listeSelection = new ArrayList<Joueur>();
+			for (int i = 0; i < this.targetEssai.size(); i++) {
+
+				listeSelection.add(joueurManager.joueurParId(targetEssai.get(i)));
+			}
+			return "modifierMatch3.jsf";
+
+		}
+		
+		public String updateMatch(){
+			// Joueurs
+					source = new ArrayList<Joueur>();
+					target = new ArrayList<Joueur>();
+					
+					//Recuperation des informations concernant l'educateur connecte
+					Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+					UserDetails userDatails = (UserDetails) auth.getPrincipal();
+					this.educateur = connexionManager.educParLogin(userDatails.getUsername());
+					
+					if (this.educateur.getFonction().contentEquals("ROLE_ADMIN") ){
+						source = joueurManager.getAllJoueur();
+						this.listeJoueurs = new DualListModel<Joueur>(source, target);
+						targetEssai = new ArrayList<String>();
+						
+						educateur = this.getUserName();
+
+						return "modifierMatch2.jsf";
+					}
+					else
+					source = joueurManager.listeJoueurCategorie(this.educateur.getEquipe().getCategorie());
+
+					this.listeJoueurs = new DualListModel<Joueur>(source, target);
+					targetEssai = new ArrayList<String>();
+					
+					educateur = this.getUserName();
+
+					return "modifierMatch2.jsf";
+		}
+		
+		//Methode qui met a jour un entrainement
+		public String update(){
+			
+			
+			convocationManager.updateConvocation(match, listeSelection);
+			this.date = null;
+			this.lieu = null;
+			
+			return "presenceMatch1.jsf";
+		}
+
+		//Methode qui suprime un match et sa liste de convocation
+		public String delete(){
+			
+			convocationManager.deleteConvocation(match);
+			matchManager.deleteMatch(match);
+			return "presenceMatch1.jsf";
+		}
 		
 		// =========================================================================
 		// @Autowired
@@ -89,8 +220,8 @@ public class PresenceMatchBean {
 	        this.matchManager = manager;
 	    }
 		@Autowired
-	    public void setManager(PresenceManager manager) {
-	        this.presenceManager = manager;
+	    public void setManager(ConvocationManager convocationManager) {
+	        this.convocationManager = convocationManager;
 	    }
 		
 		// =========================================================================
@@ -203,6 +334,34 @@ public class PresenceMatchBean {
 
 		public void setFiltreMatch(List<Match> filtreMatch) {
 			this.filtreMatch = filtreMatch;
+		}
+
+		
+		public List<Joueur> getSource() {
+			return source;
+		}
+
+		
+		public void setSource(List<Joueur> source) {
+			this.source = source;
+		}
+
+		
+		public List<Joueur> getTarget() {
+			return target;
+		}
+
+		
+		public void setTarget(List<Joueur> target) {
+			this.target = target;
+		}
+
+		public List<String> getTargetEssai() {
+			return targetEssai;
+		}
+
+		public void setTargetEssai(List<String> targetEssai) {
+			this.targetEssai = targetEssai;
 		}
 		
 		

@@ -30,5 +30,17 @@ public class MatchServiceImpl implements MatchService {
 		return sessionFactory.getCurrentSession().createQuery( "from Match" ).list();
 	}
 
+	
+	public void updateMatch(Match match) {
+		sessionFactory.getCurrentSession().update(match);
+		
+	}
+
+	@Override
+	public void deleteMatch(Match match) {
+		sessionFactory.getCurrentSession().delete(match);
+		
+	}
+
 
 }

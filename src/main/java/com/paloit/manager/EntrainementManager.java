@@ -18,4 +18,7 @@ public interface EntrainementManager {
 	
 	//Modifie un entrainement
 	public void updateEntrainement(Entrainement entrainement);
+	
+	//Suprime un entrainement
+	public void deleteEntrainement(Entrainement entrainement);
 }

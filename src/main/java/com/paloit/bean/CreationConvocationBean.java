@@ -155,7 +155,7 @@ public class CreationConvocationBean {
 				
 				educateur = this.getUserName();
 
-				return "pretty:creationConvocation2";
+				return "creationConvocation2.jsf";
 			}
 			else
 			source = joueurManager.listeJoueurCategorie(this.educateur.getEquipe().getCategorie());
@@ -165,7 +165,7 @@ public class CreationConvocationBean {
 			
 			educateur = this.getUserName();
 
-			return "pretty:creationConvocation2";
+			return "creationConvocation2.jsf";
 		}
 		
 		//Methode renvoyant a la page recapitulative des informations saisie
@@ -176,14 +176,14 @@ public class CreationConvocationBean {
 
 				listeSelection.add(joueurManager.joueurParId(targetEssai.get(i)));
 			}
-			return "pretty:creationConvocation3";
+			return "creationConvocation3.jsf";
 
 		}
 		
 		//Modifier la liste de joueur
 		public String modifieListeJoueur(){
 			
-			return "pretty:creationConvocation1";
+			return "creationConvocation1.jsf";
 		}
 		
 		//Methode qui enregistre une Convocation
@@ -191,7 +191,7 @@ public class CreationConvocationBean {
 			
 			matchManager.creerConvocation(listeSelection, educateur, date, lieu, adversaire, heure, commentaire);
 			
-			return "pretty:home";
+			return "presenceMatch1.jsf";
 		}
 		
 		

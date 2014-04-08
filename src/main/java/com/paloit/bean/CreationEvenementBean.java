@@ -25,6 +25,14 @@ public class CreationEvenementBean {
 		public String afficherEntrainement(){
 			return "presenceEntrainement1.jsf";
 		}
+		
+		public String creerConvocation(){
+			return "creationConvocation.jsf";
+		}
+		
+		public String afficherConvocation(){
+			return "presenceMatch1.jsf";
+		}
 	    // =========================================================================
 	    // OVERRIDES
 	    // =========================================================================

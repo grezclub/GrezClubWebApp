@@ -25,7 +25,10 @@
         <p:column id="colonneDate"  filterBy="#{match.dateMatch} }"  
                 headerText="Date" >  
 
+ 			<p:commandLink action="#{presenceMatchBean.detailMatch}" ajax="false">
             <h:outputText value="#{match.dateMatch}" /> 
+              <f:setPropertyActionListener target="#{presenceMatchBean.match}" value="#{match}"/>
+            </p:commandLink>
           
         </p:column>  
         <p:column id="colonneLieu" filterBy="#{match.lieuMatch} }" 

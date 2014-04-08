@@ -65,5 +65,10 @@ public class MatchManagerImpl implements MatchManager {
 	public List<Match> getAllMatch() {
 			return matchService.findAll();
 	}
+	@Override
+	public void deleteMatch(Match match) {
+		matchService.deleteMatch(match);
+		
+	}
 
 }

@@ -7,40 +7,44 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
-	<title></title>
-	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
-		<ui:include src="/pages/menu.xhtml" />
+		<title></title>
+		<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+	<ui:include src="/pages/menu.xhtml" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	
 </h:head>
 <h:body>
-	<h:form id="form812" >
-	<br></br>
-	<br></br>
-	<p:outputLabel value="Liste des joueurs présents au match :"></p:outputLabel>
-	<br></br>
-	<br></br>
-	<p:panel>
-		<br></br>
+
+<h:form>
+		  <br></br>
                Date : <p:outputLabel value="#{presenceMatchBean.match.dateMatch}"></p:outputLabel> 
                <br></br>
 				lieu : <p:outputLabel value="#{presenceMatchBean.match.lieuMatch}"></p:outputLabel>
   				<br></br>
-  				Educateur : <p:outputLabel value="#{match.educateur.nomEducateur}"></p:outputLabel>
+  				Educateur : <p:outputLabel value="#{presenceMatchBean.educateur.nomEducateur} #{presenceMatchBean.educateur.prenomEducateur}"></p:outputLabel>
   				<br></br>
-		<p:dataTable var="joueur" value="#{presenceMatchBean.listeJoueurPresent}">  
+  				
+      <p:dataTable var="joueur" value="#{presenceMatchBean.listeSelection}">  
         <p:column headerText="Nom">  
             <h:outputText value="#{joueur.nomJoueur}" />  
         </p:column>  
-   		 <p:column headerText="Prenom">  
+  
+        <p:column headerText="Prenom">  
             <h:outputText value="#{joueur.prenomJoueur}" />  
         </p:column>  
-   
-    </p:dataTable> 
-    <f:facet name="footer" style="left:20%">
-    <p:commandButton value="Modifier" action="#{presenceMatchBean.modifieListeJoueurExistant}" ajax="false"/>
-    <p:commandButton value="Supprimer"  action="#{presenceMatchBean.delete}" ajax="false"/>
-    </f:facet>
-    </p:panel>
+  
+      </p:dataTable> 
+      <br></br>
+      <br></br>
+      
+      
+		<p:commandButton value="Modifier" action="#{presenceEntrainementBean.modifieListeJoueur}" />
+    <p:commandButton id="citySubmit" value="Enregistrer" action="#{presenceMatchBean.update}"
+    ajax="false"/>     
+		
+               
+       
+		
 	</h:form>
 </h:body>
 </html>

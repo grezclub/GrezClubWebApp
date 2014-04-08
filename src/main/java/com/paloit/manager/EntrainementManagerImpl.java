@@ -68,9 +68,15 @@ public class EntrainementManagerImpl implements EntrainementManager {
 		listeEntrainement = entrainementService.listeEntrainementParEducateur(educ.getIdEducateur());
 		return listeEntrainement;
 	}
-	@Override
+
 	public void updateEntrainement(Entrainement entrainement) {
 		entrainementService.updateEntrainement(entrainement);
+		
+	}
+	
+	@Override
+	public void deleteEntrainement(Entrainement entrainement) {
+		entrainementService.deleteEntrainement(entrainement);
 		
 	}
 	 

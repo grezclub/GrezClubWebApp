@@ -20,12 +20,22 @@
 	<br></br>
 	
 	 <p:commandLink id="creerEntrainement" action="#{creationEvenementBean.creerEntrainement}" style="margin-right:20px" ajax="false">  
-        <h:outputText value="Creer un Entrainement" />  
+        <h:outputText value="Creer une liste de présence à un entrainement" />  
     </p:commandLink> 
     <br></br>
 	<br></br>
     <p:commandLink id="AfficherPresence" action="#{creationEvenementBean.afficherEntrainement}" style="margin-right:20px;" ajax="false">  
         <h:outputText value="Consulter la liste de tous les entrainements" />  
+    </p:commandLink>  
+     <br></br>
+	<br></br>
+    <p:commandLink id="creerConvocation" action="#{creationEvenementBean.creerConvocation}" style="margin-right:20px;" ajax="false">  
+        <h:outputText value="Creer une liste de convocation à un match" />  
+    </p:commandLink>  
+     <br></br>
+	<br></br>
+    <p:commandLink id="AfficherConvocation" action="#{creationEvenementBean.afficherConvocation}" style="margin-right:20px;" ajax="false">  
+        <h:outputText value="Consulter la liste de toutes les convocations" />  
     </p:commandLink>  
 		
 	</h:form>

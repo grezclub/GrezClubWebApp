@@ -1,0 +1,53 @@
+	
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title></title>
+	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+		<ui:include src="/pages/menu.xhtml" />
+	
+</h:head>
+<h:body>
+	
+	
+		<h:form>
+
+                     
+        <p:panel id="panel" style="position:absolute ; top: 60% ;left:25%; width:50%">         
+      <h:panelGrid columns="2" cellpadding="5">
+  		<h:outputText value="Date : "/>
+		<p:calendar value="#{presenceMatchBean.match.dateMatch}" id="cal" showButtonPanel="true" style="width:225px"/>
+		<h:outputText value="Lieu : "/>
+		<p:inputText value="#{presenceMatchBean.match.lieuMatch}" style="width:225px"/>
+		<h:outputText value="Commentaire : "/>
+		<p:inputText value="#{presenceMatchBean.match.commentaire}" style="width:225px"/>
+		<h:outputText value="Adversaire : "/>
+		<p:inputText value="#{presenceMatchBean.match.adversaire}" style="width:225px"/>
+		<h:outputText value="Heure du rendez-vous : "/>
+		<p:inputText value="#{presenceMatchBean.match.heure}" style="width:225px"/>
+  		
+  		
+  		<f:facet name="footer">  
+		<p:commandButton value="Reset" type="reset" />
+    <p:commandButton id="citySubmit" value="Suivant" action="#{presenceMatchBean.updateMatch}"
+   ajax="false" />     
+    
+
+    						
+    	 
+    
+      
+		</f:facet>
+		</h:panelGrid>
+		</p:panel>
+	</h:form>
+	
+</h:body>
+</html>
+
+

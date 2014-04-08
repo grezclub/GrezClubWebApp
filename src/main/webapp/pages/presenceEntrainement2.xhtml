@@ -16,10 +16,23 @@
 <h:body>
 	<h:form>
 
+<p:growl id="messages" showDetail="true" />  
+  
+    
+  
+    
+    
 	<p:outputLabel value="Liste des joueurs présents à l'entrainement :"></p:outputLabel>
 	<br></br>
 	<br></br>
 	<p:panel>
+	 <br></br>
+               Date : <p:outputLabel value="#{presenceEntrainementBean.entrainement.dateEntrainement}"></p:outputLabel> 
+               <br></br>
+				lieu : <p:outputLabel value="#{presenceEntrainementBean.entrainement.lieuEntrainement}"></p:outputLabel>
+  				<br></br>
+  				Educateur : <p:outputLabel value="#{entrainement.educateur.nomEducateur} "></p:outputLabel>
+  				<br></br>
 		<p:dataTable var="joueur" value="#{presenceEntrainementBean.listeJoueurPresent}">  
         <p:column headerText="Nom">  
             <h:outputText value="#{joueur.nomJoueur}" />  
@@ -31,6 +44,23 @@
     </p:dataTable> 
     <f:facet name="footer" style="left:20%">
     <p:commandButton value="Modifier" action="#{presenceEntrainementBean.modifieListeJoueurExistant}" ajax="false"/>
+    
+    <p:commandButton value="Supprimer"  action="#{presenceEntrainementBean.delete}" ajax="false">
+   
+     </p:commandButton>
+     
+   
+     
+     <!-- Exemple de confirmation-->
+     <p:commandButton type="button" onclick="cd.show()" />
+<p:confirmDialog message="Etes vous sure de vouloir supprimer cet entrainement"
+header="Attention" severity="alert"        widgetVar="cd">
+<p:commandButton value="Oui" actionListener="#{presenceEntrainementBean.delete}" 
+update="messages" oncomplete="confirmation.hide()"/>
+<p:commandButton value="Annuler" onclick="confirmation.hide();" type="button" /> 
+</p:confirmDialog> 
+     
+    
     </f:facet>
     </p:panel>
 	</h:form>

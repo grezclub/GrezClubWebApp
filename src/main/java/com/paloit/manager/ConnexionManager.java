@@ -1,6 +1,11 @@
 package com.paloit.manager;
 
+import java.util.List;
+
 import com.paloit.entities.Educateur;
+import com.paloit.entities.Entrainement;
+import com.paloit.entities.Joueur;
+import com.paloit.entities.Match;
 
 public interface ConnexionManager {
 	
@@ -9,5 +14,9 @@ public interface ConnexionManager {
 	
 	//Recuperer un educateur par son login
 	public Educateur educParLogin (String login);
+	
+
+	
+
 
 }

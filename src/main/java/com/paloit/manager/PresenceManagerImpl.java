@@ -7,11 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.paloit.dao.EntrainementService;
 import com.paloit.dao.PresenceService;
 import com.paloit.entities.Entrainement;
 import com.paloit.entities.Joueur;
 import com.paloit.entities.Presence;
-import com.paloit.entities.PresenceId;
 
 @Service
 @Transactional
@@ -19,10 +19,16 @@ public class PresenceManagerImpl implements PresenceManager {
 	
 	//ATTRIBUTS
 
+		
 		private PresenceService 		presenceService;
+		private EntrainementService    	entrainementService;
 		private List<Joueur> listePresence;
 		
 		//AUTOWIRED
+		@Autowired
+		public void setEntrainementService (EntrainementService  entrainementService) {
+			this.entrainementService = entrainementService;
+		}
 		@Autowired
 		public void setPresenceService(PresenceService presenceService) {
 			this.presenceService = presenceService;
@@ -40,6 +46,8 @@ public class PresenceManagerImpl implements PresenceManager {
 		List<Presence> listeTemporaire = new ArrayList <Presence>();
 		listeTemporaire = presenceService.listePresenceParEntrainement(entrainement);
 		
+		entrainementService.updateEntrainement(entrainement);
+		
 		for (int i = 0; i < listeTemporaire.size(); i++){
 		presenceService.deletePresence(listeTemporaire.get(i));
 		}
@@ -49,5 +57,16 @@ public class PresenceManagerImpl implements PresenceManager {
         }
         
 	}
+	
+	public void deletePresence(Entrainement entrainement) {
+		
+		List<Presence> listePresence = new ArrayList<Presence>();
+		listePresence = presenceService.listePresenceParEntrainement(entrainement);
+		for (int i = 0; i <listePresence.size(); i++){
+			presenceService.deletePresence(listePresence.get(i));
+		}
+		
+	}
 
+	
 }

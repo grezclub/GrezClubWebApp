@@ -15,4 +15,6 @@ public interface MatchManager {
 	//Recuperation de la liste de tous les match
 	public List<Match> getAllMatch();
 
+	//Suprime un match
+	public void deleteMatch(Match match);
 }
