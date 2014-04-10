@@ -61,7 +61,9 @@ public class CreationNewsBean {
 	
 		manager.creerNews(imageNews, titreNews, contenueNews);
 		  
-			
+			imageNews = null;
+			titreNews = null;
+			contenueNews = null;
 	        return "afficheNews.jsf";
 	    
 	}

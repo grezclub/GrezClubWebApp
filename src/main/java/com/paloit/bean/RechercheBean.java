@@ -200,14 +200,14 @@ public class RechercheBean {
 		this.news.setImageNews(this.imageNews);
 		newsManager.modifierNews(this.news);
 
-		return "pretty:afficheNews";
+		return "afficheNews.jsf";
 
 	}
 
 	public String deleteNews() {
 
 		newsManager.supprimeNews(this.idNews);
-		return "pretty:afficheNews";
+		return "afficheNews.jsf";
 	}
 	
 	public void reinitNews() {

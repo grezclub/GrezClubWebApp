@@ -27,9 +27,9 @@
         <p:column id="colonneNom" filterBy="#{educateur.nomEducateur }"  
                 headerText="Nom" 
                 filterMatchMode="contains">  
-                <p:commandLink action="#{rechercheEducateurBean.editEducateur}">
+                <p:commandLink action="#{rechercheEducateurBean.editEducateur}" ajax="false">
             <h:outputText value="#{educateur.nomEducateur }" /> 
-             <f:setPropertyActionListener target="#{rechercheEducateurBean.educateur}" value="#{educateur}"/>
+             <f:setPropertyActionListener target="#{rechercheEducateurBean.educateur}" value="#{educateur}" />
             </p:commandLink> 
           
         </p:column>  

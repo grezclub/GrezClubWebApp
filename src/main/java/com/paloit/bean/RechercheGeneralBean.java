@@ -23,7 +23,7 @@ public class RechercheGeneralBean {
 	}
 	
 	public String rechercheEducateur(){
-		return "pretty:rechercheEducateur";
+		return "rechercheEducateur.jsf";
 	}
     // =========================================================================
     // OVERRIDES

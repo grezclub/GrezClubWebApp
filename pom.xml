@@ -39,53 +39,53 @@
 	</properties>
 
 	<repositories>
-	<!-- Repertoire PrimeFaces -->
+		<!-- Repertoire PrimeFaces -->
 		<repository>
 			<id>prime-repo</id>
 			<name>PrimeFaces Maven Repository</name>
 			<url>http://repository.primefaces.org</url>
 			<layout>default</layout>
 		</repository>
-		
-	<!-- Repertoire Spring Security -->
+
+		<!-- Repertoire Spring Security -->
 		<repository>
-        	<id>spring-milestones</id>
-        	<name>Spring Milestones</name>
-        	<url>http://repo.spring.io/milestone</url>
-        	<snapshots>
-            <enabled>false</enabled>
-        	</snapshots>
-    	</repository>
-    	<repository>
-        	<id>spring-milestones</id>
-        	<name>Spring Milestones</name>
-        	<url>http://repo.spring.io/milestone</url>
-        	<snapshots>
-            <enabled>false</enabled>
-        	</snapshots>
-    	</repository>
-    
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>http://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>http://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+
 	</repositories>
 
 	<dependencies>
 
 		<!-- SPRING SECURITY -->
 		<dependency>
-       		 <groupId>org.springframework.security</groupId>
-        	<artifactId>spring-security-core</artifactId>
-        	<version>3.2.0.RC1</version>
-    	</dependency>
-		 <dependency>
-       		 <groupId>org.springframework.security</groupId>
-        	<artifactId>spring-security-web</artifactId>
-        	<version>3.2.0.RC1</version>
-    	</dependency>
-    	<dependency>
-        	<groupId>org.springframework.security</groupId>
-        	<artifactId>spring-security-config</artifactId>
-        	<version>3.2.0.RC1</version>
-    	</dependency>
-		
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>3.2.0.RC1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>3.2.0.RC1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>3.2.0.RC1</version>
+		</dependency>
+
 		<!-- JSF -->
 		<dependency>
 			<groupId>com.sun.faces</groupId>
@@ -124,11 +124,11 @@
 		<!-- Servlet 2.5 -->
 
 		<dependency>
-    <groupId>javax.servlet</groupId>
-    <artifactId>javax.servlet-api</artifactId>
-    <version>3.0.1</version>
-    <scope>provided</scope>
-</dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+			<scope>provided</scope>
+		</dependency>
 
 		<!-- Javax -->
 		<dependency>
@@ -141,7 +141,7 @@
 			<artifactId>cdi-api</artifactId>
 			<version>1.1-20130918</version>
 		</dependency>
-            
+
 
 
 		<!-- SPRING -->
@@ -155,8 +155,8 @@
 			<artifactId>spring-test</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		
-		
+
+
 		<!-- HIBERNATE -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -180,8 +180,15 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- Postgresql  9.1-408.jdbc3-->
-		
+		<!-- JAVAMAIL -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4</version>
+		</dependency>
+
+		<!-- Postgresql 9.1-408.jdbc3 -->
+
 		<dependency>
 			<groupId>postgresql</groupId>
 			<artifactId>postgresql</artifactId>
@@ -192,7 +199,7 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>${hibernate.version}</version>
-		</dependency> 
+		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-c3p0</artifactId>
@@ -220,7 +227,7 @@
 			<version>1.4</version>
 		</dependency>
 		<dependency>
-  			<groupId>commons-beanutils</groupId>
+			<groupId>commons-beanutils</groupId>
 			<artifactId>commons-beanutils-core</artifactId>
 			<version>1.8.3</version>
 		</dependency>
@@ -245,7 +252,7 @@
 			<artifactId>cupertino</artifactId>
 			<version>1.0.9</version>
 		</dependency>
-		
+
 	</dependencies>
 	<build>
 		<finalName>myApp</finalName>

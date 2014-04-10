@@ -26,7 +26,7 @@
         <p:column id="colonneTitre" filterBy="#{news.titreNews }"  
                 headerText="Titre1" 
                 filterMatchMode="contains">  
-                <p:commandLink action="#{rechercheBean.editNews}">
+                <p:commandLink action="#{rechercheBean.editNews}" ajax="false">
             <h:outputText value="#{news.titreNews}" />  
             <f:setPropertyActionListener target="#{rechercheBean.news}" value="#{news}"/>
             </p:commandLink>

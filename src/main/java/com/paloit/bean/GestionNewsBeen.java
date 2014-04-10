@@ -22,7 +22,11 @@ public class GestionNewsBeen {
 		}
 		
 		public String rechercheNews(){
-			return "pretty:rechercheNews";
+			return "rechercheNews.jsf";
+		}
+		
+		public String afficheNews(){
+			return "afficheNews.jsf";
 		}
 	    // =========================================================================
 	    // OVERRIDES
