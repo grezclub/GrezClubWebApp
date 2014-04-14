@@ -27,7 +27,7 @@ body
 {
 
 
-		position: fixed;  top: 0px;
+		  top: 0px;
     left: 0;
     right: 0;
 		 
@@ -37,7 +37,7 @@ body
 		font-size: x-large;
 		width: 99%;
 		height: 209px;
-		background: url("#{resource['/images/header1s.png']}") fixed no-repeat top center;
+		background: url("#{resource['/images/header1s.png']}")  no-repeat top center;
 		margin: 0 auto;
 z-index: 3;
 
@@ -46,10 +46,10 @@ z-index: 3;
 
 #section
 {
-		position: fixed;
+		
 		top: 209px;
 		text-align: center;
-	/*	width: 99%;*/
+		width: 99%;
 		height: 155px; 
 		z-index: 1;
 		margin: 0 auto;
@@ -82,6 +82,7 @@ padding-right: 100px;
 
 		
 }
+
 #navul
 {
     list-style-type: none;

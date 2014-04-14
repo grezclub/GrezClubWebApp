@@ -29,8 +29,8 @@ public class MailBean {
 	private Integer progressMax = 100;
 
 	private String categorieJoueur;
-	private String contenueMail;
-	private String objetMail;
+	private String contenueMail = null;
+	private String objetMail = null;
 	private List<Joueur> listeDestinataire;
 	private int number;
 
@@ -72,7 +72,7 @@ public class MailBean {
 			this.categorieJoueur = "Tous";
 			break;
 		default:
-			this.categorieJoueur = "";
+			this.categorieJoueur = "Tous";
 			break;
 		}
 		

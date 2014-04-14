@@ -42,6 +42,8 @@ public class PresenceMatchBean {
 	private Joueur joueur;
 	private Educateur educateurSelectionner;
 	private Educateur educateur;
+	private Integer number;
+	private String classe;
 	
 	private List<Joueur> source;
 	private List<Joueur> target;
@@ -132,9 +134,25 @@ public class PresenceMatchBean {
 		//Modifie liste joueur dans un match existant
 		public String modifieListeJoueurExistant(){
 			
+			if (match.getClasse().equals("A")){
+				number = 1;
+			}
+			else if (match.getClasse().equals("B")) {
+				number = 2;
+			}
+			else if (match.getClasse().equals("C")) {
+				number = 3;
+			}
+			else {
+				number = 0;
+			}
 			return "modifierMatch.jsf";
 		}
 
+		//modification de la modif
+		public String modifieListeJoueur(){
+			return "modifierMatch.jsf";
+		}
 		//Recap de l'entrainement modifie
 		public String recapMatchModifie() {
 
@@ -180,10 +198,29 @@ public class PresenceMatchBean {
 		//Methode qui met a jour un entrainement
 		public String update(){
 			
+			switch (number) {
+			case 0:
+				match.setClasse(this.classe);
+				break;
+			case 1:
+				match.setClasse("A");
+				break;
+			case 2:
+				match.setClasse("B");
+				break;
+			case 3:
+				match.setClasse("C");
+				break;
 			
+			default:
+				match.setClasse("A");
+				break;
+			}
 			convocationManager.updateConvocation(match, listeSelection);
 			this.date = null;
 			this.lieu = null;
+			this.classe = null;
+			this.number = 0;
 			
 			return "presenceMatch1.jsf";
 		}
@@ -229,6 +266,7 @@ public class PresenceMatchBean {
 		// =========================================================================
 		
 		public Date getDate() {
+			
 			return date;
 		}
 
@@ -363,6 +401,25 @@ public class PresenceMatchBean {
 		public void setTargetEssai(List<String> targetEssai) {
 			this.targetEssai = targetEssai;
 		}
+
+		public Integer getNumber() {
+			return number;
+		}
+
+		public void setNumber(Integer number) {
+			this.number = number;
+		}
+
+		
+		public String getClasse() {
+			return classe;
+		}
+
+		public void setClasse(String classe) {
+			this.classe = classe;
+		}
+		
+		
 		
 		
 

@@ -39,7 +39,7 @@ public class MatchManagerImpl implements MatchManager {
 
 	public void creerConvocation(List<Joueur> joueurListe, Educateur educateur,
 			Date date, String lieu, String adversaire, String heure,
-			String commentaire) {
+			String commentaire, String classe) {
 	
 	match = new Match();
 	
@@ -50,6 +50,7 @@ public class MatchManagerImpl implements MatchManager {
     match.setHeure(heure);
     match.setAdversaire(adversaire);
     match.setCommentaire(commentaire);
+    match.setClasse(classe);
     match.setEducateur(educateur);
     
     matchService.enregistrerMatch(match);

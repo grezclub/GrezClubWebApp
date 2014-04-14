@@ -16,15 +16,25 @@
 <h:body>
 	<h:form id="form66">
 		<p:panel header="Informations concernant le joueur" style="position:absolute ; top: 20%; left:32%; width:460px">
-		 <h:panelGrid columns="2" cellpadding="5">
-		<h:outputText value="Prenom : "/>
-		<p:inputText value="#{creationJoueurBean.prenomJoueur}"/>
+		<p:messages id="msgs"/>
+		 <h:panelGrid columns="3" cellpadding="1">
+		<h:outputText for="prenom" value="Prenom : *"/>
+		<p:inputText id="prenom" value="#{creationJoueurBean.prenomJoueur}" required="true" label="Prenom" requiredMessage="Veuillez saisir un prénom">
+		<f:validateLength minimum="2" /> 
+		</p:inputText>
+		<p:message for="prenom" display="icon"/>  
 		<h:outputText value="Nom : "/>
-		<p:inputText value="#{creationJoueurBean.nomJoueur}"/>
+		<p:inputText id="nom" value="#{creationJoueurBean.nomJoueur}" required="true" label="nom" requiredMessage="Veuillez saisir un nom">
+		<f:validateLength minimum="2" /> 
+		</p:inputText>
+		<p:message for="nom" display="icon"/>
 		<h:outputText value="Date de naissance : "/>
-		<p:inputText value="#{creationJoueurBean.dateNaissanceJoueur}"/>
+		<p:inputMask id="dateNaissance" value="#{creationJoueurBean.dateNaissanceJoueur}" mask="99/99/9999" required="true" label="dateNaissance" requiredMessage="Veuillez saisir une date de naissance valide (jj/MM/aaaa)">
+		<f:validateLength minimum="8" /> 
+		</p:inputMask>
+		<p:message for="dateNaissance" display="icon"/>
 		<h:outputText value="Catégorie : " />  
-        <p:selectOneMenu value="#{creationJoueurBean.number}" style="width:100px">  
+        <p:selectOneMenu id="categorie" value="#{creationJoueurBean.number}" label="categorie" required="true" requiredMessage="Choisissez une catégorie" style="width:100px">  
             <f:selectItem itemLabel="Choisir" itemValue="" />  
             <f:selectItem itemLabel="U7" itemValue="1" />  
             <f:selectItem itemLabel="U9" itemValue="2" />  
@@ -34,16 +44,30 @@
             <f:selectItem itemLabel="U18" itemValue="6" />  
             <f:selectItem itemLabel="Senior" itemValue="7" />  
         </p:selectOneMenu> 
+        <p:message for="categorie" display="icon"/>
 		<h:outputText value="Adresse : "/>
-		<p:inputText value="#{creationJoueurBean.adresseJoueur}"/>
+		<p:inputText id="adresse" value="#{creationJoueurBean.adresseJoueur}" label="adresse" required="true" requiredMessage="Saisissez une adresse">
+		<f:validateLength minimum="4" /> 
+		</p:inputText>
+		<p:message for="adresse" display="icon"/>
 		<h:outputText value="Telephone : "/>
-		<p:inputText value="#{creationJoueurBean.telJoueur}"/>
+		<p:inputText id="telephone" value="#{creationJoueurBean.telJoueur}" label="telephone" required="true" requiredMessage="Saisissez un numero de tel">
+		<f:validateLength minimum="10" />
+		</p:inputText>
+		<p:message for="telephone" display="icon"/>
+		<h:outputText value="Telephone 2 : "/>
+		<p:inputText id="telephone2" value="#{creationJoueurBean.tel2Joueur}" label="telephone2" >
+		<f:validateLength minimum="10" />
+		</p:inputText>
+		<p:message for="telephone2" display="icon"/>
 		<h:outputText value="Mail : "/>
-		<p:inputText value="#{creationJoueurBean.mailJoueur}"/>
-		
+		<p:inputText id="mail" value="#{creationJoueurBean.mailJoueur}" label="mail" required="true" requiredMessage="Saisissez une adresse mail">
+		<f:validateLength minimum="7" />
+		</p:inputText>
+		<p:message for="mail" display="icon"/>
 		<f:facet name="footer">  
 		<p:commandButton value="Reset" type="reset" />
-    	<p:commandButton type="Submit" action="#{creationJoueurBean.creerJoueur}" 
+    	<p:commandButton type="Submit" action="#{creationJoueurBean.creerJoueur}" update="panel" actionListener="#{creationJoueurBean.savePerson}" 
     					ajax="false" value="Valider"/>
     	</f:facet>
 		

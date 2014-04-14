@@ -16,6 +16,10 @@ import javax.servlet.ServletResponse;
 @RequestScoped
 public class AuthenticationBean {
 	
+	public AuthenticationBean(){
+	
+	}
+	
 	public String doLogin() throws IOException ,ServletException{
 		ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
 		RequestDispatcher dispatcher = ((ServletRequest) context.getRequest()).getRequestDispatcher("/j_spring_security_check");
@@ -29,6 +33,10 @@ public class AuthenticationBean {
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 		System.out.println("Deconnexion");
 		return "/login-failure.xhtml";
+	}
+	
+	public String login(){
+		return "login.xhtml";
 	}
 
 }

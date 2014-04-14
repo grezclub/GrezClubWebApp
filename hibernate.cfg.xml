@@ -4,14 +4,14 @@
 		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
 
-	<!-- Connexion a grezclub.com 
+	<!-- Connexion a grezclub.com
     <session-factory name="sessionFactory">
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         <property name="hibernate.connection.password">kaiser21@</property>
         <property name="hibernate.connection.url">jdbc:postgresql://www.grezclub.com:5432/grezclub_bdd</property>
         <property name="hibernate.connection.username">grezclub_admin</property>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
-    </session-factory> -->
+    </session-factory>  -->
     
     <!-- Connexion a localhost --> 
     <session-factory name="sessionFactory">

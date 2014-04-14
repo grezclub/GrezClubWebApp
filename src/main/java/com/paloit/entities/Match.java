@@ -29,6 +29,7 @@ public class Match implements java.io.Serializable {
 	private String adversaire;
 	private String heure;
 	private String commentaire;
+	private String classe;
 
 	public Match() {
 	}
@@ -114,5 +115,17 @@ public class Match implements java.io.Serializable {
 	public void setCommentaire(String commentaire) {
 		this.commentaire = commentaire;
 	}
+	
+	@Column(name = "classe")
+	public String getClasse() {
+		return classe;
+	}
+
+	public void setClasse(String classe) {
+		this.classe = classe;
+	}
+	
+	
+	
 
 }

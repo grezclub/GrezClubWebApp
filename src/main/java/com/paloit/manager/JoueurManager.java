@@ -9,7 +9,7 @@ public interface JoueurManager {
 	public List<Joueur> getAllJoueur();
 	
 	public void creerJoueur1(String nomJoueur, String prenomJoueur, String dateNaissance
-							, String adresse, String tel, String categorie, String mailJoueur);
+							, String adresse, String tel,String tel2Joueur, String categorie, String mailJoueur);
 	
 
 	public void modifierJoueur(Joueur joueur, String dateNaissance);
@@ -19,6 +19,8 @@ public interface JoueurManager {
 	public List<Joueur> listeJoueurCategorie (String categorie);
 	
 	public Joueur joueurParId (String id);
+	
+	public void updateJoueur(Joueur joueur);
 	
 	
 }

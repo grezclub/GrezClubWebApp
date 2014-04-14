@@ -21,7 +21,7 @@
         <p:panel id="panel" style="position:absolute ; top: 60% ;left:25%; width:50%">         
       
   		<h:outputText value="Date : "/>
-		<p:calendar value="#{presenceEntrainementBean.entrainement.dateEntrainement}" id="cal" showButtonPanel="true" style="width:225px"/>
+		<p:calendar value="#{presenceEntrainementBean.entrainement.dateEntrainement}" pattern="dd/MM/yyyy" showButtonPanel="true" navigator="true" id="customCal" style="width:225px"/>
 		<br></br> <br></br>
 		<h:outputText value="Lieu : "/>
 		<p:inputText value="#{presenceEntrainementBean.entrainement.lieuEntrainement}" style="width:225px"/>

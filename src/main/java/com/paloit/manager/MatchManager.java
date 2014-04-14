@@ -10,7 +10,7 @@ import com.paloit.entities.Match;
 public interface MatchManager {
 	
 	public void creerConvocation ( List<Joueur> joueurListe,Educateur educateur, Date date, String lieu, String adversaire,
-										String heure, String commentaire);
+										String heure, String commentaire, String classe);
 	
 	//Recuperation de la liste de tous les match
 	public List<Match> getAllMatch();

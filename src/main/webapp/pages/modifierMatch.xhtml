@@ -21,11 +21,18 @@
         <p:panel id="panel" style="position:absolute ; top: 60% ;left:25%; width:50%">         
       <h:panelGrid columns="2" cellpadding="5">
   		<h:outputText value="Date : "/>
-		<p:calendar value="#{presenceMatchBean.match.dateMatch}" id="cal" showButtonPanel="true" style="width:225px"/>
+		<p:calendar value="#{presenceMatchBean.match.dateMatch}" pattern="dd/MM/yyyy" showButtonPanel="true" navigator="true" id="customCal" style="width:225px"/>
 		<h:outputText value="Lieu : "/>
 		<p:inputText value="#{presenceMatchBean.match.lieuMatch}" style="width:225px"/>
+		<h:outputText value="Classe : " />  
+        <p:selectOneMenu value="#{presenceMatchBean.number}" style="width:100px">  
+            <f:selectItem itemLabel="Choisir" itemValue="0" />  
+            <f:selectItem itemLabel="A" itemValue="1" />  
+            <f:selectItem itemLabel="B" itemValue="2" />  
+            <f:selectItem itemLabel="C" itemValue="3" />  
+        </p:selectOneMenu> 
 		<h:outputText value="Commentaire : "/>
-		<p:inputText value="#{presenceMatchBean.match.commentaire}" style="width:225px"/>
+		<p:inputTextarea rows="5" cols="50" value="#{presenceMatchBean.match.commentaire}" style="width:225px"/>
 		<h:outputText value="Adversaire : "/>
 		<p:inputText value="#{presenceMatchBean.match.adversaire}" style="width:225px"/>
 		<h:outputText value="Heure du rendez-vous : "/>

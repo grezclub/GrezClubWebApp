@@ -1,6 +1,9 @@
 package com.paloit.bean;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -17,11 +20,13 @@ public class CreationJoueurBean {
 	// =========================================================================
 	private Joueur joueur;
 	private JoueurManager manager;
+	
 
 	private String nomJoueur;
 	private String prenomJoueur;
 	private String adresseJoueur;
 	private String telJoueur;
+	private String tel2Joueur;
 	private String categorieJoueur;
 	private String dateNaissanceJoueur;
 	private String mailJoueur;
@@ -70,18 +75,22 @@ public class CreationJoueurBean {
         }
 		
 		manager.creerJoueur1(nomJoueur, prenomJoueur, dateNaissanceJoueur,
-				adresseJoueur, telJoueur, categorieJoueur, mailJoueur);
+				adresseJoueur, telJoueur,tel2Joueur, categorieJoueur, mailJoueur);
 		this.nomJoueur = null;
 		this.prenomJoueur = null;
 		this.adresseJoueur = null;
 		this.categorieJoueur = null;
 		this.dateNaissanceJoueur = null;
 		this.telJoueur = null;
+		this.tel2Joueur = null;		
 		this.mailJoueur = null;
 		this.number = 0;
 		return "home.jsf";
 	}
 
+	 public void savePerson(ActionEvent actionEvent) {  
+	        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Welcome " + nomJoueur + " " + prenomJoueur + "!"));  
+	    } 
 	//
 	// =========================================================================
 	// @Autowired
@@ -134,6 +143,14 @@ public class CreationJoueurBean {
 
 	public void setTelJoueur(String telJoueur) {
 		this.telJoueur = telJoueur;
+	}
+
+	public String getTel2Joueur() {
+		return tel2Joueur;
+	}
+
+	public void setTel2Joueur(String tel2Joueur) {
+		this.tel2Joueur = tel2Joueur;
 	}
 
 	public String getCategorieJoueur() {

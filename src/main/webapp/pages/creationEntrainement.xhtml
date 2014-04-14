@@ -20,7 +20,7 @@
 		
 		
 		<h:outputText value="Date : "/>
-		<p:calendar value="#{presenceEntrainementBean.date}" id="cal" showButtonPanel="true" style="width:225px"/>
+		<p:calendar value="#{presenceEntrainementBean.date}" pattern="dd/MM/yyyy" showButtonPanel="true" navigator="true" id="customCal" style="width:225px"/>  
 		<h:outputText value="Lieu : "/>
 		<p:inputText value="#{presenceEntrainementBean.lieu}" style="width:225px"/>
 		

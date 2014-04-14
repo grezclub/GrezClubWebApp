@@ -12,7 +12,7 @@
 		<ui:include src="/pages/menu.xhtml" />
 </h:head>
 <h:body>
-	<h:form id="form07" style="position:relative; left:20%; top: 50px; width: 800px">
+	
 			<!-- Boucle pour l'affichage des news-->
 <ui:repeat var="news" value="#{newsBean.recupNewsComplet}"  >
 		<br></br>													
@@ -25,7 +25,7 @@
 		<h:outputText value="#{news.texteNews}" />           								   
 	</div>
 </ui:repeat>
-	</h:form>
+	
 </h:body>
 </html>
 

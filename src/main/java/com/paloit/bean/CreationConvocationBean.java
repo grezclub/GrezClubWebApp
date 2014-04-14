@@ -38,6 +38,8 @@ public class CreationConvocationBean {
 	private String adversaire;
 	private String heure;
 	private String commentaire;
+	private String classe;
+	private int number;
 	
 	private DualListModel<Joueur> listeJoueurs;
 	private List<Joueur> source;
@@ -176,6 +178,22 @@ public class CreationConvocationBean {
 
 				listeSelection.add(joueurManager.joueurParId(targetEssai.get(i)));
 			}
+			switch(number)
+	        {
+	            case 1:
+	                this.classe = "A";
+	            break;
+	            case 2:
+	            	this.classe = "B";
+	            break;
+	            case 3:
+	            	this.classe = "C";
+	            break;
+	            default: this.classe = "A";
+	            break;
+	           
+	            
+	        }
 			return "creationConvocation3.jsf";
 
 		}
@@ -189,8 +207,16 @@ public class CreationConvocationBean {
 		//Methode qui enregistre une Convocation
 		public String enregistre(){
 			
-			matchManager.creerConvocation(listeSelection, educateur, date, lieu, adversaire, heure, commentaire);
-			
+			matchManager.creerConvocation(listeSelection, educateur, date, lieu, adversaire, heure, commentaire, classe);
+			this.listeSelection = null;
+			this.educateur = null;
+			this.date = null;
+			this.lieu = null;
+			this.adversaire = null;
+			this.heure = null;
+			this.commentaire = null;
+			this.classe = null;
+			this.number = 0;
 			return "presenceMatch1.jsf";
 		}
 		
@@ -268,6 +294,22 @@ public class CreationConvocationBean {
 
 		public void setCommentaire(String commentaire) {
 			this.commentaire = commentaire;
+		}
+
+		public String getClasse() {
+			return classe;
+		}
+
+		public void setClasse(String classe) {
+			this.classe = classe;
+		}
+
+		public int getNumber() {
+			return number;
+		}
+
+		public void setNumber(int number) {
+			this.number = number;
 		}
 
 		public DualListModel<Joueur> getListeJoueurs() {

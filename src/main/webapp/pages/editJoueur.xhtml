@@ -19,43 +19,68 @@
 	<br></br>
 	<h:form id="form">
 	<p:panel header="Informations concernant le joueur" style="position:absolute ; top: 20%; left:32%; width:460px">
-		 <h:panelGrid columns="2" cellpadding="5">
-		<h:outputText value="Prenom : "/>
-		<p:inputText value="#{rechercheBean.prenomJoueur}"/>
+		<p:messages id="msgs"/>
+		 <h:panelGrid columns="3" cellpadding="1">
+		<h:outputText for="prenom" value="Prenom : *"/>
+		<p:inputText id="prenom" value="#{rechercheBean.prenomJoueur}" required="true" label="Prenom" requiredMessage="Veuillez saisir un prénom">
+		<f:validateLength minimum="2" /> 
+		</p:inputText>
+		<p:message for="prenom" display="icon"/>  
 		<h:outputText value="Nom : "/>
-		<p:inputText value="#{rechercheBean.nomJoueur}"/>
+		<p:inputText id="nom" value="#{rechercheBean.nomJoueur}" required="true" label="nom" requiredMessage="Veuillez saisir un nom">
+		<f:validateLength minimum="2" /> 
+		</p:inputText>
+		<p:message for="nom" display="icon"/>
 		<h:outputText value="Date de naissance : "/>
-		<p:inputText value="#{rechercheBean.dateNaissanceJoueur}"/>
+		<p:calendar id="dateNaissance" value="#{rechercheBean.dateNaissanceJoueur}" mask="99/99/9999" required="true" label="dateNaissance" requiredMessage="Veuillez saisir une date de naissance valide (jj/MM/aaaa)">
+		<f:validateLength minimum="8" /> 
+		</p:calendar>
+		<p:message for="dateNaissance" display="icon"/>
 		<h:outputText value="Catégorie : " />  
-        <p:selectOneMenu value="#{rechercheBean.number}" style="width:100px">  
-            <f:selectItem itemLabel="#{rechercheBean.joueur.equipe.categorie}" itemValue="" />  
-            <f:selectItem itemLabel="U7" itemValue="1" />  
-            <f:selectItem itemLabel="U9" itemValue="2" />  
-            <f:selectItem itemLabel="U11" itemValue="3" />  
-            <f:selectItem itemLabel="U13" itemValue="4" />  
-            <f:selectItem itemLabel="U15" itemValue="5" />  
-            <f:selectItem itemLabel="U18" itemValue="6" />  
-            <f:selectItem itemLabel="Senior" itemValue="7" />  
+        <p:selectOneMenu id="categorie" value="#{rechercheBean.number}" label="categorie" required="true" requiredMessage="Choisissez une catégorie" style="width:100px">  
+            <f:selectItem itemLabel="#{rechercheBean.joueur.equipe.categorie}" itemValue="1" />  
+            <f:selectItem itemLabel="U7" itemValue="2" />  
+            <f:selectItem itemLabel="U9" itemValue="3" />  
+            <f:selectItem itemLabel="U11" itemValue="4" />  
+            <f:selectItem itemLabel="U13" itemValue="5" />  
+            <f:selectItem itemLabel="U15" itemValue="6" />  
+            <f:selectItem itemLabel="U18" itemValue="7" />  
+            <f:selectItem itemLabel="Senior" itemValue="8" />  
         </p:selectOneMenu> 
+        <p:message for="categorie" display="icon"/>
 		<h:outputText value="Adresse : "/>
-		<p:inputText value="#{rechercheBean.adresseJoueur}"/>
+		<p:inputText id="adresse" value="#{rechercheBean.adresseJoueur}" label="adresse" required="true" requiredMessage="Saisissez une adresse">
+		<f:validateLength minimum="4" /> 
+		</p:inputText>
+		<p:message for="adresse" display="icon"/>
 		<h:outputText value="Telephone : "/>
-		<p:inputText value="#{rechercheBean.telJoueur}"/>
+		<p:inputText id="telephone" value="#{rechercheBean.telJoueur}" label="telephone" required="true" requiredMessage="Saisissez un numero de tel">
+		<f:validateLength minimum="10" />
+		</p:inputText>
+		<p:message for="telephone" display="icon"/>
+		<h:outputText value="Telephone 2 : "/>
+		<p:inputText id="telephone2" value="#{rechercheBean.tel2Joueur}" label="telephone2" >
+		<f:validateLength minimum="10" />
+		</p:inputText>
+		<p:message for="telephone2" display="icon"/>
 		<h:outputText value="Mail : "/>
-		<p:inputText value="#{rechercheBean.mailJoueur}"/>
-		
-		
+		<p:inputText id="mail" value="#{rechercheBean.mailJoueur}" label="mail" required="true" requiredMessage="Saisissez une adresse mail">
+		<f:validateLength minimum="7" />
+		</p:inputText>
+		<p:message for="mail" display="icon"/>
 		<f:facet name="footer">  
-		
-    	<p:commandButton type="Submit" action="#{rechercheBean.saveEditedJoueur}" 
+		<p:commandButton type="Submit" action="#{rechercheBean.saveEditedJoueur}" 
     					ajax="false" value="Modifier"/>
     	<p:commandButton type="Submit" action="#{rechercheBean.deleteJoueur}" 
     					ajax="false" value="Supprimer"/>
     	</f:facet>
+		
 		</h:panelGrid>
 		</p:panel>
+	 
 	</h:form>
 	
 
 </h:body>
+    	
 </html>

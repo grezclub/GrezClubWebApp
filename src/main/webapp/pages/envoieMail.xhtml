@@ -46,17 +46,18 @@
      <p:inputTextarea rows="10" cols="50" value="#{mailBean.contenueMail}" ></p:inputTextarea>
   <f:facet name="footer"> 
    
-   
+    <p:commandButton ajax="true" value="Start" type="Submit" onclick="pbAjax.start();startButton2.disable();" widgetVar="startButton2" action="#{mailBean.envoieMail}" />  
+    <p:commandButton value="Cancel" action="#{progressBean.cancel}" oncomplete="Ajax.cancel();startButton2.enable();" /> 
+       <br></br>
+       <br></br>
+    <p:progressBar widgetVar="pbAjax" ajax="true" value="#{mailBean.progress}" labelTemplate="{value}%" styleClass="animated" interval="1000"  >  
+        <p:ajax event="complete" listener="#{mailBean.onComplete}" update="growl" oncomplete="startButton2.enable()"/>  
+    </p:progressBar> 
     </f:facet>
    <br></br>
        <br></br>
   
-  	 <p:commandButton ajax="true" value="Start" type="Submit" onclick="pbAjax.start();startButton2.disable();" widgetVar="startButton2" action="#{mailBean.envoieMail}" />  
-    <p:commandButton value="Cancel" action="#{progressBean.cancel}" oncomplete="Ajax.cancel();startButton2.enable();" /> 
-       
-    <p:progressBar widgetVar="pbAjax" ajax="true" value="#{mailBean.progress}" labelTemplate="{value}%" styleClass="animated" interval="1000"  >  
-        <p:ajax event="complete" listener="#{mailBean.onComplete}" update="growl" oncomplete="startButton2.enable()"/>  
-    </p:progressBar> 
+  	
 	</p:panel>
 	 
 	</h:form>

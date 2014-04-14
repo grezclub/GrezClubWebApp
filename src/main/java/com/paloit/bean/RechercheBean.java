@@ -1,6 +1,5 @@
 package com.paloit.bean;
 
-
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -11,6 +10,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -58,8 +59,9 @@ public class RechercheBean {
 	private String prenomJoueur;
 	private String adresseJoueur;
 	private String telJoueur;
+	private String tel2Joueur;
 	private String categorieJoueur;
-	private String dateNaissanceJoueur;
+	private Date dateNaissanceJoueur;
 	private String mailJoueur;
 	private Equipe equipe;
 	private int id;
@@ -93,37 +95,11 @@ public class RechercheBean {
 		this.nomJoueur = joueur.getNomJoueur();
 		this.prenomJoueur = joueur.getPrenomJoueur();
 		this.adresseJoueur = joueur.getAdresseJoueur();
-		this.dateNaissanceJoueur = joueur.getDatenaissanceJoueur().toString();
+		this.dateNaissanceJoueur = joueur.getDatenaissanceJoueur();
 		this.telJoueur = joueur.getTelJoueur();
+		this.tel2Joueur = joueur.getTel2Joueur();
 		this.mailJoueur = joueur.getMailJoueur();
-		 switch(joueur.getEquipe().getIdEquipe())
-	        {
-	            case 1:
-	                number = 1;
-	            break;
-	            case 2:
-	            	number = 2;
-	            break;
-	            case 3:
-	            	number = 3;
-	            break;
-	            case 4:
-	            	number = 4;
-	            break;
-	            case 5:
-	            	number = 5;
-	            break;
-	            case 6:
-	            	number = 6;
-	            break;
-	            case 7:
-	            	number = 7;
-	            break;
-	            default: number = 0;
-	            break;
-	           
-	            
-	        }
+		this.equipe = joueur.getEquipe();
 		return "editJoueur.jsf";
 	}
 
@@ -131,46 +107,54 @@ public class RechercheBean {
 		equipe = new Equipe();
 		equipe = joueur.getEquipe();
 		id = joueur.getIdJoueur();
+
 		reinit();
 		joueur.setNomJoueur(nomJoueur);
 		joueur.setAdresseJoueur(adresseJoueur);
-		switch(number)
-        {
-            case 1:
-                joueur.setEquipe(equipeManager.findEquipeById(1));
-            break;
-            case 2:
-            	joueur.setEquipe(equipeManager.findEquipeById(2));
-            break;
-            case 3:
-            	joueur.setEquipe(equipeManager.findEquipeById(3));
-            break;
-            case 4:
-            	joueur.setEquipe(equipeManager.findEquipeById(4));
-            break;
-            case 5:
-            	joueur.setEquipe(equipeManager.findEquipeById(5));
-            break;
-            case 6:
-            	joueur.setEquipe(equipeManager.findEquipeById(6));
-            break;
-            case 7:
-            	joueur.setEquipe(equipeManager.findEquipeById(7));
-            break;
-            default: this.equipe = null;
-            break;
-           
-            
-        }
+		switch (number) {
+		case 1:
+			joueur.setEquipe(equipe);
+			break;
+		case 2:
+			joueur.setEquipe(equipeManager.findEquipeById(1));
+			break;
+		case 3:
+			joueur.setEquipe(equipeManager.findEquipeById(2));
+			break;
+		case 4:
+			joueur.setEquipe(equipeManager.findEquipeById(3));
+			break;
+		case 5:
+			joueur.setEquipe(equipeManager.findEquipeById(4));
+			break;
+		case 6:
+			joueur.setEquipe(equipeManager.findEquipeById(5));
+			break;
+		case 7:
+			joueur.setEquipe(equipeManager.findEquipeById(6));
+			break;
+		case 8:
+			joueur.setEquipe(equipeManager.findEquipeById(7));
+			break;
+		default:
+			this.equipe = null;
+			break;
+
+		}
 		joueur.setIdJoueur(id);
 		joueur.setPrenomJoueur(prenomJoueur);
 		joueur.setTelJoueur(telJoueur);
+		joueur.setTel2Joueur(tel2Joueur);
 		joueur.setMailJoueur(mailJoueur);
-		joueurManager.modifierJoueur(joueur, dateNaissanceJoueur);
+		joueur.setDatenaissanceJoueur(dateNaissanceJoueur);
+		joueurManager.updateJoueur(joueur);
+		equipe = null;
+		number = 0;
+		
 		return "rechercheJoueur.jsf";
 
 	}
-	
+
 	public String deleteJoueur() {
 		this.id = joueur.getIdJoueur();
 		joueurManager.supprimerJoueur(this.id);
@@ -209,12 +193,12 @@ public class RechercheBean {
 		newsManager.supprimeNews(this.idNews);
 		return "afficheNews.jsf";
 	}
-	
+
 	public void reinitNews() {
 		news = new News();
 	}
 
-	//Listener pour l'image sauvegardé
+	// Listener pour l'image sauvegardé
 	public void handleFileUpload(FileUploadEvent event) {
 
 		/**/
@@ -319,12 +303,12 @@ public class RechercheBean {
 	public void setManager(NewsManager manager) {
 		this.newsManager = manager;
 	}
-	
+
 	@Autowired
-    public void setEquipeManager(EquipeManager equipeManager) {
-        this.equipeManager = equipeManager;
-    	
-    }
+	public void setEquipeManager(EquipeManager equipeManager) {
+		this.equipeManager = equipeManager;
+
+	}
 
 	// =========================================================================
 	// GETTERS & SETTERS
@@ -381,6 +365,15 @@ public class RechercheBean {
 		this.telJoueur = telJoueur;
 	}
 
+	
+	public String getTel2Joueur() {
+		return tel2Joueur;
+	}
+
+	public void setTel2Joueur(String tel2Joueur) {
+		this.tel2Joueur = tel2Joueur;
+	}
+
 	public String getCategorieJoueur() {
 		return categorieJoueur;
 	}
@@ -389,16 +382,16 @@ public class RechercheBean {
 		this.categorieJoueur = categorieJoueur;
 	}
 
-	public String getDateNaissanceJoueur() {
+	public String getMailJoueur() {
+		return mailJoueur;
+	}
+
+	public Date getDateNaissanceJoueur() {
 		return dateNaissanceJoueur;
 	}
 
-	public void setDateNaissanceJoueur(String dateNaissanceJoueur) {
+	public void setDateNaissanceJoueur(Date dateNaissanceJoueur) {
 		this.dateNaissanceJoueur = dateNaissanceJoueur;
-	}
-
-	public String getMailJoueur() {
-		return mailJoueur;
 	}
 
 	public void setMailJoueur(String mailJoueur) {
@@ -435,7 +428,7 @@ public class RechercheBean {
 
 	public void setNews(News news) {
 		this.news = news;
-	
+
 	}
 
 	public int getNumber() {
@@ -445,7 +438,5 @@ public class RechercheBean {
 	public void setNumber(int number) {
 		this.number = number;
 	}
-	
-
 
 }
