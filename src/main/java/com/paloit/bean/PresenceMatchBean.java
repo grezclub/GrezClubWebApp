@@ -30,6 +30,9 @@ public class PresenceMatchBean {
 	private Date date;
 	private String dateAffiche;
 	private String lieu;
+	private String commentaire;
+	public String adversaire;
+	public String heure;
 	private List<Match> filtreMatch;
 	private Match match;
 
@@ -134,18 +137,19 @@ public class PresenceMatchBean {
 		//Modifie liste joueur dans un match existant
 		public String modifieListeJoueurExistant(){
 			
-			if (match.getClasse().equals("A")){
-				number = 1;
-			}
-			else if (match.getClasse().equals("B")) {
-				number = 2;
-			}
-			else if (match.getClasse().equals("C")) {
-				number = 3;
-			}
-			else {
-				number = 0;
-			}
+//			if (match.getClasse().equals("A")){
+//				number = 1;
+//			}
+//			else if (match.getClasse().equals("B")) {
+//				number = 2;
+//			}
+//			else if (match.getClasse().equals("C")) {
+//				number = 3;
+//			}
+//			else {
+//				number = 0;
+//			}
+//			
 			return "modifierMatch.jsf";
 		}
 
@@ -166,6 +170,25 @@ public class PresenceMatchBean {
 		}
 		
 		public String updateMatch(){
+			
+			switch (number) {
+			case 0:
+				match.setClasse(match.getClasse());
+				break;
+			case 1:
+				match.setClasse("A");
+				break;
+			case 2:
+				match.setClasse("B");
+				break;
+			case 3:
+				match.setClasse("C");
+				break;
+			
+			default:
+				match.setClasse("A");
+				break;
+			}
 			// Joueurs
 					source = new ArrayList<Joueur>();
 					target = new ArrayList<Joueur>();
@@ -191,6 +214,7 @@ public class PresenceMatchBean {
 					targetEssai = new ArrayList<String>();
 					
 					educateur = this.getUserName();
+					
 
 					return "modifierMatch2.jsf";
 		}
@@ -198,24 +222,6 @@ public class PresenceMatchBean {
 		//Methode qui met a jour un entrainement
 		public String update(){
 			
-			switch (number) {
-			case 0:
-				match.setClasse(this.classe);
-				break;
-			case 1:
-				match.setClasse("A");
-				break;
-			case 2:
-				match.setClasse("B");
-				break;
-			case 3:
-				match.setClasse("C");
-				break;
-			
-			default:
-				match.setClasse("A");
-				break;
-			}
 			convocationManager.updateConvocation(match, listeSelection);
 			this.date = null;
 			this.lieu = null;
@@ -372,24 +378,20 @@ public class PresenceMatchBean {
 
 		public void setFiltreMatch(List<Match> filtreMatch) {
 			this.filtreMatch = filtreMatch;
-		}
+		}	
 
-		
 		public List<Joueur> getSource() {
 			return source;
 		}
 
-		
 		public void setSource(List<Joueur> source) {
 			this.source = source;
 		}
-
-		
+	
 		public List<Joueur> getTarget() {
 			return target;
 		}
 
-		
 		public void setTarget(List<Joueur> target) {
 			this.target = target;
 		}
@@ -410,7 +412,30 @@ public class PresenceMatchBean {
 			this.number = number;
 		}
 
-		
+		public String getCommentaire() {
+			return commentaire;
+		}
+
+		public void setCommentaire(String commentaire) {
+			this.commentaire = commentaire;
+		}
+
+		public String getAdversaire() {
+			return adversaire;
+		}
+
+		public void setAdversaire(String adversaire) {
+			this.adversaire = adversaire;
+		}
+
+		public String getHeure() {
+			return heure;
+		}
+
+		public void setHeure(String heure) {
+			this.heure = heure;
+		}
+
 		public String getClasse() {
 			return classe;
 		}

@@ -15,21 +15,31 @@
 <h:body>
 	<h:form id="form87">
 	
+    
 	<p:panel header="Informations concernant la News :" style="position:absolute ; top: 20%; left:23%; width:700px">
-		 <h:outputLabel value="Image de la News :"></h:outputLabel>
+	
+		 <h:outputLabel for="image" value="Image de la News :"></h:outputLabel>
 		 <br></br>
 		 <br></br>
-		 <p:fileUpload fileUploadListener="#{rechercheBean.handleFileUpload}" 
+		 <p:fileUpload id="image" fileUploadListener="#{creationNewsBean.handleFileUpload}" 
 		 value="#{creationNewsBean.imageNews}" mode="advanced" dragDropSupport="true"  
-            update="messages" sizeLimit="10000000" allowTypes="/(\.|\/)(gif|jpeg|png)$/" /> 
+            update="messages" sizeLimit="10000000" allowTypes="/(\.|\/)(gif|jpeg|png)$/" > 
+            </p:fileUpload> 
+            <p:message for="image" display="icon"/>
 		 <br></br>
-		 <h:panelGrid columns="2" cellpadding="5">
+		 <h:panelGrid columns="3" cellpadding="5">
 
-         <h:outputLabel value="Titre : "></h:outputLabel> 
-         <p:inputText value="#{rechercheBean.titreNews}"></p:inputText>
-  
-         <h:outputLabel value="Contenue : "></h:outputLabel> 
-         <p:inputTextarea value="#{rechercheBean.texteNews}" autoResize="true"></p:inputTextarea>
+         <h:outputLabel for="titre" value="Titre : *"></h:outputLabel> 
+         <p:inputText id="titre" value="#{rechercheBean.titreNews}" required="true" label="titre" requiredMessage="Veuillez saisir un titre">
+         <f:validateLength minimum="2" /> 
+         </p:inputText>
+		<p:message for="titre" display="icon"/> 
+		 
+         <h:outputLabel for="contenue" value="Contenue : *"></h:outputLabel> 
+         <p:inputTextarea id="contenue" value="#{rechercheBean.texteNews}" autoResize="true" required="true" label="contenue" requiredMessage="Veuillez saisir votre news">
+         <f:validateLength minimum="10" /> 
+         </p:inputTextarea>
+         <p:message for="contenue" display="icon"/>
   
     <p:growl id="messages" showDetail="true"/>
     
@@ -37,8 +47,14 @@
     <f:facet name="footer"> 
     	<p:commandButton type="Submit" action="#{rechercheBean.saveEditedNews}" 
     					ajax="false" value="Modifier"/>
-    	<p:commandButton type="Submit" action="#{rechercheBean.deleteNews}" 
-    					ajax="false" value="Supprimer"/>
+    	   <!--Confirmation avants supression-->
+     <p:commandButton type="button" onclick="cd.show()" value="Supprimer" />
+			<p:confirmDialog message="Etes vous sure de vouloir supprimer cet news"
+					header="Attention" severity="alert"        widgetVar="cd">
+			<p:commandButton value="Oui" action="#{rechercheBean.deleteNews}"
+					update="messages" oncomplete="cd.hide()" ajax="false"/>
+			<p:commandButton value="Annuler" onclick="cd.hide();" type="button" /> 
+	</p:confirmDialog> 
     </f:facet>
     </h:panelGrid>
     </p:panel>

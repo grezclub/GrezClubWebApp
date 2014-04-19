@@ -14,17 +14,30 @@
 <h:body>
 	<h:form id="form67">
 		<p:panel header="Informations concernant l' educateur" style="position:absolute ; top: 20%; left:32%; width:460px">
-		 <h:panelGrid columns="2" cellpadding="5">
-		<h:outputText value="Prenom : "/>
-		<p:inputText value="#{creationEducateurBean.nomEduc}"/>
-		<h:outputText value="Nom : "/>
-		<p:inputText value="#{creationEducateurBean.prenomEduc}"/>
-		<h:outputText value="Mail : "/>
-		<p:inputText value="#{creationEducateurBean.mailEduc}"/>
-		<h:outputText value="Telephone : "/>
-		<p:inputText value="#{creationEducateurBean.telEduc}"/>
+		<p:messages id="msgs"/>
+		 <h:panelGrid columns="3" cellpadding="5">
+		 <h:outputText for="prenom" value="Prenom : *"/>
+		 <p:inputText id="prenom" value="#{creationEducateurBean.prenomEduc}" required="true" label="Prenom" requiredMessage="Veuillez saisir un prénom">
+		<f:validateLength minimum="2" /> 
+		</p:inputText>
+		<p:message for="prenom" display="icon"/>  
+		<h:outputText value="Nom : *"/>
+		<p:inputText id="nom" value="#{creationEducateurBean.nomEduc}" required="true" label="nom" requiredMessage="Veuillez saisir un nom">
+		<f:validateLength minimum="2" /> 
+		</p:inputText>
+		<p:message for="nom" display="icon"/>
+		<h:outputText value="Mail : *"/>
+		<p:inputText id="mail" value="#{creationEducateurBean.mailEduc}" required="true" label="mail" requiredMessage="Veuillez saisir une adresse mail">
+		<f:validateLength minimum="7" />
+		</p:inputText>
+		<p:message for="mail" display="icon"/>
+		<h:outputText value="Telephone : *"/>
+		<p:inputText id="telephone" value="#{creationEducateurBean.telEduc}" label="telephone" required="true" requiredMessage="Saisissez un numero de tel">
+		<f:validateLength minimum="10" />
+		</p:inputText>
+		<p:message for="telephone" display="icon"/>
 		<h:outputText value="Catégorie : " />  
-        <p:selectOneMenu value="#{creationEducateurBean.number}" style="width:100px">  
+       <p:selectOneMenu id="categorie" value="#{creationEducateurBean.number}" label="categorie" required="true" requiredMessage="Choisissez une catégorie" style="width:100px"> 
             <f:selectItem itemLabel="Choisir" itemValue="" />  
             <f:selectItem itemLabel="U7" itemValue="1" />  
             <f:selectItem itemLabel="U9" itemValue="2" />  
@@ -34,12 +47,22 @@
             <f:selectItem itemLabel="U18" itemValue="6" />  
             <f:selectItem itemLabel="Senior" itemValue="7" />  
         </p:selectOneMenu> 
-		<h:outputText value="Login : "/>
-		<p:inputText value="#{creationEducateurBean.loginEduc}"/>
-		<h:outputText value="Mot de passe : "/>
-		<p:inputText value="#{creationEducateurBean.mdpEduc}"/>
-		<h:outputText value="Fonction : "/>
-		<p:inputText value="#{creationEducateurBean.fonctionEduc}"/> 
+         <p:message for="categorie" display="icon"/>
+		<h:outputText value="Login : *"/>
+		<p:inputText id="login" value="#{creationEducateurBean.loginEduc}" label="login" required="true" requiredMessage="Saisissez un login (4 caractères minimum)">
+		<f:validateLength minimum="4" />
+		</p:inputText>
+		<p:message for="login" display="icon"/>	
+		<h:outputText value="Mot de passe : *"/>
+		<p:inputText id="mdp" value="#{creationEducateurBean.mdpEduc}" label="mdp" required="true" requiredMessage="Saisissez un mot de passe (4 caractères minimum)">
+		<f:validateLength minimum="4" />
+		</p:inputText>
+		<p:message for="login" display="icon"/>	
+		<h:outputText  value="Fonction : *"/>
+		<p:inputText id="fonction" value="#{creationEducateurBean.fonctionEduc}" label="fonction" required="true" requiredMessage="Saisissez un login (4 caractères minimum)">
+		<f:validateLength minimum="4" />
+		</p:inputText>
+		<p:message for="fonction" display="icon"/>
 		
 		<f:facet name="footer">  
 		<p:commandButton value="Reset" type="reset" />

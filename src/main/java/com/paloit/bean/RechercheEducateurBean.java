@@ -109,6 +109,7 @@ public class RechercheEducateurBean {
 		educateur.setTelEducateur(telEducateur);
 
 		manager.modifierEducateur(educateur);
+		equipe = null;
 
 		number = 0;
 
@@ -123,7 +124,7 @@ public class RechercheEducateurBean {
 	public String deleteEducateur() {
 		this.id = educateur.getIdEducateur();
 		manager.supprimerEducateur(this.id);
-		return "pretty:rechercheEducateur";
+		return "rechercheEducateur.jsf";
 	}
 
 	// =========================================================================

@@ -17,16 +17,32 @@
 	<br></br>
 	<br></br>
 	<h:form id="form">
-	<p:panel header="Informations concernant le joueur" style="position:absolute ; top: 20%; left:32%; width:460px">
-		 <h:panelGrid columns="2" cellpadding="5">
-		<h:outputText value="Nom : "/>
-		<p:inputText value="#{rechercheEducateurBean.nomEducateur}"/>
-		<h:outputText value="Prenom : "/>
-		<p:inputText value="#{rechercheEducateurBean.prenomEducateur}"/>
-		<h:outputText value="Fonction : "/>
-		<p:inputText value="#{rechercheEducateurBean.fonctionEducateur}"/>
+	
+		<p:panel header="Informations concernant l' educateur" style="position:absolute ; top: 20%; left:32%; width:460px">
+		<p:messages id="msgs"/>
+		 <h:panelGrid columns="3" cellpadding="5">
+		 <h:outputText for="prenom" value="Prenom : *"/>
+		 <p:inputText id="prenom" value="#{rechercheEducateurBean.prenomEducateur}" required="true" label="Prenom" requiredMessage="Veuillez saisir un prénom">
+		<f:validateLength minimum="2" /> 
+		</p:inputText>
+		<p:message for="prenom" display="icon"/>  
+		<h:outputText value="Nom : *"/>
+		<p:inputText id="nom" value="#{rechercheEducateurBean.nomEducateur}" required="true" label="nom" requiredMessage="Veuillez saisir un nom">
+		<f:validateLength minimum="2" /> 
+		</p:inputText>
+		<p:message for="nom" display="icon"/>
+		<h:outputText value="Mail : *"/>
+		<p:inputText id="mail" value="#{rechercheEducateurBean.mailEducateur}" required="true" label="mail" requiredMessage="Veuillez saisir une adresse mail">
+		<f:validateLength minimum="7" />
+		</p:inputText>
+		<p:message for="mail" display="icon"/>
+		<h:outputText value="Telephone : *"/>
+		<p:inputText id="telephone" value="#{rechercheEducateurBean.telEducateur}" label="telephone" required="true" requiredMessage="Saisissez un numero de tel">
+		<f:validateLength minimum="10" />
+		</p:inputText>
+		<p:message for="telephone" display="icon"/>
 		<h:outputText value="Catégorie : " />  
-        <p:selectOneMenu value="#{rechercheEducateurBean.number}" style="width:100px">  
+       <p:selectOneMenu id="categorie" value="#{rechercheEducateurBean.number}" label="categorie" required="true" requiredMessage="Choisissez une catégorie" style="width:100px"> 
             <f:selectItem itemLabel="#{rechercheEducateurBean.educateur.equipe.categorie}" itemValue="1" />  
             <f:selectItem itemLabel="U7" itemValue="2" />  
             <f:selectItem itemLabel="U9" itemValue="3" />  
@@ -36,23 +52,34 @@
             <f:selectItem itemLabel="U18" itemValue="7" />  
             <f:selectItem itemLabel="Senior" itemValue="8" />  
         </p:selectOneMenu> 
-		
-		<h:outputText value="Adresse mail : "/>
-		<p:inputText value="#{rechercheEducateurBean.mailEducateur}"/>
-		<h:outputText value="Telephone : "/>
-		<p:inputText value="#{rechercheEducateurBean.telEducateur}"/>
-		<h:outputText value="Login : "/>
-		<p:inputText value="#{rechercheEducateurBean.loginEducateur}"/>
-		<h:outputText value="Mot de passe : "/>
-		<p:inputText value="#{rechercheEducateurBean.mdpEducateur}"/>
-		
+         <p:message for="categorie" display="icon"/>
+		<h:outputText value="Login : *"/>
+		<p:inputText id="login" value="#{rechercheEducateurBean.loginEducateur}" label="login" required="true" requiredMessage="Saisissez un login (4 caractères minimum)">
+		<f:validateLength minimum="4" />
+		</p:inputText>
+		<p:message for="login" display="icon"/>	
+		<h:outputText value="Mot de passe : *"/>
+		<p:inputText id="mdp" value="#{rechercheEducateurBean.mdpEducateur}" label="mdp" required="true" requiredMessage="Saisissez un mot de passe (4 caractères minimum)">
+		<f:validateLength minimum="4" />
+		</p:inputText>
+		<p:message for="login" display="icon"/>	
+		<h:outputText  value="Fonction : *"/>
+		<p:inputText id="fonction" value="#{rechercheEducateurBean.fonctionEducateur}" label="fonction" required="true" requiredMessage="Saisissez un login (4 caractères minimum)">
+		<f:validateLength minimum="4" />
+		</p:inputText>
+		<p:message for="fonction" display="icon"/>
 		
 		<f:facet name="footer">  
 		
     	<p:commandButton type="Submit" action="#{rechercheEducateurBean.saveEditedEducateur}" 
     					ajax="false" value="Modifier"/>
-    	<p:commandButton type="Submit" action="#{rechercheEducateurBean.deleteEducateur}" 
-    					ajax="false" value="Supprimer"/>
+    	<p:commandButton type="button" onclick="cd.show()" value="Supprimer" />
+			<p:confirmDialog message="Etes vous sure de vouloir supprimer cet éducateur"
+					header="Attention" severity="alert"        widgetVar="cd">
+			<p:commandButton value="Oui" action="#{rechercheEducateurBean.deleteEducateur}"
+					update="messages" oncomplete="cd.hide()" ajax="false"/>
+			<p:commandButton value="Annuler" onclick="cd.hide();" type="button" /> 
+	</p:confirmDialog>
     	</f:facet>
 		</h:panelGrid>
 		</p:panel>

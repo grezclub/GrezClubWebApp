@@ -23,17 +23,17 @@
 		<f:validateLength minimum="2" /> 
 		</p:inputText>
 		<p:message for="prenom" display="icon"/>  
-		<h:outputText value="Nom : "/>
+		<h:outputText value="Nom : *"/>
 		<p:inputText id="nom" value="#{creationJoueurBean.nomJoueur}" required="true" label="nom" requiredMessage="Veuillez saisir un nom">
 		<f:validateLength minimum="2" /> 
 		</p:inputText>
 		<p:message for="nom" display="icon"/>
-		<h:outputText value="Date de naissance : "/>
+		<h:outputText value="Date de naissance : *"/>
 		<p:inputMask id="dateNaissance" value="#{creationJoueurBean.dateNaissanceJoueur}" mask="99/99/9999" required="true" label="dateNaissance" requiredMessage="Veuillez saisir une date de naissance valide (jj/MM/aaaa)">
 		<f:validateLength minimum="8" /> 
 		</p:inputMask>
 		<p:message for="dateNaissance" display="icon"/>
-		<h:outputText value="Catégorie : " />  
+		<h:outputText value="Catégorie : *" />  
         <p:selectOneMenu id="categorie" value="#{creationJoueurBean.number}" label="categorie" required="true" requiredMessage="Choisissez une catégorie" style="width:100px">  
             <f:selectItem itemLabel="Choisir" itemValue="" />  
             <f:selectItem itemLabel="U7" itemValue="1" />  
@@ -45,12 +45,12 @@
             <f:selectItem itemLabel="Senior" itemValue="7" />  
         </p:selectOneMenu> 
         <p:message for="categorie" display="icon"/>
-		<h:outputText value="Adresse : "/>
+		<h:outputText value="Adresse : *"/>
 		<p:inputText id="adresse" value="#{creationJoueurBean.adresseJoueur}" label="adresse" required="true" requiredMessage="Saisissez une adresse">
 		<f:validateLength minimum="4" /> 
 		</p:inputText>
 		<p:message for="adresse" display="icon"/>
-		<h:outputText value="Telephone : "/>
+		<h:outputText value="Telephone : *"/>
 		<p:inputText id="telephone" value="#{creationJoueurBean.telJoueur}" label="telephone" required="true" requiredMessage="Saisissez un numero de tel">
 		<f:validateLength minimum="10" />
 		</p:inputText>
@@ -61,7 +61,7 @@
 		</p:inputText>
 		<p:message for="telephone2" display="icon"/>
 		<h:outputText value="Mail : "/>
-		<p:inputText id="mail" value="#{creationJoueurBean.mailJoueur}" label="mail" required="true" requiredMessage="Saisissez une adresse mail">
+		<p:inputText id="mail" value="#{creationJoueurBean.mailJoueur}" label="mail" >
 		<f:validateLength minimum="7" />
 		</p:inputText>
 		<p:message for="mail" display="icon"/>

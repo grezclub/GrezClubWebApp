@@ -16,15 +16,19 @@
 <h:body>
 	<h:form id="form66" >
 		<p:panel header="Informations concernant l' entrainement" style="position:absolute ; top: 50%; left:32%; width:460px">
-		 <h:panelGrid columns="2" cellpadding="10">
+		 <h:panelGrid columns="3" cellpadding="10">
 		
 		
-		<h:outputText value="Date : "/>
-		<p:calendar value="#{presenceEntrainementBean.date}" pattern="dd/MM/yyyy" showButtonPanel="true" navigator="true" id="customCal" style="width:225px"/>  
-		<h:outputText value="Lieu : "/>
-		<p:inputText value="#{presenceEntrainementBean.lieu}" style="width:225px"/>
+		<h:outputText for="customCal" value="Date : *"/>
+		<p:calendar value="#{presenceEntrainementBean.date}" pattern="dd/MM/yyyy" showButtonPanel="true" navigator="true" id="customCal" required="true" label="date" requiredMessage="Veuillez saisir une date" style="width:225px"/>  
+		<p:message for="customCal" display="icon"/> 
 		
+		<h:outputText for="lieu" value="Lieu : "/>
+		<p:inputText id="lieu" value="#{presenceEntrainementBean.lieu}" required="true" label="lieu" requiredMessage="Veuillez saisir un lieu" style="width:225px"/>
+		<p:message for="lieu" display="icon"/>
 		
+		 <p:growl id="messages" showDetail="true"/>
+		 
 		<f:facet name="footer">  
     	<p:commandButton type="Submit" action="#{presenceEntrainementBean.creerEntrainement}" 
     					ajax="false" value="Valider"/>

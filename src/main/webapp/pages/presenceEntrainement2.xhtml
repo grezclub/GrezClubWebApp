@@ -16,7 +16,7 @@
 <h:body>
 	<h:form>
 
-<p:growl id="messages" showDetail="true" />  
+<p:growl id="messages" showDetail="true"/> 
   
     
   
@@ -45,20 +45,14 @@
     <f:facet name="footer" style="left:20%">
     <p:commandButton value="Modifier" action="#{presenceEntrainementBean.modifieListeJoueurExistant}" ajax="false"/>
     
-    <p:commandButton value="Supprimer"  action="#{presenceEntrainementBean.delete}" ajax="false">
-   
-     </p:commandButton>
-     
-   
-     
-     <!-- Exemple de confirmation-->
-     <p:commandButton type="button" onclick="cd.show()" />
-<p:confirmDialog message="Etes vous sure de vouloir supprimer cet entrainement"
-header="Attention" severity="alert"        widgetVar="cd">
-<p:commandButton value="Oui" actionListener="#{presenceEntrainementBean.delete}" 
-update="messages" oncomplete="confirmation.hide()"/>
-<p:commandButton value="Annuler" onclick="confirmation.hide();" type="button" /> 
-</p:confirmDialog> 
+     <!--Confirmation avants supression-->
+     <p:commandButton type="button" onclick="cd.show()" value="Supprimer" />
+			<p:confirmDialog message="Etes vous sure de vouloir supprimer cet entrainement"
+					header="Attention" severity="alert"        widgetVar="cd">
+			<p:commandButton value="Oui" action="#{presenceEntrainementBean.delete}" 
+					update="messages" oncomplete="cd.hide()" ajax="false"/>
+			<p:commandButton value="Annuler" onclick="cd.hide();" type="button" /> 
+	</p:confirmDialog> 
      
     
     </f:facet>

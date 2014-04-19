@@ -10,9 +10,12 @@
 	<!-- Page auto généré par Spring-->	 
 	<http auto-config="true">
 		<intercept-url pattern="/pages/*" access="ROLE_ADMIN" />
-		<form-login login-page="/login.xhtml" default-target-url="/pages/home.xhtml" authentication-failure-url="/login-failure.xhtml" />
+		<intercept-url pattern="/educ/*" access="ROLE_EDUC, ROLE_ADMIN" />
+		<form-login login-page="/login.xhtml" authentication-success-handler-ref="authenticationBean" authentication-failure-url="/login-failure.xhtml" />
 	</http>	
+	
 
+<!-- default-target-url="/educ/home.xhtml" -->
 	
 	<authentication-manager> 
 		<authentication-provider >

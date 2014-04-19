@@ -21,12 +21,21 @@
 	<br></br>
 	<p:panel>
 		<br></br>
-               Date : <p:outputLabel value="#{presenceMatchBean.match.dateMatch}"></p:outputLabel> 
+               <h:outputLabel value="Date : " style="color:green" /> <p:outputLabel value="#{presenceMatchBean.match.dateMatch}"></p:outputLabel> 
                <br></br>
-				lieu : <p:outputLabel value="#{presenceMatchBean.match.lieuMatch}"></p:outputLabel>
+				<h:outputLabel value="Lieu : " style="color:green" /><p:outputLabel value="#{presenceMatchBean.match.lieuMatch}"></p:outputLabel>
   				<br></br>
-  				Educateur : <p:outputLabel value="#{match.educateur.nomEducateur}"></p:outputLabel>
+  				<h:outputLabel value="Heure du rendez-vous : " style="color:green" /> <p:outputLabel value="#{presenceMatchBean.match.heure}"></p:outputLabel>
   				<br></br>
+  				<h:outputLabel value="Educateur : " style="color:green" /> <p:outputLabel value="#{match.educateur.nomEducateur}"></p:outputLabel>
+  				<br></br>
+  				<h:outputLabel value="Classe : " style="color:green" /> <p:outputLabel value="#{presenceMatchBean.match.classe}"></p:outputLabel>
+  				<br></br>
+  				<h:outputLabel value="Commentaires : " style="color:green" /> <p:outputLabel value="#{presenceMatchBean.match.commentaire}" ></p:outputLabel>
+  				<br></br>
+  				<br></br>
+  				
+  				<h:outputLabel value="Liste des joueurs convoqués :" /><br></br>
 		<p:dataTable var="joueur" value="#{presenceMatchBean.listeJoueurPresent}">  
         <p:column headerText="Nom">  
             <h:outputText value="#{joueur.nomJoueur}" />  
@@ -38,7 +47,14 @@
     </p:dataTable> 
     <f:facet name="footer" style="left:20%">
     <p:commandButton value="Modifier" action="#{presenceMatchBean.modifieListeJoueurExistant}" ajax="false"/>
-    <p:commandButton value="Supprimer"  action="#{presenceMatchBean.delete}" ajax="false"/>
+         <!--Confirmation avants supression-->
+     <p:commandButton type="button" onclick="cd.show()" value="Supprimer" />
+			<p:confirmDialog message="Etes vous sure de vouloir supprimer cet convocation"
+					header="Attention" severity="alert"        widgetVar="cd">
+			<p:commandButton value="Oui" action="#{presenceMatchBean.delete}"
+					update="messages" oncomplete="cd.hide()" ajax="false"/>
+			<p:commandButton value="Annuler" onclick="cd.hide();" type="button" /> 
+	</p:confirmDialog> 
     </f:facet>
     </p:panel>
 	</h:form>
