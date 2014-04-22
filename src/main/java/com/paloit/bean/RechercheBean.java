@@ -89,7 +89,7 @@ public class RechercheBean {
 	// =========================================================================
 	// METHODS
 	// =========================================================================
-	public String editJoueur() {
+	public String afficheJoueur() {
 
 		// Mise en forme de la date recuperer pour interaction avec la BDD
 		this.nomJoueur = joueur.getNomJoueur();
@@ -100,6 +100,10 @@ public class RechercheBean {
 		this.tel2Joueur = joueur.getTel2Joueur();
 		this.mailJoueur = joueur.getMailJoueur();
 		this.equipe = joueur.getEquipe();
+		return "afficheJoueur.jsf";
+	}
+	
+	public String editJoueur(){
 		return "editJoueur.jsf";
 	}
 

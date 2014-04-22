@@ -8,87 +8,101 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 	<title>Acceuil</title>
-	<link type="text/css" href="style.css"/>
+	<h:outputStylesheet name="styles.css" library="css" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
+	<LINK rel="StyleSheet" href="http://weatherandtime.net/new_wid/w_2/style.css" type="text/css" media="screen">
 		
 
 </h:head>
-   
 
 
-				<h:body>
+				<body>
 	<div id="bloc_page">			
 
-			<div id="header">
-			<h:form id="loginForm" prependId="false" style="position:absolute; left:900px; top: 20px" >  
-				<h:panelGroup style="color:white">
-				Identifiant :<p:inPUtText id="j_username" required="true" style="position:relative; left:43px; top:1px;width:120px; height:10px; font-size:10px"/> 
-				</h:panelGroup>
-				<br /> 
-				<h:panelGroup style="color:white">
-				Mot de passe :<p:password id="j_password" required="true" style="position:relative; left:19px; top: 1px; width:120px; height:10px; font-size:10px"  />
-				</h:panelGroup>
-				<br /> 
-				<h:panelGroup>
-				<h:cOmMANDbuttON type="submit" id="login" action="#{authenticationBean.doLogin()}" value="Connexion"
-											 style="position:relative; left:215px" />
-				<br></br>
-				</h:panelGroup>
-       		</h:form>
-		
-            
-                <div id="nav">
-                   <div id="navul">
-                       <div id="navli"><a href="#">Association</a></div>
-                        <div id="navli"><a href="#">Entrainements</a></div>
-						<div id="navli"><a href="#">Convocations</a></div>
-						<div id="navli"><a href="#">Resultats</a></div>
-						<div id="navli"><a href="#">Projet Associatif</a></div>
-						<div id="navli"><a href="#">Partenaires</a></div>
-						<div id="navli"><a href="#">Infos Utiles</a></div>
-
-                    </div>
-               </div>				
-			</div>
-			<div id="section">
-			 <p:graphicImage id="grezheader" value="/resources/images/header2ss.png" alt="header2" title="header2"  />
-			</div>
-				
-		
-			<!-- Boucle pour l'affichage des news-->
-<ui:repeat var="news" value="#{newsBean.recupNews}"  >
-		<br></br>													
-	<div id="article"><p><h1><Strong> "#{news.titreNews}"</Strong></h1></p>
-		<br></br>
-		<p:graphicImage id="grezImage" value="#{newsBean.bytesToStreamedContent}" alt="#{news.titreNews}" title="#{news.titreNews}" style=" width:90%; height:300px" > 
-		<f:paRAM name="newsId" value="#{news.idNews}" />
-		 </p:graphicImage>
-		<br></br>		
-		<h:outputText value="#{news.texteNews}" />           								   
-	</div>
-</ui:repeat>
+			<header>
 			
+			<p:graphicImage id="grezImage" value="/resources/images/header_de_lhess.jpg" alt="imageGrez" title="imageGrez"
+		 			style=" width:980px; height:130px ; position:relative; left:140px "/>
+			
+            
+                <nav>
+                   <ul>
+                       <li><a href="#">Association</a></li>
+                        <li><a href="#">Entrainements</a></li>
+						<li><a href="#">Convocations</a></li>
+						<li><a href="#">Resultats</a></li>
+						<li><a href="#">Projet Associatif</a></li>
+						<li><a href="#">Partenaires</a></li>
+						<li><a href="#">Infos Utiles</a></li>
 
-<br></br><br /><br />
+                    </ul>
+                </nav>				
+			</header>
+			
+			<!--<img src="header2ss.png" alt="header2"/>
+					-->					
+<section style="display: inline-block">
+ <aside><script type="text/javascript" src="http://weatherandtime.net/m_c1/jquery.min.js"></script><div id="ww_2"><ul id="weather02_body_2671"><li id="weather02_t_2671" class="weather02_t"></li><li id="weather02_city_2671" class="weather02_city"><a href="http://weatherandtime.net/fr/Europe/France/Dijon-weather.html" title="Dijon">Dijon</a></li><li id="weather02_date_2671" class="weather02_date"></li><li style="position: absolute; top: 55px;left:70px;width: 30px;"><a style="font-size:9px !important;color:#12A0D7 !important;text-decoration:none !important;" href="http://weatherandtime.net/fr/widgets-gallery.html" title="free weather widget">free weather widget</a></li></ul></div><script type="text/javascript" src="http://weatherandtime.net/w_2.js?city=2671&lang=fr"></script></aside>
+<article><h1><strong> "D'un Z qui veut dire Zizou" <img width="434" height="300" src="zizou_president.jpg"  alt="coup2boul" title="ta soeur toi ouais!"/></strong> </h1>
+				
+									<p>	    Cette vie est un hôpital où chaque malade est possédé du désir de changer de lit. 
+									Celui-ci voudrait souffrir en face du poêle, et celui-là croit qu'il guérirait à côté de la fenêtre. 
+								   Il me semble que je serais toujours bien là où je ne suis pas, 
+								   et cette question de déménagement en est une que je discute sans cesse avec mon âme. 
+								   "Dis-moi, mon âme, pauvre âme refroidie, que penserais-tu d'habiter Lisbonne? 
+								   Il doit y faire chaud, et tu t'y ragaillardirais comme un lézard. 
+								   Cette ville est au bord de l'eau; on dit qu'elle est bâtie en marbre,
+								   et que le peuple y a une telle haine du végétal, qu'il arrache tous les arbres.
+								   Voilà un paysage selon ton goût; un paysage fait avec la lumière et le minéral, et le liquide pour les réfléchir!" 
+								   Mon âme ne répond pas. 
+								   "Puisque tu aimes tant le repos, avec le spectacle du mouvement,
+								   veux-tu venir habiter la Hollande, cette terre béatifiante?
+								   Peut-être te divertiras-tu dans cette contrée dont tu as souvent admiré l'image dans les musées.
+								   Que penserais-tu de Rotterdam, toi qui aimes les forêts de mâts, et les navires amarrés au pied des maisons?" 
+								   Mon âme reste muette. 
+								   "Batavia te sourirait peut-être davantage? Nous y trouverions d'ailleurs l'esprit de l'Europe marié à la beauté tropicale." 
+								   Pas un mot. - Mon âme serait-elle morte? 
+								   "En es-tu donc venue à ce point d'engourdissement que tu ne te plaises que dans ton mal? 
+								   S'il en est ainsi, fuyons vers les pays qui sont les analogies de la Mort. 
+								   - Je tiens notre affaire, pauvre âme! Nous ferons nos malles pour Tornéo.
+								   Allons plus loin encore, à l'extrême bout de la Baltique; encore plus loin de la vie,
+								   si c'est possible; installons-nous au pôle. Là le soleil ne frise qu'obliquement la terre, 
+								   et les lentes alternatives de la lumière et de la nuit suppriment
+								   la variété et augmentent la monotonie, cette moitié du néant.
+								   Là, nous pourrons prendre de longs bains de ténèbres, cependant que, pour nous divertir, 
+								   les aurores boréales nous enverront de temps en temps leurs gerbes roses, 
+								   comme des reflets d'un feu d'artifice de l'Enfer!" 
+								   Enfin, mon âme fait explosion, et sagement elle me crie: 
+								   "N'importe où! n'importe où! pourvu que ce soit hors de ce monde!"
+									</p>
+								   
+</article>
+</section>
 
-<!-- 
-			<DiV iD="aside">        
-                    <H1>À propos de l'auteur</h1>
-                    <P>Surnommé « Zizou », il est considéré comme l'un des plus grands joueurs de tous les temps.</P>
-                    <P> Milieu offensif, 
+  <p class="divers"> <a href="http://www.youtube.com/watch?v=_-eJx9MS_GQ" target="_blank" >Divers</a></p>
+								   
+			 <!-- <aside>	        
+                    <h1>À propos de l'auteur</h1>
+                   
+                    <p>Surnommé « Zizou », il est considéré comme l'un des plus grands joueurs de tous les temps.</p>
+                    <p> Milieu offensif, 
 					doté d'un profil atypique, il remporte de nombreux titres tant avec l'équipe de France, qu'avec les clubs où il a joué comme la Juventus de Turin et le Real Madrid. 
 					Il a, de plus, été nommé meilleur joueur de l'année dans tous les championnats dans lesquels il a évolué.
-                      
-																						
-            </diV>
- -->						
+                      <a href="maxresdefault.jpg" target="_blank"><img src="maxresdefault_mini.gif" alt="Photo de sobat" title="Cliquez pour agrandir" /></a></p>
+
+          </aside>-->
+		  <p><a href="mailto:rwa-d-kwonar@hotmail.fr">Envoyez-moi un e-mail !</a></p>
+				
+							
 							<footer>
-								<p class="copyright"> Copyright GrezLab - sponsored by <a href="http://www.grezclub.com/" TArget="_blank" >GrezLab</a></p>
-								
+								<p class="copyright"> Copyright JoJo - follow us<a href="http://www.justinbridou.fr/" target="_blank" >GZ<img src="FB_small.png" alt="Photo de sobat" title="Cliquez pour agrandir" /></a></p>
 							
 							</footer>			
 	</div>		
-</h:body>
+</body>
+	
+	
+	
+
 	
 </html>
