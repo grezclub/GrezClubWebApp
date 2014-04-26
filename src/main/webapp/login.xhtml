@@ -14,18 +14,19 @@
 		
        <h1>Bienvenue merci de vous connecter</h1>
 			<h:form id="loginForm" prependId="false" >  
-				<h:panelGroup>
+				 <h:panelGrid columns="2" cellpadding="1">
 				Identifiant :<h:inputText id="j_username"  /> 
-				</h:panelGroup>
-				<br /> 
+				
+			 
+				
+				Mot de passe :<h:inputSecret  id="j_password"  />
+				</h:panelGrid>
 				<h:panelGroup>
-				Mot de passe :<h:inputText id="j_password"  />
-				</h:panelGroup>
-				<br /> 
-				<h:panelGroup>
-				<h:commandButton type="submit" id="login" action="#{authenticationBean.doLogin()}" value="login" />
 				<br></br>
-				<h:commandLink value="logout" action="#{authenticationBean.doLogout()}"  />
+				<h:commandButton type="submit" id="login" action="#{authenticationBean.doLogin()}" value="login" style="margin-left:15%"/>
+				<br></br>
+				<br></br>
+				<a href="./index.xhtml">Revenir à la page d'accueil </a>
 				</h:panelGroup>
        		</h:form>
 

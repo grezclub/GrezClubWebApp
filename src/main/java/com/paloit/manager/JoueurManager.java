@@ -22,5 +22,7 @@ public interface JoueurManager {
 	
 	public void updateJoueur(Joueur joueur);
 	
+	public List<Joueur> listeJoueurEquipe (int idEquipe);
+	 
 	
 }

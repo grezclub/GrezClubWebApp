@@ -5,11 +5,13 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
-<h:head>
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	>
+<h:head >
 	<title>Acceuil</title>
 	<h:outputStylesheet name="styles.css" library="css" />
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	
 
 </h:head>
 
@@ -20,23 +22,24 @@
 		 			
 	 <div id="bloc_page">		
 	
-		
-			  <img width="1160px" height="209px"  src="resources/images/header_de_lhess.jpg"  alt="header" title="header"/>	
+		<header>
+			  <img   src="resources/images/header_de_lhess.jpg"  alt="header" title="header"/>
                <nav>
                    <ul>
-                       <li><a href="#">Association</a></li>
-                        <li><a href="#">Entrainements</a></li>
-						<li><a href="#">Convocations</a></li>
-						<li><a href="#">Resultats</a></li>
-						<li><a href="#">Projet Associatif</a></li>
-						<li><a href="#">Partenaires</a></li>
-						<li><a href="#">Infos Utiles</a></li>
-						<li><a href="login.xhtml"><p:graphicImage id="grezImage" value="/resources/images/dock/cadenasF.png"  alt="connexion" title="connexion" style=" width:25px; height:25px" /></a></li>
+                   	<li><a href="index.xhtml"><p:graphicImage id="grezImage" value="/resources/images/dock/home2.png"  alt="home" title="home" style=" width:25px; height:25px; position:relative; top:7px" /></a></li>
+                       <li><a href="association.xhtml">Association</a></li>
+                        <li><a href="entrainement.xhtml">Entrainements</a></li>
+						<li><a href="convocation.xhtml">Convocations</a></li>
+						<li><a href="resultats.xhtml">Resultats</a></li>
+						<li><a href="projetAssociatif.xhtml">Projet Associatif</a></li>
+						<li><a href="partenaires.xhtml">Partenaires</a></li>
+						<li><a href="infosUtiles.xhtml">Infos Utiles</a></li>
+						<li><a href="login.xhtml"><p:graphicImage id="grezImage" value="/resources/images/dock/cadenasF.png"  alt="connexion" title="connexion" style=" width:25px; height:25px; position:relative; top:5px" /></a></li>
 
                     </ul>
                 </nav>				
-		
-			</div>
+		</header>
+			
 
 <br></br><br></br>
 <br></br><br></br>
@@ -49,8 +52,8 @@
 			<!-- Boucle pour l'affichage des news-->
 
 <ui:repeat var="news" value="#{newsBean.recupNews}"  >
-<p:panel style=" width:600px; height:auto; margin-left:30%; position:relative" >													
-	<div id="article" style="text-align: center;"><p><h1><strong> "#{news.titreNews}"</strong></h1></p>
+<p:panel style=" width:600px; height:auto; margin:auto; position:relative" >													
+	<div id="article" style="text-align: center;"><p><h1><strong> #{news.titreNews}</strong></h1></p>
 		
 		<p:graphicImage id="grezImage" value="#{newsBean.bytesToStreamedContent}" alt="#{news.titreNews}" title="#{news.titreNews}" style=" width:550px; height:300px; position:relative; padding:10px" > 
 		<f:param name="newsId" value="#{news.idNews}" />
@@ -71,29 +74,31 @@
 
 
 
+<footer>
 
-
-	<div id="bloc_page">
 	<p:graphicImage id="grezImageFooter" value="/resources/images/footer.png" alt="imageGrezFooter" title="imageGrezFooter"
-		 			style="position:relative; width:1160px; height:209px; bottom: 0px;"/>
+		 			/>
 		 			
 		
-		<h:outputLabel value="Contact" style="position:relative; left:116px; top:-270px; color:#FEFEFE;
-												font-size:30px" />
-		<p:graphicImage id="grezImageContact" value="/resources/images/contactGrez2.png" alt="grezImageContact" title="grezImageContact"
-		 			style="position:relative; left:25px; top:-180px"/>
-		<h:outputLabel value="Une question?" style="position:relative; left:-70px; top:-180px; color:#FEFEFE;
+		<p:graphicImage id="grezImageContact" value="/resources/images/logo_contact.png" alt="grezImageContact" title="grezImageContact"
+		 			style="position:relative; left:179px; top:-194px"/>
+		<h:outputLabel value="Une question?" style="position:relative; left:110px; top:-180px; color:#FEFEFE;
 												font-size:15px" />
-		<h:outputLabel value="Entrer en contact avec l'ASC Grez-Club." style="position:relative; left:-220px; top:-165px; color:#FEFEFE;
-												font-size:15px" />
+		
+		
 	
 		<p:graphicImage id="grezImageFooter2" value="/resources/images/dijon.png" alt="imageGrezFooter" title="imageGrezFooter"
-		 			style="position:relative; height:80px; left: -160px; top:-180px"/>
+		 			style="position:relative; height:80px; left: 259px; top:-180px"/>
 		<p:graphicImage id="grezImageFooter3" value="/resources/images/Veolia.png" alt="imageGrezFooter" title="imageGrezFooter"
-		 			style="position:relative; height:120px; left: 0px; top:-160px"/>
+		 			style="position:relative; height:120px; left: 408px; top:-160px"/>
 		<p:graphicImage id="grezImageFooter3" value="/resources/images/facebook.png" alt="logoFaceBook" title="logoFaceBook"
-		 			style="position:relative; height:50px; width:50px; left: 155px; top:-195px"/>
+		 			style="position:relative; height:50px; width:50px; left: 544px; top:-195px"/>
+		 			<h:outputLabel value="Suivez-nous" style="position:relative; left:478px; top:-180px; color:#FEFEFE;
+			
+												font-size:15px" />
+												</footer>
 	</div>
 </h:body>
+
 
 </html>

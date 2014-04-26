@@ -88,6 +88,14 @@ public class JoueurServiceImpl implements JoueurService {
     public void update(Joueur joueur){
     	sessionFactory.getCurrentSession().update(joueur);
     }
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Joueur> findByEquipe(int idEquipe) {
+		
+		
+	 return sessionFactory.getCurrentSession().createQuery( "from Joueur where id_equipe = '"+idEquipe+"'" ).list();
+	}
    
 
     

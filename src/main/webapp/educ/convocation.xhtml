@@ -1,0 +1,35 @@
+	
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+		<title></title>
+		<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+	<ui:include src="/educ/menu.xhtml" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
+</h:head>
+<h:body>
+	<h:form id="form1">
+		
+	<br></br>
+	<br></br>
+	
+    <p:commandLink id="creerConvocation" action="#{creationEvenementBean.creerConvocation}" style="margin-right:20px;" ajax="false">  
+        <h:outputText value="Creer une liste de convocation à un match" />  
+    </p:commandLink>  
+     <br></br>
+	<br></br>
+    <p:commandLink id="AfficherConvocation" action="#{creationEvenementBean.afficherConvocation}" style="margin-right:20px;" ajax="false">  
+        <h:outputText value="Consulter la liste de toutes les convocations" />  
+    </p:commandLink>  
+		
+	</h:form>
+</h:body>
+</html>
+
+

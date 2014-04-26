@@ -122,7 +122,17 @@ public class PresenceMatchBean {
 	//Récupère la liste des entrainements
 		public List<Match> getListeMatch(){
 			
-			return matchManager.getAllMatch();		
+			//Recuperation des informations concernant l'educateur connecte
+			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+			UserDetails userDatails = (UserDetails) auth.getPrincipal();
+			this.educateur = connexionManager.educParLogin(userDatails.getUsername());
+			if (this.educateur.getFonction().contentEquals("ROLE_ADMIN") ){
+				return matchManager.getAllMatch();
+			}
+			else
+			return matchManager.listMatchEducateur(this.educateur.getIdEducateur());
+			
+					
 		}
 		
 		//Affiche les joueurs convoqué au match selectionné

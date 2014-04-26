@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.paloit.entities.Entrainement;
+import com.paloit.entities.Joueur;
 
 public interface EntrainementService {
     
@@ -30,5 +31,7 @@ public interface EntrainementService {
     
     //Methode permettant de modifier un entrainement
     public void updateEntrainement (Entrainement entrainement);
+    
+    
 
 }

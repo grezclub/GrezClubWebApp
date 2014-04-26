@@ -8,11 +8,16 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import util.SendMailTLS;
 
+import com.paloit.entities.Educateur;
 import com.paloit.entities.Joueur;
+import com.paloit.manager.ConnexionManager;
 import com.paloit.manager.JoueurManager;
 
 @Component
@@ -27,12 +32,15 @@ public class MailBean {
 
 	private Integer progress = 0;
 	private Integer progressMax = 100;
+	
+	private ConnexionManager connexionManager;
 
 	private String categorieJoueur;
 	private String contenueMail = null;
 	private String objetMail = null;
 	private List<Joueur> listeDestinataire;
 	private int number;
+	private Educateur educateur;
 
 	// =========================================================================
 	// CONSTRUCTEURS
@@ -108,6 +116,43 @@ public class MailBean {
 		return "envoieMail.jsf";
 	}
 
+	
+	public String envoieMailEduc(){
+		
+		//Recuperation des informations concernant l'educateur connecte
+				Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+				UserDetails userDatails = (UserDetails) auth.getPrincipal();
+				this.educateur = connexionManager.educParLogin(userDatails.getUsername());
+				
+		progress = 0;
+		listeDestinataire = new ArrayList<Joueur>();
+		
+		
+		listeDestinataire = manager.listeJoueurEquipe(this.educateur.getEquipe().getIdEquipe());
+		
+		
+		progressMax = listeDestinataire.size();
+
+		for (int i = 0; i < listeDestinataire.size(); i++) {
+			this.progress = 1 + i;
+			this.progress = this.progress * 100;
+			this.progress = this.progress / progressMax;
+
+			if (this.progress >= 100) {
+				this.progress = 100;
+			}
+			SendMailTLS.main(listeDestinataire.get(i).getMailJoueur(), objetMail, contenueMail);
+
+		}
+
+		this.objetMail = null;
+		this.contenueMail = null;
+		progressMax = 100;
+		progress = 0;
+
+		return "envoieMail.jsf";
+		
+	}
 	//
 	// =========================================================================
 	// @Autowired
@@ -118,6 +163,11 @@ public class MailBean {
 		this.manager = manager;
 	}
 
+	@Autowired
+	public void setConnexionManager(ConnexionManager connexionManager) {
+		this.connexionManager = connexionManager;
+
+	}
 	// =========================================================================
 	// GETTERS & SETTERS
 	// =========================================================================

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.paloit.entities.Entrainement;
+import com.paloit.entities.Joueur;
 
 @Service ("entrainementService") 
 @Transactional
@@ -58,5 +59,6 @@ public class EntrainementServiceImpl implements EntrainementService {
 		sessionFactory.getCurrentSession().update(entrainement);
 		
 	}
+
 
 }

@@ -2,7 +2,7 @@ package com.paloit.manager;
 
 import java.util.List;
 
-import com.paloit.entities.Entrainement;
+import com.paloit.entities.Convocation;
 import com.paloit.entities.Joueur;
 import com.paloit.entities.Match;
 
@@ -17,6 +17,7 @@ public interface ConvocationManager {
     //Methode qui supprime une liste de convocation correspondant à un match
     public void deleteConvocation (Match match);
     
-
+    //Stat Match
+    public List<Convocation> statConvocationJoueur(Joueur joueur);
 
 }

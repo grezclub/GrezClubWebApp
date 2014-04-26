@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.paloit.entities.Educateur;
+import com.paloit.entities.Entrainement;
 import com.paloit.entities.Match;
 
 @Service ("matchService") 
@@ -40,6 +41,18 @@ public class MatchServiceImpl implements MatchService {
 	public void deleteMatch(Match match) {
 		sessionFactory.getCurrentSession().delete(match);
 		
+	}
+
+	@Override
+	public Match findById(Integer id) {
+		return (Match) sessionFactory.getCurrentSession().get( Match.class, id );
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Match> findMatchEduc(int idEducateur) {
+		// TODO Auto-generated method stub
+		return sessionFactory.getCurrentSession().createQuery( "from Match where id_educateur = '"+idEducateur+"'" ).list();
 	}
 
 

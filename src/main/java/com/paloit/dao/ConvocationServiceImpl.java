@@ -100,4 +100,13 @@ public class ConvocationServiceImpl implements ConvocationService {
 		
 	}
 
+
+
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Convocation> statPresenceJoueur(Joueur joueur) {
+		 return sessionFactory.getCurrentSession().createQuery("from Convocation where id_joueur='"+joueur.getIdJoueur()+"'").list();
+	}
+
 }

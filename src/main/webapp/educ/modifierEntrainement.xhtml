@@ -1,0 +1,48 @@
+	
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title></title>
+	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+		<ui:include src="/educ/menu.xhtml" />
+	
+</h:head>
+<h:body>
+	
+	
+		<h:form>
+
+             <p:panel header="Informations concernant la News :" style="position:absolute ; top: 20%; left:23%; width:700px">        
+         <h:panelGrid columns="3" cellpadding="10">
+		
+		
+		<h:outputText for="customCal" value="Date : *"/>
+		<p:calendar value="#{presenceEntrainementBean.entrainement.dateEntrainement}" pattern="dd/MM/yyyy" showButtonPanel="true" navigator="true" id="customCal" required="true" label="date" requiredMessage="Veuillez saisir une date" style="width:225px"/>  
+		<p:message for="customCal" display="icon"/> 
+		
+		<h:outputText for="lieu" value="Lieu : "/>
+		<p:inputText id="lieu" value="#{presenceEntrainementBean.entrainement.lieuEntrainement}" required="true" label="lieu" requiredMessage="Veuillez saisir un lieu" style="width:225px"/>
+		<p:message for="lieu" display="icon"/>
+		
+		 <p:growl id="messages" showDetail="true"/>
+		  
+  		<f:facet name="footer">  
+  		
+		<p:commandButton value="Reset" type="reset" />
+    <p:commandButton id="citySubmit" value="Suivant" action="#{presenceEntrainementBean.updateEntrainement}"
+   ajax="false" />     
+  
+		</f:facet>
+	</h:panelGrid>
+	</p:panel>
+	</h:form>
+	
+</h:body>
+</html>
+
+

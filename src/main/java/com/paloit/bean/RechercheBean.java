@@ -10,7 +10,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -26,16 +26,30 @@ import javax.imageio.stream.ImageInputStream;
 import org.apache.commons.io.IOUtils;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.DualListModel;
 import org.primefaces.model.StreamedContent;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
+import com.paloit.entities.Convocation;
+import com.paloit.entities.Educateur;
+import com.paloit.entities.Entrainement;
 import com.paloit.entities.Equipe;
 import com.paloit.entities.Joueur;
+import com.paloit.entities.Match;
 import com.paloit.entities.News;
+import com.paloit.entities.Presence;
+import com.paloit.manager.ConnexionManager;
+import com.paloit.manager.ConvocationManager;
+import com.paloit.manager.EntrainementManager;
 import com.paloit.manager.EquipeManager;
 import com.paloit.manager.JoueurManager;
+import com.paloit.manager.MatchManager;
 import com.paloit.manager.NewsManager;
+import com.paloit.manager.PresenceManager;
 
 @Component
 @RequestScoped
@@ -53,6 +67,11 @@ public class RechercheBean {
 	private Joueur joueur;
 	private JoueurManager joueurManager;
 	private EquipeManager equipeManager;
+	private PresenceManager presenceManager;
+	private EntrainementManager entrainementManager;
+	private ConvocationManager convocationManager;
+	private ConnexionManager connexionManager;
+	private MatchManager matchManager;
 	private List<Joueur> filtreJoueur;
 
 	private String nomJoueur;
@@ -64,9 +83,16 @@ public class RechercheBean {
 	private Date dateNaissanceJoueur;
 	private String mailJoueur;
 	private Equipe equipe;
+	private Educateur educateur;
 	private int id;
 	private int idNews;
 	private int number;
+	private List<Presence> statEntrainement;
+	private List<Convocation> statMatch;
+	private List<Entrainement> listeEntrainement;
+	private List<Match> listeMatch;
+	private int statNbrEntrainement;
+	private int statNbrMatch;
 
 	// Attributs nécessaires aux opérations news
 	private News news;
@@ -100,10 +126,40 @@ public class RechercheBean {
 		this.tel2Joueur = joueur.getTel2Joueur();
 		this.mailJoueur = joueur.getMailJoueur();
 		this.equipe = joueur.getEquipe();
+		this.statEntrainement = new ArrayList<Presence>();
+		this.statMatch = new ArrayList<Convocation>();
+		this.listeEntrainement = new ArrayList<Entrainement>();
+		this.listeMatch = new ArrayList<Match>();
+
+		this.statEntrainement = presenceManager.statPresenceJoueur(joueur);
+		this.statNbrEntrainement = this.statEntrainement.size();
+
+		this.statMatch = convocationManager.statConvocationJoueur(joueur);
+		this.statNbrMatch = this.statMatch.size();
+
+		for (int i = 0; i < statEntrainement.size(); i++) {
+			this.listeEntrainement.add(entrainementManager
+					.findById(this.statEntrainement.get(i).getId()
+							.getIdEntrainement()));
+
+		}
+		for (int i = 0; i < statMatch.size(); i++) {
+			this.listeMatch.add(matchManager.findById(this.statMatch.get(i)
+					.getId().getIdMatch()));
+
+		}
 		return "afficheJoueur.jsf";
 	}
-	
-	public String editJoueur(){
+
+	public String statEntrainement() {
+		return null;
+	}
+
+	public String statConvocation() {
+		return null;
+	}
+
+	public String editJoueur() {
 		return "editJoueur.jsf";
 	}
 
@@ -154,7 +210,7 @@ public class RechercheBean {
 		joueurManager.updateJoueur(joueur);
 		equipe = null;
 		number = 0;
-		
+
 		return "rechercheJoueur.jsf";
 
 	}
@@ -314,11 +370,51 @@ public class RechercheBean {
 
 	}
 
+	@Autowired
+	public void setPresenceManager(PresenceManager presenceManager) {
+		this.presenceManager = presenceManager;
+
+	}
+
+	@Autowired
+	public void setEntrainementManager(EntrainementManager entrainementManager) {
+		this.entrainementManager = entrainementManager;
+
+	}
+
+	@Autowired
+	public void setConvocationManager(ConvocationManager convocationManager) {
+		this.convocationManager = convocationManager;
+
+	}
+
+	@Autowired
+	public void setMatchManager(MatchManager matchManager) {
+		this.matchManager = matchManager;
+
+	}
+	
+	@Autowired
+	public void setConnexionManager(ConnexionManager connexionManager) {
+		this.connexionManager = connexionManager;
+
+	}
+
 	// =========================================================================
 	// GETTERS & SETTERS
 	// =========================================================================
 	public List<Joueur> getAllJoueurs() {
-		return joueurManager.getAllJoueur();
+		//Recuperation des informations concernant l'educateur connecte
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		UserDetails userDatails = (UserDetails) auth.getPrincipal();
+		this.educateur = connexionManager.educParLogin(userDatails.getUsername());
+		
+		if (this.educateur.getFonction().contentEquals("ROLE_ADMIN") ){
+			return joueurManager.getAllJoueur();
+		}
+		else
+		return joueurManager.listeJoueurEquipe(this.educateur.getEquipe().getIdEquipe());
+		
 	}
 
 	public Joueur getJoueur() {
@@ -369,7 +465,6 @@ public class RechercheBean {
 		this.telJoueur = telJoueur;
 	}
 
-	
 	public String getTel2Joueur() {
 		return tel2Joueur;
 	}
@@ -441,6 +536,38 @@ public class RechercheBean {
 
 	public void setNumber(int number) {
 		this.number = number;
+	}
+
+	public int getStatNbrEntrainement() {
+		return statNbrEntrainement;
+	}
+
+	public void setStatNbrEntrainement(int statNbrEntrainement) {
+		this.statNbrEntrainement = statNbrEntrainement;
+	}
+
+	public List<Entrainement> getListeEntrainement() {
+		return listeEntrainement;
+	}
+
+	public void setListeEntrainement(List<Entrainement> listeEntrainement) {
+		this.listeEntrainement = listeEntrainement;
+	}
+
+	public int getStatNbrMatch() {
+		return statNbrMatch;
+	}
+
+	public void setStatNbrMatch(int statNbrMatch) {
+		this.statNbrMatch = statNbrMatch;
+	}
+
+	public List<Match> getListeMatch() {
+		return listeMatch;
+	}
+
+	public void setListeMatch(List<Match> listeMatch) {
+		this.listeMatch = listeMatch;
 	}
 
 }

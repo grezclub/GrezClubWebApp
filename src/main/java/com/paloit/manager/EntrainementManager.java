@@ -21,4 +21,7 @@ public interface EntrainementManager {
 	
 	//Suprime un entrainement
 	public void deleteEntrainement(Entrainement entrainement);
+	
+	//find by id
+	public Entrainement findById (Integer id);
 }

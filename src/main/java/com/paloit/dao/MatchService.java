@@ -18,5 +18,11 @@ public interface MatchService {
     
   //Methode permettant de supprimer un match
     public void deleteMatch (Match match);
+    
+    //Methode permettant de recuperer un match avec son id
+    public Match findById (Integer id);
+    
+    //Recupérer les match d'un educateur a partir de l'id educateur
+    public List<Match> findMatchEduc(int idEducateur);
 
 }

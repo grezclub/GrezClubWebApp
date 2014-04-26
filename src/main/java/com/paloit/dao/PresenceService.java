@@ -27,4 +27,7 @@ public interface PresenceService {
     
     //Methode qui renvoie la liste de presence d'un entrainement
     public List<Presence> listePresenceParEntrainement (Entrainement entrainement);
+    
+    //Methode permettant de recuperer une liste de présence d'un joueur
+    public List<Presence> statPresenceJoueur (Joueur joueur);
 }

@@ -37,6 +37,8 @@ public class ConnexionManagerImpl implements ConnexionManager {
 		return educateur;
 	}
 
+
+
 	
 
 }

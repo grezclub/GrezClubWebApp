@@ -201,7 +201,7 @@ public class CreationConvocationBean {
 		//Modifier la liste de joueur
 		public String modifieListeJoueur(){
 			
-			return "creationConvocation1.jsf";
+			return "creationConvocation.jsf";
 		}
 		
 		//Methode qui enregistre une Convocation

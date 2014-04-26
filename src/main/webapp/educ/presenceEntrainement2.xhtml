@@ -1,0 +1,64 @@
+	
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+		<title></title>
+		<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+	<ui:include src="/educ/menu.xhtml" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
+</h:head>
+<h:body>
+	<h:form>
+
+<p:growl id="messages" showDetail="true"/> 
+  
+    
+  
+    
+    
+	<p:outputLabel value="Liste des joueurs présents à l'entrainement :"></p:outputLabel>
+	<br></br>
+	<br></br>
+	<p:panel>
+	 <br></br>
+               Date : <p:outputLabel value="#{presenceEntrainementBean.entrainement.dateEntrainement}"></p:outputLabel> 
+               <br></br>
+				lieu : <p:outputLabel value="#{presenceEntrainementBean.entrainement.lieuEntrainement}"></p:outputLabel>
+  				<br></br>
+  				Educateur : <p:outputLabel value="#{entrainement.educateur.nomEducateur} "></p:outputLabel>
+  				<br></br>
+		<p:dataTable var="joueur" value="#{presenceEntrainementBean.listeJoueurPresent}">  
+        <p:column headerText="Nom">  
+            <h:outputText value="#{joueur.nomJoueur}" />  
+        </p:column>  
+   		 <p:column headerText="Prenom">  
+            <h:outputText value="#{joueur.prenomJoueur}" />  
+        </p:column>  
+   
+    </p:dataTable> 
+    <f:facet name="footer" style="left:20%">
+    <p:commandButton value="Modifier" action="#{presenceEntrainementBean.modifieListeJoueurExistant}" ajax="false"/>
+    
+     <!--Confirmation avants supression-->
+     <p:commandButton type="button" onclick="cd.show()" value="Supprimer" />
+			<p:confirmDialog message="Etes vous sure de vouloir supprimer cet entrainement"
+					header="Attention" severity="alert"        widgetVar="cd">
+			<p:commandButton value="Oui" action="#{presenceEntrainementBean.delete}" 
+					update="messages" oncomplete="cd.hide()" ajax="false"/>
+			<p:commandButton value="Annuler" onclick="cd.hide();" type="button" /> 
+	</p:confirmDialog> 
+     
+    
+    </f:facet>
+    </p:panel>
+	</h:form>
+</h:body>
+</html>
+
+

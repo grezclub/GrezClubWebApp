@@ -46,9 +46,10 @@ public class AuthenticationBean implements AuthenticationSuccessHandler{
 	
 	//Methode de deconnexion
 	public String doLogout(){
+		
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 		System.out.println("Deconnexion");
-		return "/login-failure.xhtml";
+		return "index.jsf";
 	}
 	
 	public String login(){

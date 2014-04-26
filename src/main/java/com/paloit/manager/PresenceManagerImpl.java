@@ -67,6 +67,12 @@ public class PresenceManagerImpl implements PresenceManager {
 		}
 		
 	}
+	@Override
+	
+	public List<Presence> statPresenceJoueur(Joueur joueur) {
+		// TODO Auto-generated method stub
+		return presenceService.statPresenceJoueur(joueur);
+	}
 
 	
 }

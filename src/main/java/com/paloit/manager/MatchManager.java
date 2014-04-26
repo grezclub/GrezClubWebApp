@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.paloit.entities.Educateur;
+import com.paloit.entities.Entrainement;
 import com.paloit.entities.Joueur;
 import com.paloit.entities.Match;
 
@@ -17,4 +18,10 @@ public interface MatchManager {
 
 	//Suprime un match
 	public void deleteMatch(Match match);
+	
+	//find by id
+		public Match findById (Integer id);
+		
+		//Match d'un educateur
+		public List<Match> listMatchEducateur(int idEducateur); 
 }

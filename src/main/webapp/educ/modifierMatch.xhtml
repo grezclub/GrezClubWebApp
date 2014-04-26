@@ -1,0 +1,77 @@
+	
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title></title>
+	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+		<ui:include src="/educ/menu.xhtml" />
+	
+</h:head>
+<h:body>
+	
+	
+		<h:form>
+<p:panel header="Informations concernant la convocation" style="position:absolute ; top: 20%; left:20%; width:600px">
+		 <h:panelGrid columns="3" cellpadding="10">
+		
+		
+        <h:outputText value="Classe : *" />  
+        <p:selectOneMenu id="classe" value="#{presenceMatchBean.number}"  label="classe" required="true" requiredMessage="Choisissez une classe" style="width:100px">  
+             <f:selectItem itemLabel="#{presenceMatchBean.match.classe}"  itemValue="0" />  
+            <f:selectItem itemLabel="A" itemValue="1" />  
+            <f:selectItem itemLabel="B" itemValue="2" />  
+            <f:selectItem itemLabel="C" itemValue="3" />   
+        </p:selectOneMenu> 
+        <p:message for="classe" display="icon"/>
+        
+        
+		<h:outputText for="adversaire" value="Adversaire : *"/>
+		<p:inputText id="adversaire" value="#{presenceMatchBean.match.adversaire}" label="adversaire" required="true" requiredMessage="Saisissez le nom de l'adversaire" style="width:225px">
+		<f:validateLength minimum="2" /> 
+		</p:inputText>
+		 <p:message for="adversaire" display="icon"/>
+		 
+		<h:outputText for="customCal" value="Date : *"/>
+		<p:calendar value="#{presenceMatchBean.match.dateMatch}" pattern="dd/MM/yyyy" showButtonPanel="true" navigator="true" id="customCal" label="customCal" required="true" requiredMessage="Saisissez une date" style="width:225px">
+		</p:calendar>
+		<p:message for="customCal" display="icon"/>
+		
+		<h:outputText for="heure" value="Heure du rendez-vous : *"/>
+		<p:inputText id="heure" value="#{presenceMatchBean.match.heure}" label="heure" required="true" requiredMessage="Saisissez une heure de rendez-vous" style="width:225px">
+		<f:validateLength minimum ="2"/>
+		</p:inputText>
+		<p:messages for="heure" display="icon"/>
+		
+		<h:outputText for="lieu" value="Lieu du rendez-vous: *"/>
+		<p:inputText id="lieu" value="#{presenceMatchBean.match.lieuMatch}" label="lieu" required="true" requiredMessage="Saisissez un lieu de rendez-vous" style="width:225px">
+		<f:validateLength minimum="3"/>
+		</p:inputText>
+		<p:messages for="lieu" display="icon"/>
+		
+		<h:outputText  value="Commentaire : "/>
+		<p:inputTextarea  rows="10" cols="50" value="#{presenceMatchBean.match.commentaire}" style="width:225px"/>
+		
+		
+		<p:growl id="messages" showDetail="true"/>
+		
+		<f:facet name="footer">  
+		<p:commandButton value="Reset" type="reset" />
+    <p:commandButton id="citySubmit" value="Suivant" action="#{presenceMatchBean.updateMatch}"
+   ajax="false" /> 
+   
+		</f:facet>
+		
+		</h:panelGrid>
+		</p:panel>
+	</h:form>
+	
+  		
+</h:body>
+</html>
+
+

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.paloit.entities.Entrainement;
 import com.paloit.entities.Joueur;
+import com.paloit.entities.Presence;
 
 public interface PresenceManager {
 	
@@ -14,5 +15,8 @@ public interface PresenceManager {
     
     //Methode qui supprime une liste de présence correspondant à un entrainement
     public void deletePresence (Entrainement entrainement);
+    
+    //Stat Entrainement
+    public List<Presence> statPresenceJoueur(Joueur joueur);
 
 }

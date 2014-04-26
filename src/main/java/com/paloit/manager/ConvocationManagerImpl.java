@@ -69,5 +69,10 @@ public class ConvocationManagerImpl implements ConvocationManager {
 				}
 				
 			}
+			@Override
+			public List<Convocation> statConvocationJoueur(Joueur joueur) {
+				// TODO Auto-generated method stub
+				return convocationService.statPresenceJoueur(joueur);
+			}
 			
 }

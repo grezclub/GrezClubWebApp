@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -102,6 +101,14 @@ public class PresenceServiceImpl implements PresenceService {
                 ( "from Presence where id.idEntrainement = " + entrainement.getIdEntrainement() ).list();
 		System.out.println("c'est bon pour la recuperation de la liste de presence");
 		return listePresence;
+		
+	}
+
+	
+	
+	@SuppressWarnings("unchecked")
+	public List<Presence> statPresenceJoueur(Joueur joueur) {
+		return sessionFactory.getCurrentSession().createQuery("from Presence where id_joueur='"+joueur.getIdJoueur()+"'").list();
 		
 	}
 

@@ -71,5 +71,16 @@ public class MatchManagerImpl implements MatchManager {
 		matchService.deleteMatch(match);
 		
 	}
+	
+	@Override
+	public Match findById(Integer id) {
+		// TODO Auto-generated method stub
+		return matchService.findById(id);
+	}
+	@Override
+	public List<Match> listMatchEducateur(int idEducateur) {
+		// TODO Auto-generated method stub
+		return  matchService.findMatchEduc(idEducateur);
+	}
 
 }

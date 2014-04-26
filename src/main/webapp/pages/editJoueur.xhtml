@@ -32,7 +32,7 @@
 		</p:inputText>
 		<p:message for="nom" display="icon"/>
 		<h:outputText value="Date de naissance : *"/>
-		<p:calendar id="dateNaissance" value="#{rechercheBean.dateNaissanceJoueur}" mask="99/99/9999" required="true" label="dateNaissance" requiredMessage="Veuillez saisir une date de naissance valide (jj/MM/aaaa)">
+		<p:calendar id="dateNaissance" value="#{rechercheBean.dateNaissanceJoueur}" mask="dd/MM/yyyy" required="true" label="dateNaissance" requiredMessage="Veuillez saisir une date de naissance valide (jj/MM/aaaa)">
 		<f:validateLength minimum="8" /> 
 		</p:calendar>
 		<p:message for="dateNaissance" display="icon"/>

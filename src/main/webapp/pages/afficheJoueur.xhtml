@@ -18,7 +18,7 @@
 	<br></br>
 	<br></br>
 	<h:form id="form">
-	<p:panel header="Informations concernant le joueur" style="position:absolute ; top: 20%; left:32%; width:460px">
+	<p:panel header="Informations concernant le joueur" style="position:absolute ; top: 20%; left:32%; width:auto">
 		
 		
 		 <p:panelGrid columns="2" cellpadding="10" >
@@ -53,6 +53,13 @@
     	</f:facet>
 		
 		</p:panelGrid>
+		<br></br>
+		<h:outputText value="Entrainement : " />
+		<a href="statEntrainementJoueur.xhtml">Ce joueur à été présent à #{rechercheBean.statNbrEntrainement} entrainement(s).</a>
+		<br></br>
+		<h:outputText value="Match : " />
+		<a href="statMatchJoueur.xhtml">Ce joueur à été convoqué à #{rechercheBean.statNbrMatch} match(s).</a>
+		
 		</p:panel>
 	 
 	</h:form>

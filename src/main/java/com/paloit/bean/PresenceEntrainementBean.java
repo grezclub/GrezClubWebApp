@@ -251,8 +251,18 @@ public class PresenceEntrainementBean {
 	
 	//Récupère la liste des entrainements
 	public List<Entrainement> getListeEntrainement(){
+		//Recuperation des informations concernant l'educateur connecte
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		UserDetails userDatails = (UserDetails) auth.getPrincipal();
+		this.educateur = connexionManager.educParLogin(userDatails.getUsername());
 		
-		return entrainementManager.getAllEntrainement();		
+		if (this.educateur.getFonction().contentEquals("ROLE_ADMIN") ){
+			return entrainementManager.getAllEntrainement();
+		}
+		else
+		return entrainementManager.getEntrainementByEduc(this.educateur);
+		
+				
 	}
 	
 	//Affiche les joueurs present a l'entrainement

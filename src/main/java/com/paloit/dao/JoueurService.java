@@ -18,6 +18,10 @@ public interface JoueurService {
     //Methode permettant de recuperer un joueur par son identifiant
     Joueur findById(Integer id);
     
+    //Methode permettant de recuperer une liste de  joueurs appartenant à une même équipe
+    List<Joueur> findByEquipe (int idEquipe);
+
+    
     //Methode permettant de recuperer un joueur par son nom
     List<Joueur> findByName(String name);
     

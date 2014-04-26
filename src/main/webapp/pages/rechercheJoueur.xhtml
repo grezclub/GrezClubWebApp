@@ -41,9 +41,9 @@
             <h:outputText value="#{joueur.equipe.categorie}" />  
         </p:column>
         
-        <p:column id="colonneDateNaissance" filterBy="#{joueur.datenaissanceJoueur }" pattern="dd/MM/yyyy" 
+        <p:column id="colonneDateNaissance" filterBy="#{joueur.datenaissanceJoueur }"  
                 headerText="DateNaissance"  >  
-            <h:outputText value="#{joueur.datenaissanceJoueur}" />  
+            <p:outputLabel value="#{joueur.datenaissanceJoueur}" mask="dd/MM/yyyy"/>  
         </p:column>
         <p:column id="colonneAdresse" filterBy="#{joueur.adresseJoueur }"  
                 headerText="Adresse" >  

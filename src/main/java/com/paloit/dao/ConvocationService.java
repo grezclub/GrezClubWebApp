@@ -6,6 +6,7 @@ import com.paloit.entities.Convocation;
 import com.paloit.entities.Entrainement;
 import com.paloit.entities.Joueur;
 import com.paloit.entities.Match;
+import com.paloit.entities.Presence;
 
 public interface ConvocationService {
 	
@@ -22,5 +23,8 @@ public interface ConvocationService {
     
   //Methode permettant de mettre a jour une liste de convocation
     public void updateConvocation (Match match, Joueur joueur);
+    
+  //Methode permettant de recuperer une liste de convocation d'un joueur
+    public List<Convocation> statPresenceJoueur (Joueur joueur);
 
 }

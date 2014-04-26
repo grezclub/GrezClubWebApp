@@ -79,6 +79,11 @@ public class EntrainementManagerImpl implements EntrainementManager {
 		entrainementService.deleteEntrainement(entrainement);
 		
 	}
+	@Override
+	public Entrainement findById(Integer id) {
+		// TODO Auto-generated method stub
+		return entrainementService.findById(id);
+	}
 	 
 
 }

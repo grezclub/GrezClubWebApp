@@ -2,25 +2,41 @@
 
 body
 {
-   margin: 0px;
-   padding: 0px;
+   margin: auto;
+   padding: auto;
    outline: 0px;
-   background-color: #f5f5f5;
+   position:relative ;
+   background-color: rgb(240,240,240);
 }
 
 #bloc_page
 {
+	
+	
     width: 1160px;
-    margin: auto;
-	height: auto;
+    margin:auto;
+	height: 209px;
 	background-color: #f0f0f0;
 
 	}
-@media all and (max-width: 1024px)
+	
+/*
+@media adaptation en fonction de l'écran de l'apareil connecté
+*/
+@media  (max-width: 980px) /*écran iphone*/
 {
     #bloc_page
     {
-        width: auto;
+       
+         margin-left: 77px;
+    }
+}
+@media  (max-width: 1024px) /*écran ipad*/
+{
+    #bloc_page
+    {
+       
+         margin-left: 95px;
     }
 }
 
@@ -31,8 +47,7 @@ header
 
 		position: relative;  
 		top: 0px;
-    left: 0;
-    right: 0;
+    margin:auto;
 		 	
 		/*background: url("header_de_lhess.jpg") fixed 
 		no-repeat top center;
@@ -43,7 +58,6 @@ height: 209px;*/
 		text-shadow: 6px 6px 6px black;
 		font-size: x-large;
 		width: auto;
-		margin: 0 auto;
 z-index: 3;
 
 
@@ -70,7 +84,7 @@ section
 width: 1160px;
 margin: auto;
 margin-top: -85px;
-margin-left: -86px;
+margin-left: -9px;
 text-align: right;
 padding-right: 100px;
 font-size:15px
@@ -125,10 +139,10 @@ article, aside1
 aside
 {
     position: relative;
-    width: 160px;
-   	left:80%;
+    width: 200px;
+   	margin-left:930px;
    	top:10px;
-    padding: 1px;
+    padding: 0px;
     color: white;
     font-size: 0.9em;
 }
@@ -198,8 +212,8 @@ footer
 		background:  url("/resources/images/footer.png")no-repeat bottom center; 
  	/*	width: 99%;*/
 		height: 210px;   
-		    min-width: 400px;
-			margin: 0 auto;
+		    
+			margin: auto;
 			    left: 0;
     right: 0;
 
