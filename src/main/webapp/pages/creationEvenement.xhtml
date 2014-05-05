@@ -7,29 +7,36 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
-		<title></title>
-		<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+		<title>
+		Gesttion Entrainements</title>
+				<h:outputStylesheet name="styles.css" library="css" />
 	<ui:include src="/pages/menu.xhtml" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	
 </h:head>
 <h:body>
+<div id="bloc_page">
 	<h:form id="form1">
 		
 	<br></br>
 	<br></br>
-	
-	 <p:commandLink id="creerEntrainement" action="#{creationEvenementBean.creerEntrainement}" style="margin-right:20px" ajax="false">  
+	<br></br><br></br>
+	<br></br>
+	<br></br>
+	<div id="bloc_gestionConvoc">
+	<p:panel style="text-align:center">
+	 <p:commandLink id="creerEntrainement" action="#{creationEvenementBean.creerEntrainement}"  ajax="false">  
         <h:outputText value="Creer une liste de présence à un entrainement" />  
     </p:commandLink> 
     <br></br>
 	<br></br>
-    <p:commandLink id="AfficherPresence" action="#{creationEvenementBean.afficherEntrainement}" style="margin-right:20px;" ajax="false">  
+    <p:commandLink id="AfficherPresence" action="#{creationEvenementBean.afficherEntrainement}"  ajax="false">  
         <h:outputText value="Consulter la liste de tous les entrainements" />  
     </p:commandLink>  
-    
-		
+    </p:panel>
+		</div>
 	</h:form>
+</div>
 </h:body>
 </html>
 

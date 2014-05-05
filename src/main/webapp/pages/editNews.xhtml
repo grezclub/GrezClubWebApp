@@ -8,15 +8,16 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 	<title>Edition d'une news</title>
-	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+	<h:outputStylesheet name="styles.css" library="css" />
 	<ui:include src="/pages/menu.xhtml" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </h:head>
 <h:body>
-	<h:form id="form87">
+<div id="bloc_page">
+<h:form id="form87">
 	
-    
-	<p:panel header="Informations concernant la News :" style="position:absolute ; top: 20%; left:23%; width:700px">
+    <div id="bloc_creationNews">
+	<p:panel header="Informations concernant la News :" >
 	
 		 <h:outputLabel for="image" value="Image de la News :"></h:outputLabel>
 		 <br></br>
@@ -58,8 +59,9 @@
     </f:facet>
     </h:panelGrid>
     </p:panel>
-    
+    </div>
 	</h:form>
+	</div>	
 </h:body>
 </html>
 

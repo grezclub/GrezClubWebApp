@@ -7,18 +7,19 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
-<title></title>
-	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+<title>Informations joueur</title>
+	<h:outputStylesheet name="styles.css" library="css" />
 	<ui:include src="/educ/menu.xhtml" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </h:head>
 <h:body>
-
+<div id="bloc_page">
 
 	<br></br>
 	<br></br>
 	<h:form id="form">
-	<p:panel header="Informations concernant le joueur" style="position:absolute ; top: 20%; left:32%; width:auto">
+	<div id="bloc_creationPersonne">
+	<p:panel header="Informations concernant le joueur" >
 		
 		
 		 <p:panelGrid columns="2" cellpadding="10" >
@@ -54,17 +55,17 @@
 		
 		</p:panelGrid>
 		<br></br>
-		<h:outputText value="Entrainement : " />
-		<a href="statEntrainementJoueur.xhtml">Ce joueur à été présent à #{rechercheBean.statNbrEntrainement} entrainement(s).</a>
+		<h:outputText value="Entrainement : " style="color: blue" />
+		<a href="statEntrainementJoueur.xhtml" >Ce joueur à été présent à #{rechercheBean.statNbrEntrainement} entrainement(s).</a>
 		<br></br>
-		<h:outputText value="Match : " />
+		<h:outputText value="Match : " style="color: blue" />
 		<a href="statMatchJoueur.xhtml">Ce joueur à été convoqué à #{rechercheBean.statNbrMatch} match(s).</a>
 		
 		</p:panel>
-	 
+	 </div>
 	</h:form>
 	
-
+</div>
 </h:body>
     	
 </html>

@@ -8,19 +8,20 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 	<title></title>
-	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+	<h:outputStylesheet name="styles.css" library="css" />
 	<ui:include src="/educ/menu.xhtml" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </h:head>
 <h:body>
-
+<div id="bloc_page">
 
 	<br></br><br></br>
 	<h:form id="form2">
 	
+	<div id="bloc_recherche">
     <p:dataTable id="dataTable" var="joueur" value="#{rechercheBean.allJoueurs}" widgetVar="joueurTable"   
             emptyMessage="Aucun joueur ne corresppond à votre recherche" filteredValue="#{rechercheBean.filtreJoueur}" 
-            	style="position:absolute ; top: 35%; margin:auto">  
+            	>  
   
          
         <p:column id="colonneNom" filterBy="#{joueur.nomJoueur }"  
@@ -57,10 +58,11 @@
          
    
     </p:dataTable>  
-		
-
+		</div>
+	
 		
 	</h:form>
+	</div>
 </h:body>
 </html>
 

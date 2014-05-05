@@ -3,7 +3,6 @@ package com.paloit.bean;
 import java.io.IOException;
 import java.util.Collection;
 
-import javax.enterprise.context.RequestScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
@@ -15,16 +14,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
+import com.paloit.entities.Educateur;
+
 
 @Named
-@RequestScoped
+@Scope
 public class AuthenticationBean implements AuthenticationSuccessHandler{
 	
 	private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
@@ -45,10 +49,14 @@ public class AuthenticationBean implements AuthenticationSuccessHandler{
 	}
 	
 	//Methode de deconnexion
-	public String doLogout(){
+	public String doLogout() throws ServletException, IOException{
 		
+		ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
+		RequestDispatcher dispatcher = ((ServletRequest) context.getRequest()).getRequestDispatcher("/j_spring_security_logout");
+		dispatcher.forward((ServletRequest) context.getRequest(), (ServletResponse) context.getResponse());
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-		System.out.println("Deconnexion");
+	
+		
 		return "index.jsf";
 	}
 	
@@ -84,7 +92,7 @@ public class AuthenticationBean implements AuthenticationSuccessHandler{
         boolean isAdmin = false;
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
         for (GrantedAuthority grantedAuthority : authorities) {
-            if (grantedAuthority.getAuthority().equals("ROLE_EDUC")) {
+            if (grantedAuthority.getAuthority().equals("ROLE_USER")) {
                 isUser = true;
                 break;
             } else if (grantedAuthority.getAuthority().equals("ROLE_ADMIN")) {

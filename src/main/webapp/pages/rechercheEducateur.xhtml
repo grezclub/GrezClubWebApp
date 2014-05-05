@@ -7,21 +7,21 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
-	<title></title>
-	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+	<title>Recherche éducateur</title>
+	<h:outputStylesheet name="styles.css" library="css" />
 	<ui:include src="/pages/menu.xhtml" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </h:head>
 <h:body>
-
+<div id="bloc_page">
 
 	<br></br><br></br>
 	<h:form id="form2">
-		<h:outputText value="#{rechercheEducateurBean.password}" />
-		<br></br>
-	
+		
+	<div id="bloc_recherche">
     <p:dataTable id="dataTable" var="educateur" value="#{rechercheEducateurBean.allEducateurs}" widgetVar="educateurTable"   
             emptyMessage="Aucun educateur ne corresppond à votre recherche" filteredValue="#{rechercheEducateurBean.filtreEducateur}"
-            	style="position:absolute ; top: 20%; left:10%; width:460px">  
+            	>  
   
          
         <p:column id="colonneNom" filterBy="#{educateur.nomEducateur }"  
@@ -54,21 +54,15 @@
                 headerText="Telephone" >  
             <h:outputText value="#{educateur.telEducateur}" />  
         </p:column> 
-        <p:column id="colonneLogin" filterBy="#{educateur.loginEducateur }"  
-                headerText="Login" >  
-            <h:outputText value="#{educateur.loginEducateur}" />  
-        </p:column> 
-          <p:column id="colonneMdp" filterBy="#{educateur.mdpEducateur }"  
-                headerText="Mot de passe" >  
-            <h:outputText value="#{ educateur.mdpEducateur}" />  
-        </p:column> 
+       
          
    
     </p:dataTable>  
-		
+		</div>
 
 		
 	</h:form>
+	</div>
 </h:body>
 </html>
 

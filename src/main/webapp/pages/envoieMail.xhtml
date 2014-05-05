@@ -8,23 +8,22 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 	<title></title>
-		<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+		<h:outputStylesheet name="styles.css" library="css" />
 	<ui:include src="/pages/menu.xhtml" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
  
 </h:head>
 <h:body>
+<div id="bloc_page">
 	<h:form id="form66">
 	<p:growl id="growl" />  
-		
-	<p:panel header="Informations concernant le mail à envoyé" style="position:absolute ; top: 25%; left:32%; width:500px">
+		<div id="bloc_mail">
+	<p:panel header="Informations concernant le mail à envoyé" >
 	<h:panelGrid columns="2" cellpadding="5">
 	
-	
-	<h:outputText value="Déstinataires : " />  
-	
-        <p:selectOneMenu value="#{mailBean.number}" style="width:150px">  
+	<h:outputText value="Destinataire : " />  
+       <p:selectOneMenu id="categorie" value="#{mailBean.number}" label="categorie" required="true" requiredMessage="Choisissez une catégorie" style="width:100px"> 
             <f:selectItem itemLabel="Choisir" itemValue="" />  
             <f:selectItem itemLabel="U7" itemValue="1" />  
             <f:selectItem itemLabel="U9" itemValue="2" />  
@@ -32,9 +31,10 @@
             <f:selectItem itemLabel="U13" itemValue="4" />  
             <f:selectItem itemLabel="U15" itemValue="5" />  
             <f:selectItem itemLabel="U18" itemValue="6" />  
-            <f:selectItem itemLabel="Senior" itemValue="7" /> 
-            <f:selectItem itemLabel="Tous" itemValue="8" /> 
-        </p:selectOneMenu> 	
+            <f:selectItem itemLabel="Senior" itemValue="7" />  
+             <f:selectItem itemLabel="Tous" itemValue="8" />  
+        </p:selectOneMenu> 
+		
      
           <h:outputLabel value="Objet : "></h:outputLabel> 
      <p:inputText value="#{mailBean.objetMail}" ></p:inputText>
@@ -46,7 +46,7 @@
      <p:inputTextarea rows="10" cols="50" value="#{mailBean.contenueMail}" ></p:inputTextarea>
   <f:facet name="footer"> 
    
-    <p:commandButton ajax="true" value="Start" type="Submit" onclick="pbAjax.start();startButton2.disable();" widgetVar="startButton2" action="#{mailBean.envoieMail}" />  
+    <p:commandButton ajax="true" value="Start" type="Submit" onclick="pbAjax.start();startButton2.disable();" widgetVar="startButton2" action="#{mailBean.envoieMailEduc}" />  
     <p:commandButton value="Cancel" action="#{progressBean.cancel}" oncomplete="Ajax.cancel();startButton2.enable();" /> 
        <br></br>
        <br></br>
@@ -59,8 +59,9 @@
   
   	
 	</p:panel>
-	 
+	 </div>
 	</h:form>
+	</div>
 </h:body>
 
 

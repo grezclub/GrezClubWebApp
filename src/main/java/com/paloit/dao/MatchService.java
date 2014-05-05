@@ -24,5 +24,11 @@ public interface MatchService {
     
     //Recupérer les match d'un educateur a partir de l'id educateur
     public List<Match> findMatchEduc(int idEducateur);
+    
+    //Recupérer le dernier match d'un educateur
+    public List<Match> findLastMatchEduc(int idEducateur);
+    
+    //Récupérer les dernières convocation d'une catégorie
+    public List<Match> findLastMatchEquipe (int idEquipe);
 
 }

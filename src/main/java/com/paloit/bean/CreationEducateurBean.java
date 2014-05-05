@@ -27,12 +27,14 @@ public class CreationEducateurBean {
 	private String mdpEduc;
 	private String categorieEduc;
 	private String fonctionEduc;
+	private boolean actif;
 	private int number;
+	private int numberRole;
+	private int numberActive;
 
 	// =========================================================================
 	// CONSTRUCTEURS
 	// =========================================================================
-
 	public CreationEducateurBean() {
 
 	}
@@ -69,8 +71,36 @@ public class CreationEducateurBean {
 	           
 	            
 	        }
+			switch(numberRole)
+	        {
+	            case 1:
+	                this.fonctionEduc = "ROLE_USER";
+	            break;
+	            case 2:
+	            	this.fonctionEduc = "ROLE_ADMIN";
+	            break;
+	           
+	            default: this.fonctionEduc = "ROLE_USER";
+                break;
+	           
+	            
+	        }
+			switch(numberActive)
+	        {
+	            case 1:
+	                this.actif = true;
+	            break;
+	            case 2:
+	            	this.actif = false;
+	            break;
+	           
+	            default: this.actif = true;
+                break;
+	           
+	            
+	        }
 			
-			manager.creerEducateur(nomEduc, prenomEduc, telEduc, mailEduc, loginEduc, mdpEduc, categorieEduc, fonctionEduc);
+			manager.creerEducateur(nomEduc, prenomEduc, telEduc, mailEduc, loginEduc, mdpEduc, categorieEduc, fonctionEduc, actif);
 			this.categorieEduc = null;
 			this.nomEduc = null;
 			this.prenomEduc = null;
@@ -79,6 +109,7 @@ public class CreationEducateurBean {
 			this.loginEduc = null;
 			this.mdpEduc = null;
 			this.fonctionEduc = null;
+			this.actif = true;
 			this.number = 0;
 			
 		 return "home.jsf";
@@ -181,9 +212,27 @@ public class CreationEducateurBean {
 		this.number = number;
 	}
 
+	
+	public int getNumberRole() {
+		return numberRole;
+	}
+
+	public void setNumberRole(int numberRole) {
+		this.numberRole = numberRole;
+	}
+
 	@Autowired
 	public void setManager(EducateurManager manager) {
 		this.manager = manager;
 	}
 
+	public int getNumberActive() {
+		return numberActive;
+	}
+
+	public void setNumberActive(int numberActive) {
+		this.numberActive = numberActive;
+	}
+	
+	
 }

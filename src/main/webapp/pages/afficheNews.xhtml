@@ -8,24 +8,29 @@
 <h:head>
 	<title>Affichage de toutes les News</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+	<h:outputStylesheet name="styles.css" library="css" />
 		<ui:include src="/pages/menu.xhtml" />
 </h:head>
 <h:body>
-	
+	<div id="bloc_page">
 			<!-- Boucle pour l'affichage des news-->
-<ui:repeat var="news" value="#{newsBean.recupNewsComplet}"  >
-		<br></br>													
-	<div id="article"><p><h1><strong> "#{news.titreNews}"</strong></h1></p>
-		<br></br>
-		<p:graphicImage id="grezImage" value="#{newsBean.bytesToStreamedContent}" alt="#{news.titreNews}" title="#{news.titreNews}" style=" width:90%; height:300px" > 
+			<div id="bloc_afficheNews">
+<ui:repeat var="news" value="#{newsBean.recupNews}"  >
+<p:panel style=" width:600px; height:auto; margin:auto; position:relative" >													
+	<div id="article" style="text-align: center;"><p><h1><strong> #{news.titreNews}</strong></h1></p>
+		
+		<p:graphicImage id="grezImage" value="#{newsBean.bytesToStreamedContent}" alt="#{news.titreNews}" title="#{news.titreNews}" style=" width:550px; height:300px; position:relative; padding:10px" > 
 		<f:param name="newsId" value="#{news.idNews}" />
 		 </p:graphicImage>
-		<br></br>		
-		<h:outputText value="#{news.texteNews}" />           								   
+		<br></br>		<br></br>
+		<h:outputText value="#{news.texteNews}" />    
+		<br></br> <br></br>      								   
 	</div>
+</p:panel>
+<br></br>
 </ui:repeat>
-	
+</div>
+	</div>
 </h:body>
 </html>
 

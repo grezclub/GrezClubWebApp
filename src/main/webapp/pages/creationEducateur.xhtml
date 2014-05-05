@@ -7,13 +7,15 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
-	<title></title>
-	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+	<title>Creation Educateur</title>
+	<h:outputStylesheet name="styles.css" library="css" />
 	<ui:include src="/pages/menu.xhtml" />
 </h:head>
 <h:body>
+<div id="bloc_page">
 	<h:form id="form67">
-		<p:panel header="Informations concernant l' educateur" style="position:absolute ; top: 20%; left:32%; width:460px">
+	<div id="bloc_creationPersonne">
+		<p:panel header="Informations concernant l' educateur" >
 		<p:messages id="msgs"/>
 		 <h:panelGrid columns="3" cellpadding="5">
 		 <h:outputText for="prenom" value="Prenom : *"/>
@@ -58,11 +60,23 @@
 		<f:validateLength minimum="4" />
 		</p:inputText>
 		<p:message for="login" display="icon"/>	
-		<h:outputText  value="Fonction : *"/>
-		<p:inputText id="fonction" value="#{creationEducateurBean.fonctionEduc}" label="fonction" required="true" requiredMessage="Saisissez un login (4 caractères minimum)">
-		<f:validateLength minimum="4" />
-		</p:inputText>
-		<p:message for="fonction" display="icon"/>
+	
+		<h:outputText value="Role : " />
+		<p:selectOneMenu id="role" value="#{creationEducateurBean.numberRole}" label="role" required="true" requiredMessage="Choisissez un role" style="width:100px"> 
+            <f:selectItem itemLabel="Choisir" itemValue="" />  
+            <f:selectItem itemLabel="ROLE_USER" itemValue="1" />  
+            <f:selectItem itemLabel="ROLE_ADMIN" itemValue="2" />  
+        </p:selectOneMenu> 
+        <p:message for="role" display="icon"/>
+		
+		<h:outputText value="Activer : " />
+		<p:selectOneMenu id="activer" value="#{creationEducateurBean.numberActive}" label="activer" required="true" requiredMessage="L'educateur est il actif ?" style="width:100px"> 
+            <f:selectItem itemLabel="Choisir" itemValue="" />  
+            <f:selectItem itemLabel="OUI" itemValue="1" />  
+            <f:selectItem itemLabel="NON" itemValue="2" />  
+        </p:selectOneMenu> 
+        <p:message for="role" display="icon"/>
+		
 		
 		<f:facet name="footer">  
 		<p:commandButton value="Reset" type="reset" />
@@ -72,8 +86,10 @@
 		
 		</h:panelGrid>
 		</p:panel>
+		</div>
 	 
 	</h:form>
+	</div>
 </h:body>
 </html>
 

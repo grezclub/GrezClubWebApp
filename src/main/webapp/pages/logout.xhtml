@@ -13,12 +13,12 @@
 	<h:body>
 		
        <h1>Êtes-vous sur de vouloir vous deconnecter</h1>
-			<h:form id="loginForm" prependId="true" >  
-				
-			
+			<h:form id="loginForm" prependId="false" > 
+					<h:outputLink value="${pageContext.request.contextPath}/myApp/j_spring_security_logout">Se déconnecter et retourner à 'accueil</h:outputLink>
+					<br></br> 
+					<br></br>
+					<a href="./home.xhtml">Retour </a>
 				<br></br>
-				<br></br>
-				<a href="./home.xhtml">Revenir à la page d'accueil </a>
 				
        		</h:form>
 

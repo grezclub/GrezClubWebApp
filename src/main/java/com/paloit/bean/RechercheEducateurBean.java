@@ -34,8 +34,11 @@ public class RechercheEducateurBean {
 	private String fonctionEducateur;
 	private Equipe equipe;
 	private String password;
+	private boolean actif;
 	private int id;
 	private int number;
+	private int numberRole;
+	private int numberActive;
 
 	// =========================================================================
 	// CONSTRUCTEURS
@@ -56,6 +59,7 @@ public class RechercheEducateurBean {
 		this.fonctionEducateur = educateur.getFonction();
 		this.loginEducateur = educateur.getLoginEducateur();
 		this.mdpEducateur = educateur.getMdpEducateur();
+		this.actif = educateur.isEnabled();
 		this.telEducateur = educateur.getTelEducateur();
 		this.equipe = educateur.getEquipe();
 		return "editEducateur.jsf";
@@ -100,10 +104,41 @@ public class RechercheEducateurBean {
 			break;
 
 		}
+		switch (numberRole) {
+		case 1:
+			educateur.setFonction(fonctionEducateur);
+			break;
+		case 2:
+			educateur.setFonction("ROLE_USER");
+			break;
+		case 3:
+			educateur.setFonction("ROLE_ADMIN");
+			break;
+	
+		default:
+			this.educateur.setFonction("ROLE_USER");
+			break;
+
+		}
+		switch (numberActive) {
+		case 1:
+			educateur.setEnabled(actif);
+			break;
+		case 2:
+			educateur.setEnabled(true);
+			break;
+		case 3:
+			educateur.setEnabled(false);
+			break;
+	
+		default:
+			educateur.setEnabled(true);
+			break;
+
+		}
 
 		educateur.setIdEducateur(id);
 		educateur.setMailEducateur(mailEducateur);
-		educateur.setFonction(fonctionEducateur);
 		educateur.setLoginEducateur(loginEducateur);
 		educateur.setMdpEducateur(mdpEducateur);
 		educateur.setTelEducateur(telEducateur);
@@ -112,6 +147,8 @@ public class RechercheEducateurBean {
 		equipe = null;
 
 		number = 0;
+		numberActive = 0;
+		numberRole = 0;
 
 		return "rechercheEducateur.jsf";
 
@@ -253,5 +290,30 @@ public class RechercheEducateurBean {
 	public void setNumber(int number) {
 		this.number = number;
 	}
+
+	public boolean isActif() {
+		return actif;
+	}
+
+	public void setActif(boolean actif) {
+		this.actif = actif;
+	}
+
+	public int getNumberRole() {
+		return numberRole;
+	}
+
+	public void setNumberRole(int numberRole) {
+		this.numberRole = numberRole;
+	}
+
+	public int getNumberActive() {
+		return numberActive;
+	}
+
+	public void setNumberActive(int numberActive) {
+		this.numberActive = numberActive;
+	}
+	
 
 }

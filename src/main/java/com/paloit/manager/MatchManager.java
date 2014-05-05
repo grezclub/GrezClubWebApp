@@ -24,4 +24,10 @@ public interface MatchManager {
 		
 		//Match d'un educateur
 		public List<Match> listMatchEducateur(int idEducateur); 
+		
+		//find by categorie
+		public List<Match> listConvocation (int idEducateur);
+		
+		//Recueprer les equipes pour l'afficahege des convocation
+	   public List<Match> dernierMatch (String categorie);
 }

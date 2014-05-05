@@ -30,6 +30,7 @@ public class Match implements java.io.Serializable {
 	private String heure;
 	private String commentaire;
 	private String classe;
+	private int idEquipe;
 
 	public Match() {
 	}
@@ -123,6 +124,15 @@ public class Match implements java.io.Serializable {
 
 	public void setClasse(String classe) {
 		this.classe = classe;
+	}
+	
+	@Column(name = "id_equipe")
+	public int getIdEquipe() {
+		return this.idEquipe;
+	}
+
+	public void setIdEquipe(int idEquipe) {
+		this.idEquipe = idEquipe;
 	}
 	
 	

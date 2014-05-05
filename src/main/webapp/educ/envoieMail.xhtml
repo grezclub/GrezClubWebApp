@@ -8,17 +8,18 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 	<title></title>
-		<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+		<h:outputStylesheet name="styles.css" library="css" />
 	<ui:include src="/educ/menu.xhtml" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
  
 </h:head>
 <h:body>
+<div id="bloc_page">
 	<h:form id="form66">
 	<p:growl id="growl" />  
-		
-	<p:panel header="Informations concernant le mail à envoyé" style="position:absolute ; top: 25%; left:32%; width:500px">
+		<div id="bloc_mail">
+	<p:panel header="Informations concernant le mail à envoyé" >
 	<h:panelGrid columns="2" cellpadding="5">
 	
 	
@@ -47,8 +48,9 @@
   
   	
 	</p:panel>
-	 
+	 </div>
 	</h:form>
+	</div>
 </h:body>
 
 

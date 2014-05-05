@@ -11,11 +11,13 @@ public interface EducateurManager {
 
 	public void creerEducateur(String nomEduc,String prenomEduc, String telEduc, String mailEduc,
 									String loginEduc, String mdpEduc, String categorieEduc,
-										String fonctionEduc );
+										String fonctionEduc, boolean actif );
 	
 	public void modifierEducateur (Educateur educateur);
 	
 	public void supprimerEducateur (int id);
+	
+	
 	
 	
 }

@@ -8,15 +8,17 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 	<title></title>
-	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+	<h:outputStylesheet name="styles.css" library="css" />
 	<ui:include src="/pages/menu.xhtml" />
 </h:head>
 <h:body>
+<div id="bloc_page">
 	<h:form id="form1">
 		
 	<br></br>
 	<br></br>
-	
+	<div id="bloc_gestionConvoc">
+	<p:panel style="text-align:center; top:200px">
 	 <p:commandLink id="creerJoueur" action="#{creationPersonne.creerJoueur}" style="margin-right:20px" ajax="false">  
         <h:outputText value="Creer un Joueur" />  
     </p:commandLink> 
@@ -25,8 +27,10 @@
     <p:commandLink id="creerEducateur" action="#{creationPersonne.creerEducateur}" style="margin-right:20px;" ajax="false">  
         <h:outputText value="Creer un Educateur" />  
     </p:commandLink> 
-		
+		</p:panel>
+		</div>
 	</h:form>
+	</div>
 </h:body>
 </html>
 

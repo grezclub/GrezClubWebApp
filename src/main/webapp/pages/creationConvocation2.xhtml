@@ -8,27 +8,30 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 	<title></title>
-	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+		<h:outputStylesheet name="styles.css" library="css" />
 	<ui:include src="/pages/menu.xhtml" />
 </h:head>
 <h:body>
-
+<div id="bloc_page">
 <h:form>
-
+<div id="bloc_selectionJoueur">
       <p:pickList id="pickList" value="#{creationConvocationBean.listeJoueurs}" var="joueur"   
-                itemLabel="#{joueur.nomJoueur}" itemValue="#{joueur.idJoueur}" style="position:absolute ; top: 20% ; left:32% " >
+                itemLabel="#{joueur.nomJoueur}" itemValue="#{joueur.idJoueur}"  >
                 
           <p:ajax event="transfer" listener="#{creationConvocationBean.onTransfer}"  /> 
                </p:pickList> 
                <br></br>
                
        
-	 <p style="position:absolute ; top: 50% ; left:53% " >
-		<p:commandButton value="Reset" type="reset" />
-    <p:commandButton id="citySubmit" value="Submit" action="#{creationConvocationBean.recapConvocation}"
+	 <p  >
+		
+    <p:commandButton id="citySubmit" value="Valider" action="#{creationConvocationBean.recapConvocation}"
     ajax="false"/>      
 </p>
+</div>
 	</h:form>
+	
+</div>
 </h:body>
 </html>
 

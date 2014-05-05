@@ -63,11 +63,22 @@
 		<f:validateLength minimum="4" />
 		</p:inputText>
 		<p:message for="login" display="icon"/>	
-		<h:outputText  value="Fonction : *"/>
-		<p:inputText id="fonction" value="#{rechercheEducateurBean.fonctionEducateur}" label="fonction" required="true" requiredMessage="Saisissez un login (4 caractères minimum)">
-		<f:validateLength minimum="4" />
-		</p:inputText>
-		<p:message for="fonction" display="icon"/>
+		
+		<h:outputText value="Fonction : " />  
+       <p:selectOneMenu id="fonction" value="#{rechercheEducateurBean.numberRole}" label="fonction" required="true" requiredMessage="Choisissez une fonction" style="width:100px"> 
+            <f:selectItem itemLabel="#{rechercheEducateurBean.fonctionEducateur}" itemValue="1" />  
+           <f:selectItem itemLabel="ROLE_USER" itemValue="2" />  
+            <f:selectItem itemLabel="ROLE_ADMIN" itemValue="3" />      
+        </p:selectOneMenu> 
+         <p:message for="fonction" display="icon"/>
+         
+         <h:outputText value="Activer : " />  
+       <p:selectOneMenu id="activer" value="#{rechercheEducateurBean.numberActive}" label="activer" required="true" requiredMessage="Doit il être activé" style="width:100px"> 
+            <f:selectItem itemLabel="#{rechercheEducateurBean.actif}" itemValue="1" />  
+           <f:selectItem itemLabel="OUI" itemValue="2" />  
+            <f:selectItem itemLabel="NON" itemValue="3" />      
+        </p:selectOneMenu> 
+         <p:message for="fonction" display="icon"/>
 		
 		<f:facet name="footer">  
 		

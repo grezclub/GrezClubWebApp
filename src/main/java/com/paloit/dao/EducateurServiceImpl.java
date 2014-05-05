@@ -60,7 +60,7 @@ public class EducateurServiceImpl implements EducateurService {
    
     public void save( Educateur educateur ) {
         // Sauvegarde de l'educateur toujours de la m�me mani�re
-    	educateur.setEnabled(true);
+    	
         sessionFactory.getCurrentSession().saveOrUpdate( educateur );
     }
 

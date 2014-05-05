@@ -19,16 +19,172 @@ body
 	background-color: #f0f0f0;
 
 	}
+
+#bloc_recherche
+    {
+    	position:relative;
+    	 margin:auto;
+    	 width:1000px;
+    	 top:150px;
+    	 
+    }
+    
+#bloc_gestionConvoc
+	 {
+    	position:relative;
+    	 margin:auto;
+    	 width:500px;
+    	 top:50px;
+    	 
+    }
+
+#bloc_creationConvoc
+	 {
+    	position:relative;
+    	 margin:auto;
+    	 width:600px;
+    	 top:100px;
+    	 
+    }
+
+#bloc_creationConvoc
+	 {
+    	position:relative;
+    	 margin:auto;
+    	 width:600px;
+    	 top:100px;
+    	 
+    }
+
+#bloc_selectionJoueur
+	 {
+    	position:relative;
+    	 margin-left:30%;
+    	 width:600px;
+    	 top:100px;
+    	 
+    }
+#bloc_mail
+	 {
+    	position:relative;
+    	 margin:auto;
+    	 width:600px;
+    	 top:100px;
+    	 
+    }
+#bloc_creationEntrainement
+	 {
+    	position:relative;
+    	 margin:auto;
+    	 width:450px;
+    	 top:150px;
+    	 
+    }
+ #bloc_creationNews
+	 {
+    	position:relative;
+    	 margin:auto;
+    	 width:750px;
+    	 top:150px;
+    	 
+    }
+  #bloc_creationPersonne
+	 {
+    	position:relative;
+    	 margin:auto;
+    	 width:450px;
+    	 top:150px;
+    	 
+    }
+      #bloc_afficheNews
+	 {
+    	position:relative;
+    	 margin:auto;
+    	 width:450px;
+    	 top:150px;
+    	 
+    }
 	
 /*
 @media adaptation en fonction de l'écran de l'apareil connecté
 */
-@media  (max-width: 980px) /*écran iphone*/
+@media  (max-width:640px) /*écran iphone*/
 {
     #bloc_page
     {
        
          margin-left: 77px;
+    }
+    #bloc_recherche
+    {
+    	position:relative;
+    	 margin-left:50%;
+    	 top:150px;
+    	 
+    }
+    #bloc_gestionConvoc
+	 {
+    	position:relative;
+    	 margin-left:300px;
+    	 width:auto;
+    	 top:50px;
+    	 
+    }
+    #bloc_creationConvoc
+	 {
+    	position:relative;
+    	 margin-left:20px;
+    	 width:600px;
+    	 top:100px;
+    	 
+    }
+    #bloc_selectionJoueur
+	 {
+    	position:relative;
+    	 margin-left:100px;
+    	 width:600px;
+    	 top:100px;
+    	 
+    }
+    #bloc_mail
+	 {
+    	position:relative;
+    	 margin:auto;
+    	 width:600px;
+    	 top:100px;
+    	 
+    }
+    #bloc_creationEntrainement
+	 {
+    	position:relative;
+    	 margin:auto;
+    	 width:450px;
+    	 top:150px;
+    	 
+    }
+     #bloc_creationNews
+	 {
+    	position:relative;
+    	 margin-left:170px;
+    	 width:450px;
+    	 top:150px;
+    	 
+    }
+      #bloc_creationPersonne
+	 {
+    	position:relative;
+    	margin-left:170px;
+    	 width:450px;
+    	 top:150px;
+    	 
+    }
+          #bloc_afficheNews
+	 {
+    	position:relative;
+    	 margin-left:170px;
+    	 width:450px;
+    	 top:150px;
+    	 
     }
 }
 @media  (max-width: 1024px) /*écran ipad*/
@@ -38,7 +194,82 @@ body
        
          margin-left: 95px;
     }
+    #bloc_recherche
+    {
+    	position:relative;
+    	width:600px;
+    	 margin-left:20px;
+    	 top:150px;
+    	 
+    }
+    #bloc_gestionConvoc
+	 {
+    	position:relative;
+    	 margin-left:13%;
+    	 width:500px;
+    	 top:50px;
+    	 
+    }
+    #bloc_creationConvoc
+	 {
+    	position:relative;
+    	 margin-left:100px;
+    	 width:600px;
+    	 top:100px;
+    	 
+    }
+    #bloc_selectionJoueur
+	 {
+    	position:relative;
+    	 margin-left:180px;
+    	 width:600px;
+    	 top:100px;
+    	 
+    }
+    #bloc_mail
+	 {
+    	position:relative;
+    	 margin-left:100px;
+    	 width:600px;
+    	 top:200px;
+    	 
+    }
+    #bloc_creationEntrainement
+	 {
+    	position:relative;
+    	 margin-left:170px;
+    	 width:450px;
+    	 top:150px;
+    	 
+    }
+     #bloc_creationNews
+	 {
+    	position:relative;
+    	margin-left:170px;
+    	 width:450px;
+    	 top:150px;
+    	 
+    }
+      #bloc_creationPersonne
+	 {
+    	position:relative;
+    	 margin-left:170px;
+    	 width:450px;
+    	 top:150px;
+    	 
+    }
+          #bloc_afficheNews
+	 {
+    	position:relative;
+    	 margin-left:170px;
+    	 width:450px;
+    	 top:150px;
+    	 
+    }
+    
 }
+
+
 
 /* entete */
 header

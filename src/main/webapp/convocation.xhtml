@@ -10,16 +10,8 @@
 <h:head >
 	<title>Convocation</title>
 	<h:outputStylesheet name="styles.css" library="css" />
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-	<style>
-            html, body {
-                width: 1000px;
-                height: 100%;
-                margin: 0;
-                padding: 0;
-            }
-          
-        </style>
+	<meta http-equiv="Content-Type" content="text/html; utf-8" />
+	
 
 </h:head>
 
@@ -30,11 +22,11 @@
 		 			
 	 <div id="bloc_page">		
 	
-		
+		<h:form>
 			  <img   style="margin-left:auto; width:1160px ;height:209px"  src="resources/images/header_de_lhess.jpg"  alt="header" title="header"/>
                <nav>
                    <ul>
-                   	<li><a href="index.xhtml"><p:graphicImage id="grezImage" value="/resources/images/dock/home2.png"  alt="home" title="home" style=" width:25px; height:25px; position:relative; top:7px" /></a></li>
+                   	<li><a href="index.xhtml"><p:graphicImage id="grezImage17" value="/resources/images/dock/home2.png"  alt="home" title="home" style=" width:25px; height:25px; position:relative; top:7px" /></a></li>
                    
                         <li><a href="association.xhtml">Association</a></li>
                         <li><a href="entrainement.xhtml">Entrainements</a></li>
@@ -48,20 +40,47 @@
                     </ul>
                 </nav>				
 		
-			</div>
+			
 
 <br></br><br></br>
+<br></br><br></br>
+<p:panel>
+
+	
+<h:outputText value="Catégorie : " />  <br></br><br></br>
+       <p:selectOneMenu id="categorie" value="#{convocationBean.number}" label="categorie" required="true" requiredMessage="Choisissez une catégorie" style="width:100px"> 
+            <f:selectItem itemLabel="Choisir" itemValue="" />  
+            <f:selectItem itemLabel="U7" itemValue="1" />  
+            <f:selectItem itemLabel="U9" itemValue="2" />  
+            <f:selectItem itemLabel="U11" itemValue="3" />  
+            <f:selectItem itemLabel="U13" itemValue="4" />  
+            <f:selectItem itemLabel="U15" itemValue="5" />  
+            <f:selectItem itemLabel="U18" itemValue="6" />  
+            <f:selectItem itemLabel="Senior" itemValue="7" />  
+        </p:selectOneMenu> 
+
+	<p:commandButton type="Submit" action="#{convocationBean.listeMatchConvocation}" 
+    					ajax="false" value="Valider"/>
+</p:panel>
+
+
+    
+    	
+
+    <br></br><br></br>
+<br></br><br></br>
+    <br></br><br></br>
+<br></br><br></br>
+    <br></br><br></br>
+<br></br><br></br>
+    <br></br><br></br>
 <br></br><br></br>
 	
 
 
-    
 
 
-
-
-
-	<div id="bloc_page">
+	
 	<p:graphicImage id="grezImageFooter" value="/resources/images/footer.png" alt="imageGrezFooter" title="imageGrezFooter"
 		 			style="position:relative; width:1160px; height:209px; bottom: 0px;"/>
 		 			
@@ -77,11 +96,15 @@
 		 			style="position:relative; height:80px; left: 259px; top:-180px"/>
 		<p:graphicImage id="grezImageFooter3" value="/resources/images/Veolia.png" alt="imageGrezFooter" title="imageGrezFooter"
 		 			style="position:relative; height:120px; left: 408px; top:-160px"/>
-		<p:graphicImage id="grezImageFooter3" value="/resources/images/facebook.png" alt="logoFaceBook" title="logoFaceBook"
+		<p:graphicImage id="grezImageFooter4" value="/resources/images/facebook.png" alt="logoFaceBook" title="logoFaceBook"
 		 			style="position:relative; height:50px; width:50px; left: 544px; top:-195px"/>
 		 			<h:outputLabel value="Suivez-nous" style="position:relative; left:478px; top:-180px; color:#FEFEFE;
+	
 												font-size:15px" />
+												
+												</h:form>
 	</div>
+	
 </h:body>
 
 </html>

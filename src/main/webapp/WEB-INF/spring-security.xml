@@ -10,9 +10,13 @@
 	<!-- Page auto généré par Spring-->	 
 	<http auto-config="true">
 		<intercept-url pattern="/pages/*" access="ROLE_ADMIN" />
-		<intercept-url pattern="/educ/*" access="ROLE_EDUC, ROLE_ADMIN" />
+		<intercept-url pattern="/educ/*" access="ROLE_USER, ROLE_ADMIN" />
 		<form-login login-page="/login.xhtml" authentication-success-handler-ref="authenticationBean" authentication-failure-url="/login-failure.xhtml" />
-	</http>	
+		<logout
+				logout-url="/j_spring_security_logout"
+				logout-success-url="/index.xhtml" 
+    			invalidate-session="true"  />
+		</http>	
 	
 
 <!-- default-target-url="/educ/home.xhtml" -->
@@ -34,16 +38,6 @@
 			
 			/>
 		
-		<!--    
-				  
- 				--> 
-		 <!--  
-		 
-			<user-service>
-			<user name="killer" password="123456" authorities="ROLE_ADMIN" />
-			<user name="kaiser" password="123" authorities="ROLE_ADMIN" />
-		</user-service>
-		-->
 		
        </authentication-provider>
   

@@ -8,7 +8,8 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 	<title></title>
-		<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+			<h:outputStylesheet name="styles.css" library="css" />
+
 	<ui:include src="/educ/menu.xhtml" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	
@@ -16,12 +17,13 @@
 <h:body>
 	
 	
+<div id="bloc_page">
 	<h:form id="form2">
-	
+	<div id="bloc_recherche">
 	
     <p:dataTable id="dataTable" var="entrainement" value="#{presenceEntrainementBean.listeEntrainement}" widgetVar="entrainementTable"   
             emptyMessage="Aucun entrainement ne corresppond à votre recherche" filteredValue="#{presenceEntrainementBean.filtreEntrainement}"
-            	style="position:absolute ; top: 20%; left:10%; width:460px">  
+            	>  
   
          
         <p:column id="colonneDate" filterBy="#{entrainement.dateEntrainement}"  
@@ -45,8 +47,10 @@
         
          
    
-    </p:dataTable> 
+    </p:dataTable>
+    </div> 
 	</h:form>
+	</div>
 </h:body>
 </html>
 

@@ -8,39 +8,39 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 	<title>Convocation</title>
-	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+	<h:outputStylesheet name="styles.css" library="css" />
 		<ui:include src="/educ/menu.xhtml" />
 	
 </h:head>
 <h:body>
 	
-	
+	<div id="bloc_page">
 	<h:form id="form2">
-	
+	<div id="bloc_recherche">
     <p:dataTable id="dataTable" var="match" value="#{presenceMatchBean.listeMatch}" widgetVar="matchTable"   
             emptyMessage="Aucun match ne corresppond à votre recherche" 
-            	style="position:absolute ; top: 20%; left:10%; width:460px">  
+            	>  
   
          
         <p:column id="colonneDate"  filterBy="#{match.dateMatch} }"  
-                headerText="Date" >  
+                headerText="Date"  style="text-align:center" >  
 
  			<p:commandLink action="#{presenceMatchBean.detailMatch}" ajax="false">
-           <h:outputText value="#{match.dateMatch}" />   
+           <h:outputText value="#{match.dateMatch}"/>   
               <f:setPropertyActionListener target="#{presenceMatchBean.match}" value="#{match}"/>
             </p:commandLink>
           
         </p:column>  
         <p:column id="colonneLieu" filterBy="#{match.lieuMatch} }" 
-                headerText="Lieu" >  
+                headerText="Lieu" style="text-align:center">  
             <h:outputText value="#{match.lieuMatch} " />  
         </p:column> 
         <p:column id="colonneAdversaire" filterBy="#{match.adversaire} }" 
-                headerText="Adversaire" >  
+                headerText="Adversaire" style="text-align:center">  
             <h:outputText value="#{match.adversaire} " />  
         </p:column> 
         <p:column id="colonneEducateur" filterBy="#{match.educateur.nomEducateur} }"   
-                headerText="Nom educateur" >  
+                headerText="Nom educateur" style="text-align:center" >  
             <h:outputText value="#{match.educateur.nomEducateur}" />  
         </p:column>
      
@@ -49,7 +49,9 @@
          
    
     </p:dataTable> 
+    </div>
 	</h:form>
+	</div>
 </h:body>
 </html>
 
