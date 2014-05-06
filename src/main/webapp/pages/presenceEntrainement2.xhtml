@@ -27,7 +27,9 @@
 	<br></br>
 	<p:panel>
 	 <br></br>
-              <h:outputLabel value="Date : " style="color:green" /><p:outputLabel value="#{presenceEntrainementBean.entrainement.dateEntrainement}"></p:outputLabel> 
+              <h:outputLabel value="Date : " style="color:green" /><h:outputLabel value="#{presenceEntrainementBean.entrainement.dateEntrainement}">
+              														   <f:convertDateTime pattern="dd/MM/yyyy" />
+              														</h:outputLabel> 
                <br></br>
 				<h:outputLabel value="Lieu : " style="color:green" /><p:outputLabel value="#{presenceEntrainementBean.entrainement.lieuEntrainement}"></p:outputLabel>
   				<br></br>

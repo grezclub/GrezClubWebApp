@@ -7,16 +7,18 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
-	<title></title>
-	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+	<title>Modification d'une convocation</title>
+	<h:outputStylesheet name="styles.css" library="css" />
 		<ui:include src="/pages/menu.xhtml" />
 	
 </h:head>
 <h:body>
+<div id="bloc_page">
 	
 	
 		<h:form>
-<p:panel header="Informations concernant la convocation" style="position:absolute ; top: 20%; left:20%; width:600px">
+		<div id="bloc_creationConvoc">
+<p:panel header="Informations concernant la convocation" >
 		 <h:panelGrid columns="3" cellpadding="10">
 		
 		
@@ -68,9 +70,10 @@
 		
 		</h:panelGrid>
 		</p:panel>
+		</div>
 	</h:form>
 	
-  		
+  	</div>	
 </h:body>
 </html>
 

@@ -7,18 +7,18 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
-	<title></title>
-	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+	<title>Modification d'un éducateur</title>
+	<h:outputStylesheet name="styles.css" library="css" />
 	<ui:include src="/pages/menu.xhtml" />
 </h:head>
 <h:body>
-
+<div id="bloc_page">
 
 	<br></br>
 	<br></br>
 	<h:form id="form">
-	
-		<p:panel header="Informations concernant l' educateur" style="position:absolute ; top: 20%; left:32%; width:460px">
+	<div id="bloc_creationPersonne">
+		<p:panel header="Informations concernant l' educateur" >
 		<p:messages id="msgs"/>
 		 <h:panelGrid columns="3" cellpadding="5">
 		 <h:outputText for="prenom" value="Prenom : *"/>
@@ -94,8 +94,9 @@
     	</f:facet>
 		</h:panelGrid>
 		</p:panel>
+		</div>
 	</h:form>
 	
-
+</div>
 </h:body>
 </html>

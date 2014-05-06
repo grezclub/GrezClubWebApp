@@ -7,25 +7,28 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
-		<title></title>
-		<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+		<title>Modification d'une convocation</title>
+		<h:outputStylesheet name="styles.css" library="css" />
 	<ui:include src="/educ/menu.xhtml" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	
 </h:head>
 <h:body>
-
+<div id="bloc_page">
 <h:form>
+<div id="bloc_selectionJoueur">
 		<p:pickList id="pickList" value="#{presenceMatchBean.listeJoueurs}" var="joueur"   
-                itemLabel="#{joueur.nomJoueur}" itemValue="#{joueur.idJoueur}" style="position:absolute ; top: 20% ; left:32% " >
+                itemLabel="#{joueur.nomJoueur}" itemValue="#{joueur.idJoueur}" >
                 
           <p:ajax event="transfer" listener="#{presenceMatchBean.onTransfer}"  /> 
                </p:pickList> 
                <br></br>
                <br></br>
        			<br></br>
-        <p:panel id="panel" style="position:absolute ; top: 60% ;left:25%; width:50%">         
-               Date : <p:outputLabel value="#{presenceMatchBean.match.dateMatch}"></p:outputLabel> 
+        <p:panel id="panel" >         
+               Date : <h:outputLabel value="#{presenceMatchBean.match.dateMatch}">
+               		   <f:convertDateTime pattern="dd/MM/yyyy" />
+               </h:outputLabel> 
                <br></br>
 				lieu : <p:outputLabel value="#{presenceMatchBean.match.lieuMatch}"></p:outputLabel>
   				<br></br>
@@ -38,7 +41,9 @@
     
 		</f:facet>
 		</p:panel>
+		</div>
 	</h:form>
+	</div>
 </h:body>
 </html>
 

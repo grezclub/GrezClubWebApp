@@ -52,17 +52,23 @@ public class RechercheEducateurBean {
 	// =========================================================================
 	public String editEducateur() {
 
-		// Mise en forme de la date recuperer pour interaction avec la BDD
-		this.nomEducateur = educateur.getNomEducateur();
-		this.prenomEducateur = educateur.getPrenomEducateur();
-		this.mailEducateur = educateur.getMailEducateur();
-		this.fonctionEducateur = educateur.getFonction();
-		this.loginEducateur = educateur.getLoginEducateur();
-		this.mdpEducateur = educateur.getMdpEducateur();
-		this.actif = educateur.isEnabled();
-		this.telEducateur = educateur.getTelEducateur();
-		this.equipe = educateur.getEquipe();
+		
 		return "editEducateur.jsf";
+	}
+	
+	public String afficheEducateur(){
+		// Mise en forme de la date recuperer pour interaction avec la BDD
+				this.nomEducateur = educateur.getNomEducateur();
+				this.prenomEducateur = educateur.getPrenomEducateur();
+				this.mailEducateur = educateur.getMailEducateur();
+				this.fonctionEducateur = educateur.getFonction();
+				this.loginEducateur = educateur.getLoginEducateur();
+				this.mdpEducateur = educateur.getMdpEducateur();
+				this.actif = educateur.isEnabled();
+				this.telEducateur = educateur.getTelEducateur();
+				this.equipe = educateur.getEquipe();
+		
+				return "afficheEducateur.jsf";
 	}
 
 	public String saveEditedEducateur() {

@@ -19,7 +19,7 @@
 	<div id="bloc_creationPersonne">
 		<p:panel header="Informations concernant le joueur" >
 		<p:messages id="msgs"/>
-		 <h:panelGrid columns="3" cellpadding="1">
+		 <h:panelGrid columns="3" cellpadding="3">
 		<h:outputText for="prenom" value="Prenom : *"/>
 		<p:inputText id="prenom" value="#{creationJoueurBean.prenomJoueur}" required="true" label="Prenom" requiredMessage="Veuillez saisir un prénom">
 		<f:validateLength minimum="2" /> 
@@ -67,8 +67,9 @@
 		<f:validateLength minimum="7" />
 		</p:inputText>
 		<p:message for="mail" display="icon"/>
+		<br></br>
 		<f:facet name="footer">  
-		<p:commandButton value="Reset" type="reset" />
+		<p:commandButton value="Reset" type="reset"  style="position:relative; margin-left:55%" />
     	<p:commandButton type="Submit" action="#{creationJoueurBean.creerJoueur}" update="panel" actionListener="#{creationJoueurBean.savePerson}" 
     					ajax="false" value="Valider"/>
     	</f:facet>

@@ -52,9 +52,12 @@
 		<br></br> <br></br>
 		<br></br>
 
-
+		<p style="font-size:35px; margin-left: 25% ">Convocations pour la catégorie #{convocationBean.categorie} </p>
 
 		<p:panel>
+			<br></br>
+			<h:outputLabel value="Equipe : " style="color:green" />
+			<p:outputLabel value="#{convocationBean.matchA.classe}"></p:outputLabel>
 			<br></br>
 			<h:outputLabel value="Date : " style="color:green" />
 			<h:outputLabel value="#{convocationBean.matchA.dateMatch}">
@@ -75,9 +78,7 @@
 			<h:outputLabel value="Heure du rendez-vous : " style="color:green" />
 			<p:outputLabel value="#{convocationBean.matchA.heure}"></p:outputLabel>
 			<br></br>
-			<h:outputLabel value="Equipe : " style="color:green" />
-			<p:outputLabel value="#{convocationBean.matchA.classe}"></p:outputLabel>
-			<br></br>
+			
 			<h:outputLabel value="Commentaires : " style="color:green" />
 			<p:outputLabel value="#{convocationBean.matchA.commentaire}"></p:outputLabel>
 			<br></br>
@@ -89,7 +90,7 @@
 			<h:outputLabel value="Liste des joueurs convoqués :" />
 			<br></br>
 			<p:dataTable var="joueur"
-				value="#{convocationBean.listejoueurConvoqueA}">
+				value="#{convocationBean.listejoueurConvoqueA}" style="text-align:center">
 				<p:column headerText="Nom">
 					<h:outputText value="#{joueur.nomJoueur}" />
 				</p:column>
@@ -104,6 +105,9 @@
 		<br></br>
 		<p:panel>
 		<br></br>
+		<h:outputLabel value="Equipe : " style="color:green" />
+			<p:outputLabel value="#{convocationBean.matchB.classe}"></p:outputLabel>
+			<br></br>
 			<h:outputLabel value="Date : " style="color:green" />
 			<h:outputLabel value="#{convocationBean.matchB.dateMatch}">
 				<f:convertDateTime pattern="dd/MM/yyyy" />
@@ -124,9 +128,7 @@
 			<h:outputLabel value="Heure du rendez-vous : " style="color:green" />
 			<p:outputLabel value="#{convocationBean.matchB.heure}"></p:outputLabel>
 			<br></br>
-			<h:outputLabel value="Equipe : " style="color:green" />
-			<p:outputLabel value="#{convocationBean.matchB.classe}"></p:outputLabel>
-			<br></br>
+			
 			<h:outputLabel value="Commentaires : " style="color:green" />
 			<p:outputLabel value="#{convocationBean.matchB.commentaire}"></p:outputLabel>
 			<br></br>
@@ -137,7 +139,7 @@
 			<h:outputLabel value="Liste des joueurs convoqués :" />
 			<br></br>
 			<p:dataTable var="joueur"
-				value="#{convocationBean.listejoueurConvoqueB}">
+				value="#{convocationBean.listejoueurConvoqueB}" style="text-align:center">
 				<p:column headerText="Nom">
 					<h:outputText value="#{joueur.nomJoueur}" />
 				</p:column>

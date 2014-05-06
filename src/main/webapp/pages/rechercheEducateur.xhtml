@@ -21,13 +21,13 @@
 	<div id="bloc_recherche">
     <p:dataTable id="dataTable" var="educateur" value="#{rechercheEducateurBean.allEducateurs}" widgetVar="educateurTable"   
             emptyMessage="Aucun educateur ne corresppond à votre recherche" filteredValue="#{rechercheEducateurBean.filtreEducateur}"
-            	>  
+            	style="text-align:center">  
   
          
         <p:column id="colonneNom" filterBy="#{educateur.nomEducateur }"  
                 headerText="Nom" 
                 filterMatchMode="contains">  
-                <p:commandLink action="#{rechercheEducateurBean.editEducateur}" ajax="false">
+                <p:commandLink action="#{rechercheEducateurBean.afficheEducateur}" ajax="false">
             <h:outputText value="#{educateur.nomEducateur }" /> 
              <f:setPropertyActionListener target="#{rechercheEducateurBean.educateur}" value="#{educateur}" />
             </p:commandLink> 

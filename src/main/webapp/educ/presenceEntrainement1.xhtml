@@ -23,14 +23,18 @@
 	
     <p:dataTable id="dataTable" var="entrainement" value="#{presenceEntrainementBean.listeEntrainement}" widgetVar="entrainementTable"   
             emptyMessage="Aucun entrainement ne corresppond à votre recherche" filteredValue="#{presenceEntrainementBean.filtreEntrainement}"
-            	>  
+            	style="text-align:center">  
   
          
         <p:column id="colonneDate" filterBy="#{entrainement.dateEntrainement}"  
                 headerText="Date" 
                 filterMatchMode="contains">  
                 <p:commandLink action="#{presenceEntrainementBean.detailEntrainement}" ajax="false">
-            <h:outputText value="#{entrainement.dateEntrainement}" /> 
+            <h:outputText value="#{entrainement.dateEntrainement}" >
+            <f:convertDateTime pattern="dd/MM/yyyy" />
+            </h:outputText>
+           
+            
              <f:setPropertyActionListener target="#{presenceEntrainementBean.entrainement}" value="#{entrainement}"/>
             </p:commandLink> 
           

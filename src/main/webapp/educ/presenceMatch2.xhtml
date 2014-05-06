@@ -21,7 +21,9 @@
 	<br></br>
 	<p:panel>
 		<br></br>
-               <h:outputLabel value="Date : " style="color:green" /> <p:outputLabel value="#{presenceMatchBean.match.dateMatch}"></p:outputLabel> 
+               <h:outputLabel value="Date : " style="color:green" /> <h:outputLabel value="#{presenceMatchBean.match.dateMatch}">
+               															<f:convertDateTime pattern="dd/MM/yyyy" />
+               															</h:outputLabel> 
                <br></br>
 				<h:outputLabel value="Lieu : " style="color:green" /><p:outputLabel value="#{presenceMatchBean.match.lieuMatch}"></p:outputLabel>
   				<br></br>

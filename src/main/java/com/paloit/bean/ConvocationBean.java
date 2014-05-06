@@ -113,6 +113,7 @@ public class ConvocationBean {
 				page = "convocation3.xhtml";
 				  break;
 			default:
+				page = "convocation4.xhtml";
 				break;
 			}
 
@@ -209,6 +210,15 @@ public class ConvocationBean {
 			public void setMatchC(Match matchC) {
 				this.matchC = matchC;
 			}
+
+			public String getCategorie() {
+				return categorie;
+			}
+
+			public void setCategorie(String categorie) {
+				this.categorie = categorie;
+			}
+			
 			
 				
 }

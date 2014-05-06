@@ -21,7 +21,7 @@
 	<div id="bloc_recherche">
     <p:dataTable id="dataTable" var="joueur" value="#{rechercheBean.allJoueurs}" widgetVar="joueurTable"   
             emptyMessage="Aucun joueur ne corresppond à votre recherche" filteredValue="#{rechercheBean.filtreJoueur}" 
-            	>  
+            	style="text-align:center">  
   
          
         <p:column id="colonneNom" filterBy="#{joueur.nomJoueur }"  
@@ -44,7 +44,9 @@
         
         <p:column id="colonneDateNaissance" filterBy="#{joueur.datenaissanceJoueur }"  
                 headerText="DateNaissance"  >  
-            <p:outputLabel value="#{joueur.datenaissanceJoueur}" mask="dd/MM/yyyy"/>  
+            <h:outputLabel value="#{joueur.datenaissanceJoueur}" >
+             <f:convertDateTime pattern="dd/MM/yyyy" />
+            </h:outputLabel>  
         </p:column>
         <p:column id="colonneAdresse" filterBy="#{joueur.adresseJoueur }"  
                 headerText="Adresse" >  

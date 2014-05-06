@@ -23,21 +23,23 @@
 		
 		
 		 <p:panelGrid columns="2" cellpadding="10" >
-		<h:outputText value="Prenom"/>
+		<h:outputText value="Prenom" style="font-weight: bold;"/>
 		<h:outputText value="#{rechercheBean.prenomJoueur}" /> 
-		<h:outputText value="Nom"/>
+		<h:outputText value="Nom" style="font-weight: bold;"/>
 		<h:outputText value="#{rechercheBean.nomJoueur}" />
-		<h:outputText value="Date de naissance"/>
-		<p:outputLabel value="#{rechercheBean.dateNaissanceJoueur}" mask="99/99/9999"/>
-		<h:outputText value="Catégorie" />  
+		<h:outputText value="Date de naissance" style="font-weight: bold;"/>
+		<h:outputLabel value="#{rechercheBean.dateNaissanceJoueur}">
+		<f:convertDateTime pattern="dd/MM/yyyy" />
+		</h:outputLabel>
+		<h:outputText value="Catégorie" style="font-weight: bold;" />  
 		<h:outputText value="#{rechercheBean.joueur.equipe.categorie}" />
-		<h:outputText value="Adresse"/>
+		<h:outputText value="Adresse" style="font-weight: bold;"/>
 		<h:outputText value="#{rechercheBean.adresseJoueur}" />
-		<h:outputText value="Telephone"/>
+		<h:outputText value="Telephone" style="font-weight: bold;"/>
 		<h:outputText value="#{rechercheBean.telJoueur}" />
-		<h:outputText value="Telephone 2"/>
+		<h:outputText value="Telephone 2" style="font-weight: bold;"/>
 		<h:outputText value="#{rechercheBean.tel2Joueur}" />
-		<h:outputText value="Mail"/>
+		<h:outputText value="Mail" style="font-weight: bold;"/>
 		<h:outputText value="#{rechercheBean.mailJoueur}" />
 
 		<f:facet name="footer">  

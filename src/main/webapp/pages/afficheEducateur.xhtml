@@ -1,0 +1,68 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+<title>Informations joueur</title>
+	<h:outputStylesheet name="styles.css" library="css" />
+	<ui:include src="/pages/menu.xhtml" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</h:head>
+<h:body>
+<div id="bloc_page">
+
+	<br></br>
+	<br></br>
+	<h:form id="form">
+	<div id="bloc_creationPersonne">
+	<p:panel header="Informations concernant l'éducateur" style="width:430px" >
+		
+		
+		 <p:panelGrid columns="2" cellpadding="10" style="width:400px">
+		<h:outputText value="Prenom" style="font-weight: bold;"/>
+		<h:outputText value="#{rechercheEducateurBean.prenomEducateur}" /> 
+		<h:outputText value="Nom" style="font-weight: bold;"/>
+		<h:outputText value="#{rechercheEducateurBean.nomEducateur}" />
+		<h:outputText value="Categorie" style="font-weight: bold;"/>
+		<h:outputText value="#{rechercheEducateurBean.educateur.equipe.categorie}" />		
+		<h:outputText value="Tél" style="font-weight: bold;" />  
+		<h:outputText value="#{rechercheEducateurBean.telEducateur}" />
+		<h:outputText value="Mail" style="font-weight: bold;"/>
+		<p:outputLabel value="#{rechercheEducateurBean.mailEducateur}" mask="99/99/9999"/>
+		<h:outputText value="Login" style="font-weight: bold;"/>
+		<h:outputText value="#{rechercheEducateurBean.loginEducateur}" />
+		<h:outputText value="Mot de passe" style="font-weight: bold;"/>
+		<h:outputText value="#{rechercheEducateurBean.mdpEducateur}" />
+		<h:outputText value="Fonction" style="font-weight: bold;"/>
+		<h:outputText value="#{rechercheEducateurBean.fonctionEducateur}" />
+		<h:outputText value="Activer" style="font-weight: bold;"/>
+		<h:outputText value="#{rechercheEducateurBean.actif}" />
+
+		<f:facet name="footer">  
+		
+    	<p:commandButton type="Submit" action="#{rechercheEducateurBean.editEducateur}" 
+    					ajax="false" value="Modifier"/>
+    	<p:commandButton type="button" onclick="cd.show()" value="Supprimer" />
+			<p:confirmDialog message="Etes vous sure de vouloir supprimer cet éducateur"
+					header="Attention" severity="alert"        widgetVar="cd">
+			<p:commandButton value="Oui" action="#{rechercheEducateurBean.deleteEducateur}"
+					update="messages" oncomplete="cd.hide()" ajax="false"/>
+			<p:commandButton value="Annuler" onclick="cd.hide();" type="button" /> 
+	</p:confirmDialog>
+    	</f:facet>
+		
+		</p:panelGrid>
+		<br></br>
+	
+		</p:panel>
+	 </div>
+	</h:form>
+	
+</div>
+</h:body>
+    	
+</html>

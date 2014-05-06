@@ -7,38 +7,32 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
-		<title></title>
-		<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+		<title>Modifier Entrainement</title>
+	<h:outputStylesheet name="styles.css" library="css" />
 	<ui:include src="/pages/menu.xhtml" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	
 </h:head>
 <h:body>
+<div id="bloc_page">
 
 <h:form>
+			<div id="bloc_creationEntrainement">
 		<p:pickList id="pickList" value="#{presenceEntrainementBean.listeJoueurs}" var="joueur"   
-                itemLabel="#{joueur.nomJoueur}" itemValue="#{joueur.idJoueur}" style="position:absolute ; top: 20% ; left:32% " >
+                itemLabel="#{joueur.nomJoueur}" itemValue="#{joueur.idJoueur}"  >
                 
           <p:ajax event="transfer" listener="#{presenceEntrainementBean.onTransfer}"  /> 
                </p:pickList> 
                <br></br>
                <br></br>
        			<br></br>
-        <p:panel id="panel" style="position:absolute ; top: 60% ;left:25%; width:50%">         
-               Date : <p:outputLabel value="#{presenceEntrainementBean.entrainement.dateEntrainement}"></p:outputLabel> 
-               <br></br>
-				lieu : <p:outputLabel value="#{presenceEntrainementBean.entrainement.lieuEntrainement}"></p:outputLabel>
-  				<br></br>
-  				
-  		
-  		
-  		<f:facet name="footer">  
+        
     <p:commandButton id="citySubmit" value="Suivant" action="#{presenceEntrainementBean.recapEntrainementModifie}"
     ajax="false"/>  
     
-		</f:facet>
-		</p:panel>
+		</div>
 	</h:form>
+	</div>
 </h:body>
 </html>
 

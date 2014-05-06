@@ -17,7 +17,7 @@
 	<div id="bloc_creationPersonne">
 		<p:panel header="Informations concernant l' educateur" >
 		<p:messages id="msgs"/>
-		 <h:panelGrid columns="3" cellpadding="5">
+		 <h:panelGrid columns="3" cellpadding="3">
 		 <h:outputText for="prenom" value="Prenom : *"/>
 		 <p:inputText id="prenom" value="#{creationEducateurBean.prenomEduc}" required="true" label="Prenom" requiredMessage="Veuillez saisir un prénom">
 		<f:validateLength minimum="2" /> 
@@ -77,9 +77,9 @@
         </p:selectOneMenu> 
         <p:message for="role" display="icon"/>
 		
-		
+		<br></br>
 		<f:facet name="footer">  
-		<p:commandButton value="Reset" type="reset" />
+		<p:commandButton value="Reset" type="reset" style="position:relative; margin-left:50%" />
     	<p:commandButton type="Submit" action="#{creationEducateurBean.creerEducateur}" 
     					ajax="false" value="Valider"/>
     	</f:facet>

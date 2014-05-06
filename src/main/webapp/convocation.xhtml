@@ -44,11 +44,16 @@
 
 <br></br><br></br>
 <br></br><br></br>
-<p:panel>
+<br></br><br></br>
+<br></br><br></br>
+<p:panel style="width:500px; margin:auto  ">
+
+<h:outputText value="Catégorie : " /> 
+<h:panelGrid columns="2" cellpadding="20" >
 
 	
-<h:outputText value="Catégorie : " />  <br></br><br></br>
-       <p:selectOneMenu id="categorie" value="#{convocationBean.number}" label="categorie" required="true" requiredMessage="Choisissez une catégorie" style="width:100px"> 
+
+       <p:selectOneMenu id="categorie" value="#{convocationBean.number}" label="categorie" required="true" requiredMessage="Choisissez une catégorie" style="width:100px; height:30px"> 
             <f:selectItem itemLabel="Choisir" itemValue="" />  
             <f:selectItem itemLabel="U7" itemValue="1" />  
             <f:selectItem itemLabel="U9" itemValue="2" />  
@@ -57,10 +62,12 @@
             <f:selectItem itemLabel="U15" itemValue="5" />  
             <f:selectItem itemLabel="U18" itemValue="6" />  
             <f:selectItem itemLabel="Senior" itemValue="7" />  
-        </p:selectOneMenu> 
-
+        </p:selectOneMenu>  
 	<p:commandButton type="Submit" action="#{convocationBean.listeMatchConvocation}" 
-    					ajax="false" value="Valider"/>
+    					ajax="false" value="Rechercher" style="height:35px; font-size:12px; width:100px"/>
+    					
+    					<p:growl id="msgs"/>
+    </h:panelGrid>
 </p:panel>
 
 
@@ -71,10 +78,7 @@
 <br></br><br></br>
     <br></br><br></br>
 <br></br><br></br>
-    <br></br><br></br>
-<br></br><br></br>
-    <br></br><br></br>
-<br></br><br></br>
+
 	
 
 
