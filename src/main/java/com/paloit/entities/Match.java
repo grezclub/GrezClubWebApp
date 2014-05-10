@@ -22,6 +22,8 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name = "match", schema = "public")
 public class Match implements java.io.Serializable {
 
+
+	private static final long serialVersionUID = -7366848165795843144L;
 	private int idMatch;
 	private Educateur educateur;
 	private Date dateMatch;

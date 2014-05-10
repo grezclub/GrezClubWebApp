@@ -111,11 +111,15 @@ public class JoueurManagerImpl implements JoueurManager {
 		joueurService.update(joueur);
 		
 	}
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<Joueur> listeJoueurEquipe(int idEquipe) {
 		// TODO Auto-generated method stub
 		return joueurService.findByEquipe(idEquipe);
+	}
+	@Override
+	public List<Joueur> listeJoueurAnniversaire() {
+		// TODO Auto-generated method stub
+		return joueurService.listeJoueurAnniversaire();
 	}
 	
 

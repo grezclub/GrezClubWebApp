@@ -17,11 +17,8 @@ import org.springframework.stereotype.Component;
 import com.paloit.entities.Educateur;
 import com.paloit.entities.Joueur;
 import com.paloit.manager.ConnexionManager;
-import com.paloit.manager.EducateurManager;
-import com.paloit.manager.EntrainementManager;
 import com.paloit.manager.JoueurManager;
 import com.paloit.manager.MatchManager;
-import com.paloit.manager.PresenceManager;
 
 @Component
 @Scope
@@ -33,7 +30,6 @@ public class CreationConvocationBean {
 	// =========================================================================
 	
 	private Date date;
-	private String dateAffiche;
 	private String lieu;
 	private String adversaire;
 	private String heure;
@@ -51,10 +47,7 @@ public class CreationConvocationBean {
 	
 	//Manager
 	private JoueurManager joueurManager;
-	private EducateurManager educateurManager;
 	private ConnexionManager connexionManager;
-	private EntrainementManager entrainementManager;
-	private PresenceManager presenceManager;
 	private MatchManager matchManager;
 
 
@@ -74,7 +67,7 @@ public class CreationConvocationBean {
 		//Listener de la PickList
 		public void onTransfer(TransferEvent event) {
 
-			StringBuilder builder = new StringBuilder();
+			
 			for (Object item : event.getItems()) {
 
 				// Joueur joueur = (Joueur) event.getItems().get(0);
@@ -234,24 +227,13 @@ public class CreationConvocationBean {
 			this.matchManager = manager;
 		}
 
-		@Autowired
-		public void setManager(EducateurManager manager) {
-			this.educateurManager = manager;
-		}
+		
 		
 		@Autowired
 	    public void setManager(ConnexionManager manager) {
 	        this.connexionManager = manager;
 	    }
 		
-		@Autowired
-	    public void setManager(EntrainementManager manager) {
-	        this.entrainementManager = manager;
-	    }
-		@Autowired
-	    public void setManager(PresenceManager manager) {
-	        this.presenceManager = manager;
-	    }
 		// =========================================================================
 		// GETTERS & SETTERS
 		// =========================================================================
@@ -366,9 +348,6 @@ public class CreationConvocationBean {
 		
 		}
 
-		public void setDateAffiche(String dateAffiche) {
-		this.dateAffiche = dateAffiche;
-		}
 		
 		
 		

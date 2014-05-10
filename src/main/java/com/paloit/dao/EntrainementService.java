@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.List;
 
 import com.paloit.entities.Entrainement;
-import com.paloit.entities.Joueur;
 
 public interface EntrainementService {
     

@@ -9,6 +9,8 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class ConvocationId implements java.io.Serializable {
 
+	
+	private static final long serialVersionUID = 1L;
 	private int idMatch;
 	private int idJoueur;
 

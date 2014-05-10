@@ -10,7 +10,7 @@
 <h:head >
 	<title>Acceuil</title>
 	<h:outputStylesheet name="styles.css" library="css" />
-	<meta http-equiv="Content-Type" content="text/html;utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	
 
 </h:head>
@@ -26,7 +26,7 @@
 			  <img   src="resources/images/header_de_lhess.jpg"  alt="header" title="header"/>
                <nav>
                    <ul>
-                                      	<li><a href="index.xhtml"><p:graphicImage id="grezImage2" value="/resources/images/dock/hom33.png"  alt="home" title="home" style=" width:50px; height:50px; position:relative; top:18px; left:15px" /></a></li>
+                   	<li><a href="index.xhtml"><p:graphicImage id="grezImage" value="/resources/images/dock/home2.png"  alt="home" title="home" style=" width:25px; height:25px; position:relative; top:7px" /></a></li>
                        <li><a href="association.xhtml">Association</a></li>
                         <li><a href="entrainement.xhtml">Entrainements</a></li>
 						<li><a href="convocation.xhtml">Convocations</a></li>
@@ -39,44 +39,69 @@
                     </ul>
                 </nav>				
 		</header>
+			
 
 <br></br><br></br>
+<br></br><br></br>
+	
+<aside>
+<a href="http://www.accuweather.com/fr/fr/dijon/132390/weather-forecast/132390" class="aw-widget-legal">
+</a>
+<div  id="box_meteo" class="aw-widget-current"  data-locationkey="132390" data-unit="c" data-language="fr" data-useip="false" data-uid="awcc1398171380818" style="width:200px; height:10px"/>
+<br></br>
 
-	<br></br>
-<br></br>
-<div id="aside">
-<br></br>
-<h3 style="text-align: center; color :black">La Grezzetta</h3>
-<div id="boxe_grezetta">
-<img   src="resources/images/gazzetta.jpg"  alt="header" title="header"/>
-</div>
-<br></br>
-<p:separator style="position:relative; top:5px; margin:auto; width:80%"></p:separator>
-
-<h3 style="text-align: center; color :black">Les</h3>
-<h3 style="position:relative ;top:-10px; width:80%; color:black; margin:auto; text-align:center"><span style="color: blue;">A</span><span style="color: red;">N</span><span style="color: red;">N</span><span style="color: rgb(20,145,200);">I</span><span style="color:rgb(244,164,9);">V</span><span style="color: green;">E</span><span style="color: rgb(20,145,200);">R</span><span style="color: orange;">S</span><span style="color:rgb(171,137,26);">A</span><span style="color: red;">I</span><span style="color: green;">R</span><span style="color: violet;">E</span><span style="color: orange;">S</span></h3>
-<h3 style="text-align: center; color :black; margin-top:-3px">Du Mois</h3>																				
-																																																
-<br></br>
-<div id="boxe_lapin">
-<img   src="resources/images/lapin1.png"  alt="header" title="header"/>
-</div>
 <div id="boxe_defil">
 
-<div id="defile">#{newsBean.anniversaire}</div>
+<div id="defile">Joyeux anniversaire à #{newsBean.anniversaire}</div>
 </div>
-<p:separator style="position:relative; top:-20px; margin:auto; width:80%"></p:separator>
+
+</aside>
+<script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>
+
+			<!-- Boucle pour l'affichage des news-->
+
+<ui:repeat var="news" value="#{newsBean.recupNews}"  >
+<p:panel style=" width:600px; height:auto; margin:auto; position:relative" >													
+	<div id="article" style="text-align: center;"><p><h1><strong> #{news.titreNews}</strong></h1></p>
+		
+		<p:graphicImage id="grezImage" value="#{newsBean.bytesToStreamedContent}" alt="#{news.titreNews}" title="#{news.titreNews}" style=" width:550px; height:300px; position:relative; padding:10px" > 
+		<f:param name="newsId" value="#{news.idNews}" />
+		 </p:graphicImage>
+		<br></br>		<br></br>
+		<h:outputText value="#{news.texteNews}" />    
+		<br></br> <br></br>      								   
+	</div>
+</p:panel>
+<p:separator></p:separator>
 <br></br>
+</ui:repeat>
 
-</div>
 
-		<br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-		<br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-		<br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-		<br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-		<br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-		<br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-				
+   
+    <br></br>
+<br></br>
+    
+
+    
+<script type="text/javascript">
+var defile;// l'element a deplacer 
+var psinit = 900; // position horizontale de depart 
+var pscrnt = psinit;       
+function texteDefile() { 
+   if (!defile) defile = document.getElementById('defile'); 
+   if (defile) { 
+      if(( - defile.offsetWidth) > pscrnt  ){ 
+         pscrnt = psinit; 
+                } else { 
+         pscrnt+= -1; // pixel par deplacement 
+      } 
+      defile.style.left = pscrnt+"px"; 
+   } 
+} 
+setInterval("texteDefile()",5); // delai de deplacement 
+</script>
+
+
 
 
 <footer>
@@ -96,14 +121,13 @@
 		 			style="position:relative; height:80px; left: 259px; top:-180px"/>
 		<p:graphicImage id="grezImageFooter3" value="/resources/images/Veolia.png" alt="imageGrezFooter" title="imageGrezFooter"
 		 			style="position:relative; height:120px; left: 408px; top:-160px"/>
-		<p:graphicImage id="grezImageFooter4" value="/resources/images/facebook.png" alt="logoFaceBook" title="logoFaceBook"
+		<p:graphicImage id="grezImageFooter3" value="/resources/images/facebook.png" alt="logoFaceBook" title="logoFaceBook"
 		 			style="position:relative; height:50px; width:50px; left: 544px; top:-195px"/>
 		 			<h:outputLabel value="Suivez-nous" style="position:relative; left:478px; top:-180px; color:#FEFEFE;
 			
 												font-size:15px" />
 												</footer>
 	</div>
-	
 </h:body>
 
 

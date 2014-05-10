@@ -7,6 +7,7 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -23,8 +24,10 @@ import org.primefaces.model.StreamedContent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.paloit.entities.Joueur;
 import com.paloit.entities.News;
 import com.paloit.entities.NewsAffiche;
+import com.paloit.manager.JoueurManager;
 import com.paloit.manager.NewsManager;
 
 @Component
@@ -39,16 +42,20 @@ public class NewsBean {
 	
 	private List<News> listeNews;
 	private List<NewsAffiche> listeNewsAffiche;
+	private List<Joueur> listeJoueurAnniversaire;
 	private NewsManager manager;
+	private JoueurManager joueurManager;
 	private File image;
+	private News newsAffiche;
 	
 	private String titre;
 	private String article;
+	private String anniversaire;
 	private String id;
-	private Integer i = 0;
 	
 	private StreamedContent imageStreaming;
 	private  StreamedContent fileContent;
+	 private List<String> images;
 	
 
 	// =========================================================================
@@ -64,8 +71,23 @@ public class NewsBean {
 	// =========================================================================
 	public List<News> getRecupNews() {
 
+		 images = new ArrayList<String>();
+	        images.add("jeunes1.jpg");
+	        images.add("jeunes2.jpg");
+	        images.add("jeunes3.jpg");
+	        images.add("jeunes4.jpg");
+	        images.add("jeunes5.jpg");
+	        
 		news1= new News();
+		this.listeJoueurAnniversaire = new ArrayList<Joueur>();
+		
 		listeNews = manager.recup5News();
+		this.listeJoueurAnniversaire = joueurManager.listeJoueurAnniversaire();
+		anniversaire = "";
+		for (int i = 0; i < listeJoueurAnniversaire.size(); i++) {
+			
+			anniversaire = anniversaire +" "+ listeJoueurAnniversaire.get(i).getPrenomJoueur() +" "+ listeJoueurAnniversaire.get(i).getNomJoueur() +"  ("+ listeJoueurAnniversaire.get(i).getEquipe().getCategorie()+") -";
+		}
 		return listeNews;		
 
 	}
@@ -78,7 +100,13 @@ public class NewsBean {
 
 	}
 	
+	public String afficheNews(){
+		
 	
+		newsAffiche = news;
+		return "afficheNews.xhtml";
+		
+	}
 
 	public StreamedContent getBytesToStreamedContent() {	
 		
@@ -140,6 +168,14 @@ public class NewsBean {
 
 	}
 	
+	//Methode qui switch les images
+	 public void ImageSwitchBean() {
+	        images = new ArrayList<String>();
+	        images.add("/webapp/resources/images/switchImage/ballonsC1.jpg");
+	        images.add("/webapp/resources/images/switchImage/coupeC1.jpg");
+	        images.add("/webapp/resources/images/switchImage/stadeC1.jpg");
+	        images.add("/webapp/resources/images/switchImage/terrainC1.jpg");
+	    }
 
 
 	//
@@ -149,6 +185,10 @@ public class NewsBean {
 	@Autowired
 	public void setManager(NewsManager manager) {
 		this.manager = manager;
+	}
+	@Autowired
+	public void setJoueurManager(JoueurManager joueurManager) {
+		this.joueurManager = joueurManager;
 	}
 
 	// =========================================================================
@@ -234,7 +274,36 @@ public class NewsBean {
 	public String getContentEncoding() {
 		return fileContent.getContentEncoding();
 	}
+
+	public List<Joueur> getListeJoueurAnniversaire() {
+		return listeJoueurAnniversaire;
+	}
+
+	public void setListeJoueurAnniversaire(List<Joueur> listeJoueurAnniversaire) {
+		this.listeJoueurAnniversaire = listeJoueurAnniversaire;
+	}
+
+
+
+	public String getAnniversaire() {
+		return anniversaire;
+	}
+
+	public void setAnniversaire(String anniversaire) {
+		this.anniversaire = anniversaire;
+	}
+
+	public News getNewsAffiche() {
+		return newsAffiche;
+	}
+
+	public void setNewsAffiche(News newsAffiche) {
+		this.newsAffiche = newsAffiche;
+	}
 	
+	 public List<String> getImages() {
+	        return images;
+	    }
 	
 
 }

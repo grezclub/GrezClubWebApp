@@ -21,7 +21,6 @@ import com.paloit.manager.ConvocationManager;
 import com.paloit.manager.EducateurManager;
 import com.paloit.manager.JoueurManager;
 import com.paloit.manager.MatchManager;
-import com.paloit.manager.PresenceManager;
 
 @Component
 @Scope
@@ -75,7 +74,6 @@ public class PresenceMatchBean {
 	//Listener de la PickList
 		public void onTransfer(TransferEvent event) {
 
-			StringBuilder builder = new StringBuilder();
 			for (Object item : event.getItems()) {
 
 				// Joueur joueur = (Joueur) event.getItems().get(0);

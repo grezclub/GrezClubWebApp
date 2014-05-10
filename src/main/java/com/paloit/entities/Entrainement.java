@@ -22,6 +22,8 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name = "entrainement", schema = "public")
 public class Entrainement implements java.io.Serializable {
 
+	
+	private static final long serialVersionUID = 1L;
 	private int idEntrainement;
 	private Educateur educateur;
 	private Date dateEntrainement;

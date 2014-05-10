@@ -18,6 +18,8 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name = "roles", schema = "public")
 public class Roles implements java.io.Serializable {
 
+	
+	private static final long serialVersionUID = 5417227316979535036L;
 	private int userRoleId;
 	private Educateur educateur;
 	private String authority;

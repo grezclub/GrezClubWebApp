@@ -40,5 +40,7 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/Users/outlawz/Downloads/rome-0.9.jar"/>
+	<classpathentry kind="lib" path="/Users/outlawz/Downloads/jdom-1.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

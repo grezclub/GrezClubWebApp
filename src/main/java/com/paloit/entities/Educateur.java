@@ -26,7 +26,7 @@ public class Educateur implements java.io.Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 10L;
 	private int idEducateur;
 	private Equipe equipe;
 	private String fonction;

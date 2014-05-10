@@ -32,7 +32,6 @@ import com.paloit.manager.PresenceManager;
 public class PresenceEntrainementBean {
 
 	private Date date;
-	private String dateAffiche;
 	private String lieu;
 	private List<Entrainement> filtreEntrainement;
 	private Entrainement entrainement;
@@ -71,7 +70,7 @@ public class PresenceEntrainementBean {
 	//Listener de la PickList
 	public void onTransfer(TransferEvent event) {
 
-		StringBuilder builder = new StringBuilder();
+		
 		for (Object item : event.getItems()) {
 
 			// Joueur joueur = (Joueur) event.getItems().get(0);
@@ -105,7 +104,7 @@ public class PresenceEntrainementBean {
 
 	public List<Joueur> getJoueursSelectionne() {
 
-		List<Joueur> listeSelection = new ArrayList();
+		List<Joueur> listeSelection = new ArrayList<Joueur>();
 
 		for (int i = 0; i < this.targetEssai.size(); i++) {
 
@@ -404,9 +403,7 @@ public class PresenceEntrainementBean {
 		
 	}
 
-	public void setDateAffiche(String dateAffiche) {
-		this.dateAffiche = dateAffiche;
-	}
+	
 
 	public void setListeEducateur(List<Educateur> listeEducateur) {
 		this.listeEducateur = listeEducateur;

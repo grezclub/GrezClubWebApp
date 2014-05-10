@@ -37,5 +37,8 @@ public interface JoueurService {
     
     //Methode permettant de modifier un joueur
     void update (Joueur joueur);
+    
+    //Récupérer liste de joueur en fonction du mois d'anniversaire
+    List<Joueur> listeJoueurAnniversaire();
 
 }

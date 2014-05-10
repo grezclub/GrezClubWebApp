@@ -2,7 +2,6 @@ package com.paloit.dao;
 
 import java.util.List;
 
-import com.paloit.entities.Entrainement;
 import com.paloit.entities.Match;
 
 public interface MatchService {

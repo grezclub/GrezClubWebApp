@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -26,7 +25,7 @@
 			  <img   src="resources/images/header_de_lhess.jpg"  alt="header" title="header"/>
                <nav>
                    <ul>
-                                      	<li><a href="index.xhtml"><p:graphicImage id="grezImage2" value="/resources/images/dock/hom33.png"  alt="home" title="home" style=" width:50px; height:50px; position:relative; top:18px; left:15px" /></a></li>
+                   	                   	<li><a href="index.xhtml"><p:graphicImage id="grezImage2" value="/resources/images/dock/hom33.png"  alt="home" title="home" style=" width:50px; height:50px; position:relative; top:18px; left:15px" /></a></li>
                        <li><a href="association.xhtml">Association</a></li>
                         <li><a href="entrainement.xhtml">Entrainements</a></li>
 						<li><a href="convocation.xhtml">Convocations</a></li>
@@ -39,24 +38,21 @@
                     </ul>
                 </nav>				
 		</header>
-
+			
+	<h:form>
+<br></br><br></br>
 <br></br><br></br>
 
-	<br></br>
-<br></br>
 <div id="aside">
 <br></br>
-<h3 style="text-align: center; color :black">La Grezzetta</h3>
+<h3 style="position:relative ;top:2px; width:80%; color:black; margin:auto">La Grezzetta </h3>
 <div id="boxe_grezetta">
 <img   src="resources/images/gazzetta.jpg"  alt="header" title="header"/>
 </div>
 <br></br>
 <p:separator style="position:relative; top:5px; margin:auto; width:80%"></p:separator>
-
-<h3 style="text-align: center; color :black">Les</h3>
-<h3 style="position:relative ;top:-10px; width:80%; color:black; margin:auto; text-align:center"><span style="color: blue;">A</span><span style="color: red;">N</span><span style="color: red;">N</span><span style="color: rgb(20,145,200);">I</span><span style="color:rgb(244,164,9);">V</span><span style="color: green;">E</span><span style="color: rgb(20,145,200);">R</span><span style="color: orange;">S</span><span style="color:rgb(171,137,26);">A</span><span style="color: red;">I</span><span style="color: green;">R</span><span style="color: violet;">E</span><span style="color: orange;">S</span></h3>
-<h3 style="text-align: center; color :black; margin-top:-3px">Du Mois</h3>																				
-																																																
+<br></br>
+<h3 style="position:relative ;top:10px; width:80%; color:black; margin:auto">Les anniversaires du mois !</h3>
 <br></br>
 <div id="boxe_lapin">
 <img   src="resources/images/lapin1.png"  alt="header" title="header"/>
@@ -65,18 +61,70 @@
 
 <div id="defile">#{newsBean.anniversaire}</div>
 </div>
-<p:separator style="position:relative; top:-20px; margin:auto; width:80%"></p:separator>
+<p:separator style="position:relative; top:5px; margin:auto; width:80%"></p:separator>
 <br></br>
+<a href="http://www.accuweather.com/fr/fr/dijon/132390/weather-forecast/132390" class="aw-widget-legal">
+</a>
+<div  id="box_meteo" class="aw-widget-current"  data-locationkey="132390" data-unit="c" data-language="fr" data-useip="false" data-uid="awcc1398171380818" />
 
 </div>
+<script type="text/javascript" src="http://oap.accuweather.com/launch.js"></script>
 
-		<br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-		<br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-		<br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-		<br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-		<br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
-		<br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+			<!-- Boucle pour l'affichage des news-->
 				
+
+<p:panel style=" width:600px; height:600px; margin-left:15%; position:relative" >	
+<br></br>												
+	<div id="article2" style="text-align: center "><p><h1><strong> #{newsBean.news.titreNews}</strong></h1></p>
+		
+		<p:graphicImage id="grezImage" value="#{newsBean.bytesToStreamedContent}" alt="#{news.titreNews}" title="#{news.titreNews}" style=" width:550px; height:300px; position:relative; padding:10px; " > 
+		<f:param name="newsId" value="#{newsBean.news.idNews}" />
+		 </p:graphicImage>
+		<br></br>		<br></br>
+		<h:outputText value="#{newsBean.news.texteNews}" style="text-align:center" />    
+		<br></br> <br></br>      								   
+	</div>
+</p:panel>
+
+<p:separator id="separatorAfficheNews"></p:separator>
+<br></br>
+		<h1 id="rss" ><strong>LES NEWS SPORTIVES</strong></h1>
+		<br></br>
+		<br></br>
+<p:feedReader id="news" value="https://fr.news.yahoo.com/rss/sports" var="feed" size="5"> 
+<h:outputText value="#{feed.title}" style="font-weight: bold"/> 
+<br /> 
+<h:outputText value="#{feed.description.value}" escape="false"/> 
+<br />
+
+
+<p:separator /> 
+</p:feedReader> 
+ </h:form>
+    <br></br>
+<br></br>
+    
+
+    
+<script type="text/javascript">
+var defile;// l'element a deplacer 
+var psinit = 900; // position horizontale de depart 
+var pscrnt = psinit;       
+function texteDefile() { 
+   if (!defile) defile = document.getElementById('defile'); 
+   if (defile) { 
+      if(( - defile.offsetWidth) > pscrnt  ){ 
+         pscrnt = psinit; 
+                } else { 
+         pscrnt+= -1; // pixel par deplacement 
+      } 
+      defile.style.left = pscrnt+"px"; 
+   } 
+} 
+setInterval("texteDefile()",15); // delai de deplacement 
+</script>
+
+
 
 
 <footer>

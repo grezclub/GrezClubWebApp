@@ -20,6 +20,8 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name = "equipe", schema = "public")
 public class Equipe implements java.io.Serializable {
 
+	
+	private static final long serialVersionUID = -6084531509532577981L;
 	private int idEquipe;
 	private String categorie;
 	private String classe;

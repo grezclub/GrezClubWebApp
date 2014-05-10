@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.paloit.dao.NewsService;
 import com.paloit.entities.News;
 import com.paloit.manager.NewsManager;
 
@@ -22,7 +21,10 @@ import com.paloit.manager.NewsManager;
  */
 public class ImageServlet extends HttpServlet {
 
-    // Constants ----------------------------------------------------------------------------------
+    
+	private static final long serialVersionUID = -2416765990648671587L;
+
+	// Constants ----------------------------------------------------------------------------------
 
     private static final int DEFAULT_BUFFER_SIZE = 10240; // 10KB.
 

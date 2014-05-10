@@ -13,7 +13,6 @@ import com.paloit.dao.PresenceService;
 import com.paloit.entities.Educateur;
 import com.paloit.entities.Entrainement;
 import com.paloit.entities.Joueur;
-import com.paloit.entities.Presence;
 
 @Service
 @Transactional
@@ -23,7 +22,6 @@ public class EntrainementManagerImpl implements EntrainementManager {
 	private EntrainementService 	entrainementService ;
 	private PresenceService 		presenceService;
 	private Entrainement 			entrainement;
-	private Presence 				presence;
 	
 	//AUTOWIRED
 	@Autowired

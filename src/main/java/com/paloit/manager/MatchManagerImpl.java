@@ -9,11 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.paloit.dao.ConvocationService;
-import com.paloit.dao.EducateurService;
 import com.paloit.dao.EquipeService;
 import com.paloit.dao.MatchService;
-import com.paloit.dao.PresenceService;
-import com.paloit.entities.Convocation;
 import com.paloit.entities.Educateur;
 import com.paloit.entities.Equipe;
 import com.paloit.entities.Joueur;
@@ -25,13 +22,10 @@ public class MatchManagerImpl implements MatchManager {
 	
 	//ATTRIBUTS
 		private MatchService 	matchService ;
-		private PresenceService presenceService;
 		private EquipeService equipeService;
-		private EducateurService educateurService;
 		private ConvocationService 		convocationService;
 		private Match 			match;
 		private Equipe equipe;
-		private Convocation 				convocation;
 	
 	//AUTOWIRED
 			@Autowired
@@ -46,10 +40,7 @@ public class MatchManagerImpl implements MatchManager {
 			public void setEquipeService(EquipeService equipeService) {
 				this.equipeService = equipeService;
 			}
-			@Autowired
-			public void setEducateurService(EducateurService educateurService) {
-				this.educateurService = educateurService;
-			}
+			
 
 	public void creerConvocation(List<Joueur> joueurListe, Educateur educateur,
 			Date date, String lieu, String adversaire, String heure,

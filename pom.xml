@@ -172,6 +172,18 @@
 			<version>3.5</version>
 		</dependency>
 
+		<!-- JDOM et ROM pour lire les rss -->
+		<dependency>
+			<groupId>jdom</groupId>
+			<artifactId>jdom</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.java.dev.rome</groupId>
+			<artifactId>rome</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+
 		<!-- JUNIT -->
 		<dependency>
 			<groupId>junit</groupId>

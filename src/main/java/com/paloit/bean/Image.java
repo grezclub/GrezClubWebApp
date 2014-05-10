@@ -1,12 +1,5 @@
 package com.paloit.bean;
 
-import java.io.InputStream;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-
-import com.paloit.manager.NewsManager;
 
 
 public class Image {

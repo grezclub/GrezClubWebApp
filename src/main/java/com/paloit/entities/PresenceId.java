@@ -9,6 +9,8 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class PresenceId implements java.io.Serializable {
 
+	
+	private static final long serialVersionUID = -8471951889043222378L;
 	private int idEntrainement;
 	private int idJoueur;
 

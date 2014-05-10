@@ -1,17 +1,11 @@
 package com.paloit.manager;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.paloit.dao.EducateurService;
-import com.paloit.entities.Convocation;
 import com.paloit.entities.Educateur;
-import com.paloit.entities.Joueur;
-import com.paloit.entities.Match;
 
 @Service
 @Transactional(readOnly = true)

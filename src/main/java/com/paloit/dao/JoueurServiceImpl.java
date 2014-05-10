@@ -96,6 +96,13 @@ public class JoueurServiceImpl implements JoueurService {
 		
 	 return sessionFactory.getCurrentSession().createQuery( "from Joueur where id_equipe = '"+idEquipe+"'" ).list();
 	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Joueur> listeJoueurAnniversaire() {
+		
+		return sessionFactory.getCurrentSession().createQuery( "from Joueur  where to_char(datenaissance_joueur, 'MM') = '07'" ).list();
+	}
    
 
     

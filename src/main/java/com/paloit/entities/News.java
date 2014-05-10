@@ -15,6 +15,7 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name = "news", schema = "public")
 public class News implements java.io.Serializable {
 
+	private static final long serialVersionUID = 7710031661705901727L;
 	private int idNews;
 	private byte[] imageNews;
 	private String texteNews;

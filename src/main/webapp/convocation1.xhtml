@@ -26,8 +26,7 @@
 			  <img   style="margin-left:auto; width:1160px ;height:209px"  src="resources/images/header_de_lhess.jpg"  alt="header" title="header"/>
                <nav>
                    <ul>
-                   	<li><a href="index.xhtml"><p:graphicImage id="grezImage" value="/resources/images/dock/home2.png"  alt="home" title="home" style=" width:25px; height:25px; position:relative; top:7px" /></a></li>
-                   
+                                    	<li><a href="index.xhtml"><p:graphicImage id="grezImage2" value="/resources/images/dock/hom33.png"  alt="home" title="home" style=" width:50px; height:50px; position:relative; top:18px; left:15px" /></a></li>
                         <li><a href="association.xhtml">Association</a></li>
                         <li><a href="entrainement.xhtml">Entrainements</a></li>
 						<li><a href="convocation.xhtml">Convocations</a></li>
@@ -44,9 +43,51 @@
 
 <br></br><br></br>
 <br></br><br></br>
-	
+<div id="aside">
+<br></br>
+<h3 style="text-align: center; color :black">La Grezzetta</h3>
+<div id="boxe_grezetta">
+<img   src="resources/images/gazzetta.jpg"  alt="header" title="header"/>
+</div>
+<br></br>
+<p:separator style="position:relative; top:5px; margin:auto; width:80%"></p:separator>
 
-<p style="font-size:35px; margin-left: 25% ">Convocations pour la catégorie #{convocationBean.categorie} </p>
+<h3 style="text-align: center; color :black">Les</h3>
+<h3 style="position:relative ;top:-10px; width:80%; color:black; margin:auto; text-align:center"><span style="color: blue;">A</span><span style="color: red;">N</span><span style="color: red;">N</span><span style="color: rgb(20,145,200);">I</span><span style="color:rgb(244,164,9);">V</span><span style="color: green;">E</span><span style="color: rgb(20,145,200);">R</span><span style="color: orange;">S</span><span style="color:rgb(171,137,26);">A</span><span style="color: red;">I</span><span style="color: green;">R</span><span style="color: violet;">E</span><span style="color: orange;">S</span></h3>
+<h3 style="text-align: center; color :black; margin-top:-3px">Du Mois</h3>																				
+																																																
+<br></br>
+<div id="boxe_lapin">
+<img   src="resources/images/lapin1.png"  alt="header" title="header"/>
+</div>
+<div id="boxe_defil">
+
+<div id="defile">#{newsBean.anniversaire}</div>
+</div>
+<p:separator style="position:relative; top:-20px; margin:auto; width:80%"></p:separator>
+<br></br>
+
+</div>
+<script type="text/javascript">
+var defile;// l'element a deplacer 
+var psinit = 100; // position horizontale de depart 
+var pscrnt = psinit;       
+function texteDefile() { 
+   if (!defile) defile = document.getElementById('defile'); 
+   if (defile) { 
+      if(( - defile.offsetWidth) > pscrnt  ){ 
+         pscrnt = psinit; 
+                } else { 
+         pscrnt+= -1; // pixel par deplacement 
+      } 
+      defile.style.left = pscrnt+"px"; 
+   } 
+} 
+setInterval("texteDefile()",15); // delai de deplacement 
+</script>
+
+<p style="font-size:35px; margin:auto; text-align: center">Convocations pour la catégorie #{convocationBean.categorie} </p>
+<div id="bloc_affichageConvocation">
 <p:panel>
 		<br></br>
 			<h:outputLabel value="Equipe : " style="color:green" /> <p:outputLabel value="#{convocationBean.matchA.classe}"></p:outputLabel>
@@ -160,6 +201,8 @@
    
     </p:dataTable> 
    </p:panel>
+   
+   </div>
     <br></br><br></br>
 <br></br><br></br>
 

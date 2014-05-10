@@ -12,8 +12,6 @@ import com.paloit.entities.Convocation;
 import com.paloit.entities.ConvocationId;
 import com.paloit.entities.Joueur;
 import com.paloit.entities.Match;
-import com.paloit.entities.Presence;
-import com.paloit.entities.PresenceId;
 
 @Service ("convocationService") 
 @Transactional

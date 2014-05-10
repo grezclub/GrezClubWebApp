@@ -12,7 +12,7 @@ public class UtilitaireSession {
 
 	private static final UtilitaireSession instance = new UtilitaireSession();
 
-	private  Educateur educateur ;
+
 
 
  //Constructeur prive du singleton

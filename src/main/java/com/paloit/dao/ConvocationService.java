@@ -3,10 +3,8 @@ package com.paloit.dao;
 import java.util.List;
 
 import com.paloit.entities.Convocation;
-import com.paloit.entities.Entrainement;
 import com.paloit.entities.Joueur;
 import com.paloit.entities.Match;
-import com.paloit.entities.Presence;
 
 public interface ConvocationService {
 	

@@ -42,6 +42,8 @@ version="3.0">
     <url-pattern>*.html</url-pattern>
   </servlet-mapping>
   
+ 
+  
   
  	<servlet>
     		<servlet-name>imageServlet</servlet-name>
@@ -139,7 +141,7 @@ version="3.0">
     
    <!-- Page d'accueil -->
   <welcome-file-list>
-    <welcome-file>/index.xhtml</welcome-file>
+<welcome-file>index.jsf</welcome-file>
   </welcome-file-list>
   
 

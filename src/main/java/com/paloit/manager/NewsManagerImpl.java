@@ -16,8 +16,6 @@ public class NewsManagerImpl implements NewsManager {
 	private NewsService newsService;
 	private News news;
 	private List<News> listeNews;
-	private String texte;
-	
 	@Autowired
 	public void setNewsService(NewsService newsService) {
 		this.newsService = newsService;

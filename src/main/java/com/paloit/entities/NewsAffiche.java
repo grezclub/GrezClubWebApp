@@ -1,7 +1,6 @@
 package com.paloit.entities;
 
 import java.awt.Image;
-import java.io.File;
 
 public class NewsAffiche {
 	

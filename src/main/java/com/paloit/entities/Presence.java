@@ -14,6 +14,8 @@ import javax.persistence.Table;
 @Table(name = "presence", schema = "public")
 public class Presence implements java.io.Serializable {
 
+	
+	private static final long serialVersionUID = -1132570267292546415L;
 	private PresenceId id;
 
 	public Presence() {
